@@ -7,12 +7,18 @@ import { useState, useEffect, useCallback } from 'react';
  * 
  * EXPECTED REPO STRUCTURE:
  * /projects
- *   /Project1
- *     cover.jpg    — Project cover image
- *     details.txt  — Project metadata (line 1: Title, line 2: Description, line 3: Tools comma-separated)
- *   /Project2
- *     cover.jpg
- *     details.txt
+ *   /ProjectName
+ *     cover.jpg      — Project cover image
+ *     details.json   — Project metadata JSON:
+ *       {
+ *         "title": "Project Title",
+ *         "subtitle": "Short tagline",
+ *         "description": "Full description",
+ *         "tools": ["Photoshop", "Illustrator"],
+ *         "links": [{ "label": "Behance", "url": "https://..." }]
+ *       }
+ *     photo1.jpg     — Additional project photos (optional)
+ *     photo2.jpg
  * 
  * RATE LIMITING:
  * GitHub API allows 60 requests/hour for unauthenticated requests.
@@ -22,12 +28,20 @@ import { useState, useEffect, useCallback } from 'react';
  * 3. Pass it as the `token` parameter to useGitHubPortfolio
  */
 
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
 export interface Project {
   name: string;
   title: string;
+  subtitle: string;
   description: string;
   tools: string[];
+  links: ProjectLink[];
   coverUrl: string;
+  photos: string[];
   folderUrl: string;
 }
 
@@ -35,13 +49,15 @@ interface UseGitHubPortfolioOptions {
   owner: string;
   repo: string;
   path?: string;
-  token?: string; // Optional GitHub PAT for higher rate limits
+  branch?: string;
+  token?: string;
 }
 
 export function useGitHubPortfolio({
   owner,
   repo,
   path = 'projects',
+  branch = 'main',
   token,
 }: UseGitHubPortfolioOptions) {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -60,7 +76,6 @@ export function useGitHubPortfolio({
     setError(null);
 
     try {
-      // Step 1: Fetch the /projects directory listing
       const dirRes = await fetch(
         `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
         { headers }
@@ -71,51 +86,82 @@ export function useGitHubPortfolio({
       }
 
       const dirContents = await dirRes.json();
-
-      // Filter only directories (type === 'dir')
       const folders = dirContents.filter(
         (item: { type: string }) => item.type === 'dir'
       );
 
-      // Step 2: For each project folder, fetch details.txt and determine cover image URL
       const projectPromises = folders.map(
         async (folder: { name: string; path: string; html_url: string }) => {
           try {
-            // Fetch details.txt content
-            const detailsRes = await fetch(
-              `https://api.github.com/repos/${owner}/${repo}/contents/${folder.path}/details.txt`,
+            // Fetch folder contents to discover all files
+            const folderRes = await fetch(
+              `https://api.github.com/repos/${owner}/${repo}/contents/${folder.path}`,
               { headers }
             );
 
+            if (!folderRes.ok) return null;
+            const folderContents = await folderRes.json();
+
+            // Parse details.json
             let title = folder.name;
+            let subtitle = '';
             let description = '';
             let tools: string[] = [];
+            let links: ProjectLink[] = [];
 
-            if (detailsRes.ok) {
-              const detailsData = await detailsRes.json();
-              // Content is base64 encoded
-              const content = atob(detailsData.content.replace(/\n/g, ''));
-              const lines = content.split('\n').map((l: string) => l.trim());
-              title = lines[0] || folder.name;
-              description = lines[1] || '';
-              tools = lines[2]
-                ? lines[2].split(',').map((t: string) => t.trim())
-                : [];
+            const detailsFile = folderContents.find(
+              (f: { name: string }) => f.name === 'details.json'
+            );
+
+            if (detailsFile) {
+              const detailsRes = await fetch(detailsFile.download_url);
+              if (detailsRes.ok) {
+                const data = await detailsRes.json();
+                title = data.title || folder.name;
+                subtitle = data.subtitle || '';
+                description = data.description || '';
+                tools = data.tools || [];
+                links = data.links || [];
+              }
             }
 
-            // Cover image — use raw GitHub URL
-            const coverUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/${folder.path}/cover.jpg`;
+            // Cover image
+            const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}`;
+            const coverFile = folderContents.find(
+              (f: { name: string }) =>
+                f.name.toLowerCase().startsWith('cover') &&
+                /\.(jpg|jpeg|png|webp)$/i.test(f.name)
+            );
+            const coverUrl = coverFile
+              ? `${rawBase}/${folder.path}/${coverFile.name}`
+              : '/placeholder.svg';
+
+            // Additional photos (any image that isn't the cover)
+            const imageExtensions = /\.(jpg|jpeg|png|webp)$/i;
+            const photos = folderContents
+              .filter(
+                (f: { name: string; type: string }) =>
+                  f.type === 'file' &&
+                  imageExtensions.test(f.name) &&
+                  !f.name.toLowerCase().startsWith('cover')
+              )
+              .map(
+                (f: { name: string }) =>
+                  `${rawBase}/${folder.path}/${f.name}`
+              );
 
             return {
               name: folder.name,
               title,
+              subtitle,
               description,
               tools,
+              links,
               coverUrl,
+              photos,
               folderUrl: folder.html_url,
             } as Project;
           } catch {
-            // If a single project fails, skip it gracefully
             return null;
           }
         }
@@ -130,7 +176,7 @@ export function useGitHubPortfolio({
     } finally {
       setLoading(false);
     }
-  }, [owner, repo, path, token]);
+  }, [owner, repo, path, branch, token]);
 
   useEffect(() => {
     fetchProjects();
