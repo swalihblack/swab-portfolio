@@ -1,0 +1,10 @@
+{
+  "title": "Brew Coffee Co.",
+  "subtitle": "Brand Identity Design",
+  "description": "Complete brand identity system for an artisan coffee roastery, including logo design, packaging, menu layouts, and in-store collateral. The warm, earthy palette reflects the handcrafted nature of the product while maintaining a modern, approachable feel.",
+  "tools": ["Illustrator", "Photoshop", "InDesign"],
+  "links": [
+    { "label": "Behance", "url": "https://behance.net" },
+    { "label": "Live Site", "url": "https://example.com" }
+  ]
+}
