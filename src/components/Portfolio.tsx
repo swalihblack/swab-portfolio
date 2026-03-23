@@ -238,7 +238,7 @@ export default function Portfolio() {
           </div>
         )}
 
-        {error && !loading && (
+        {error && !loading && projects.length === 0 && (
           <div className="text-center py-16">
             <p className="font-body text-muted-foreground mb-2">
               Projects are currently unavailable.
