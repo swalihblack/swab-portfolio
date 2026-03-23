@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
+import { fallbackProjects } from '@/data/fallbackProjects';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -203,10 +204,12 @@ function ProjectModal({
 
 export default function Portfolio() {
   const { ref, isVisible } = useScrollReveal();
-  const { projects, loading, error } = useGitHubPortfolio({
+  const { projects: ghProjects, loading, error } = useGitHubPortfolio({
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
+  // Fall back to local data when the GitHub API is unavailable
+  const projects = ghProjects.length > 0 ? ghProjects : (error ? fallbackProjects : ghProjects);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
@@ -235,7 +238,7 @@ export default function Portfolio() {
           </div>
         )}
 
-        {error && !loading && (
+        {error && !loading && projects.length === 0 && (
           <div className="text-center py-16">
             <p className="font-body text-muted-foreground mb-2">
               Projects are currently unavailable.
