@@ -204,10 +204,12 @@ function ProjectModal({
 
 export default function Portfolio() {
   const { ref, isVisible } = useScrollReveal();
-  const { projects, loading, error } = useGitHubPortfolio({
+  const { projects: ghProjects, loading, error } = useGitHubPortfolio({
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
+  // Fall back to local data when the GitHub API is unavailable
+  const projects = ghProjects.length > 0 ? ghProjects : (error ? fallbackProjects : ghProjects);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (

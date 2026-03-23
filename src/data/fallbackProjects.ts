@@ -41,7 +41,7 @@ export const fallbackProjects: Project[] = [
     title: 'Lexis & Partners',
     subtitle: 'Corporate Brochure Design',
     description:
-      'A sophisticated tri-fold brochure and digital PDF for a boutique law firm. The design balances professionalism with accessibility, using a restrained navy-and-gold palette and clear typographic hierarchy to guide prospective clients through the firm's practice areas.',
+      'A sophisticated tri-fold brochure and digital PDF for a boutique law firm. The design balances professionalism with accessibility, using a restrained navy-and-gold palette and clear typographic hierarchy to guide prospective clients through the firm\'s practice areas.',
     tools: ['InDesign', 'Photoshop', 'MS Word'],
     links: [{ label: 'PDF Preview', url: 'https://example.com' }],
     coverUrl:
