@@ -13,8 +13,8 @@ import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight } from 'lucide-reac
  *
  * See useGitHubPortfolio hook for full documentation.
  */
-const GITHUB_OWNER = 'swalih-ab';
-const GITHUB_REPO = 'portfolio';
+const GITHUB_OWNER = 'swalihblack';
+const GITHUB_REPO = 'swab-portfolio';
 
 function ProjectCard({
   project,
