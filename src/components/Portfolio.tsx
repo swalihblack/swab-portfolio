@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
+import { fallbackProjects } from '@/data/fallbackProjects';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
