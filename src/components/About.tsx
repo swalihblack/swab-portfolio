@@ -23,11 +23,11 @@ export default function About() {
           About
         </h2>
 
-        <div className={`w-12 h-0.5 bg-accent mx-auto mb-10 ${isVisible ? 'animate-fade-up [animation-delay:100ms]' : 'opacity-0'}`} />
+        <div className={`w-12 h-0.5 bg-accent mx-auto mb-10 ${isVisible ? 'animate-fade-scale [animation-delay:100ms]' : 'opacity-0'}`} />
 
         <p
           className={`font-body text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto ${
-            isVisible ? 'animate-fade-up [animation-delay:150ms]' : 'opacity-0'
+            isVisible ? 'animate-fade-up [animation-delay:200ms]' : 'opacity-0'
           }`}
           style={{ textWrap: 'pretty' } as React.CSSProperties}
         >
@@ -37,16 +37,18 @@ export default function About() {
           intersection: structured yet expressive, precise yet imaginative.
         </p>
 
-        {/* Tool icons */}
+        {/* Tool icons with staggered scale-in */}
         <div
           className={`flex flex-wrap items-center justify-center gap-4 mt-12 ${
-            isVisible ? 'animate-fade-up [animation-delay:300ms]' : 'opacity-0'
+            isVisible ? '' : 'opacity-0'
           }`}
         >
           {tools.map((tool, i) => (
             <div
               key={tool.label}
-              className="group flex flex-col items-center gap-2"
+              className={`group flex flex-col items-center gap-2 ${
+                isVisible ? 'animate-fade-scale' : 'opacity-0'
+              }`}
               style={{ animationDelay: `${350 + i * 80}ms` }}
             >
               <div

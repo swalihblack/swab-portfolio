@@ -10,7 +10,6 @@ export default function Contact() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    // Frontend-only: simulate submission
     setTimeout(() => {
       setSending(false);
       toast.success('Message sent! I\'ll get back to you soon.');
@@ -29,7 +28,7 @@ export default function Contact() {
           Get in Touch
         </h2>
 
-        <div className={`w-12 h-0.5 bg-accent mx-auto mb-6 ${isVisible ? 'animate-fade-up [animation-delay:100ms]' : 'opacity-0'}`} />
+        <div className={`w-12 h-0.5 bg-accent mx-auto mb-6 ${isVisible ? 'animate-fade-scale [animation-delay:100ms]' : 'opacity-0'}`} />
 
         <p
           className={`font-body text-center text-muted-foreground text-sm mb-4 ${
@@ -51,9 +50,9 @@ export default function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className={`space-y-5 ${isVisible ? 'animate-fade-up [animation-delay:250ms]' : 'opacity-0'}`}
+          className={`space-y-5 ${isVisible ? '' : 'opacity-0'}`}
         >
-          <div>
+          <div className={isVisible ? 'animate-fade-left [animation-delay:250ms]' : 'opacity-0'}>
             <label htmlFor="name" className="font-body text-sm font-medium text-foreground block mb-1.5">
               Name
             </label>
@@ -67,7 +66,7 @@ export default function Contact() {
             />
           </div>
 
-          <div>
+          <div className={isVisible ? 'animate-fade-right [animation-delay:350ms]' : 'opacity-0'}>
             <label htmlFor="email" className="font-body text-sm font-medium text-foreground block mb-1.5">
               Email
             </label>
@@ -81,7 +80,7 @@ export default function Contact() {
             />
           </div>
 
-          <div>
+          <div className={isVisible ? 'animate-fade-left [animation-delay:450ms]' : 'opacity-0'}>
             <label htmlFor="message" className="font-body text-sm font-medium text-foreground block mb-1.5">
               Message
             </label>
@@ -98,7 +97,9 @@ export default function Contact() {
           <button
             type="submit"
             disabled={sending}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-accent-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] disabled:opacity-60 disabled:pointer-events-none transition-all duration-200"
+            className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-accent-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] disabled:opacity-60 disabled:pointer-events-none transition-all duration-200 ${
+              isVisible ? 'animate-fade-up [animation-delay:550ms]' : 'opacity-0'
+            }`}
           >
             {sending ? 'Sending...' : 'Send Message'}
             <Send size={15} />
