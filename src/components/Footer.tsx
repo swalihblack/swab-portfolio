@@ -1,17 +1,26 @@
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 export default function Footer() {
+  const { ref, isVisible } = useScrollReveal();
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-primary py-10">
-      <div className="container flex flex-col items-center gap-5">
+      <div ref={ref} className="container flex flex-col items-center gap-5">
         <a
           href="#"
-          className="font-display text-xl font-bold text-primary-foreground tracking-tight"
+          className={`font-display text-xl font-bold text-primary-foreground tracking-tight ${
+            isVisible ? 'animate-fade-up' : 'opacity-0'
+          }`}
         >
           swab
         </a>
 
-        <div className="flex items-center gap-6">
+        <div
+          className={`flex items-center gap-6 ${
+            isVisible ? 'animate-fade-up [animation-delay:100ms]' : 'opacity-0'
+          }`}
+        >
           {[
             { label: 'GitHub', href: 'https://github.com/swalih-ab' },
             { label: 'Behance', href: '#' },
@@ -29,7 +38,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="font-body text-xs text-primary-foreground/40">
+        <p
+          className={`font-body text-xs text-primary-foreground/40 ${
+            isVisible ? 'animate-fade-up [animation-delay:200ms]' : 'opacity-0'
+          }`}
+        >
           © {year} Swalih Abdullah. All rights reserved.
         </p>
       </div>
