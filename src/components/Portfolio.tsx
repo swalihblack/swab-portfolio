@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
 import { fallbackProjects } from '@/data/fallbackProjects';
-import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight, Calendar, User } from 'lucide-react';
 
 const GITHUB_OWNER = 'swalihblack';
 const GITHUB_REPO = 'swab-portfolio';
@@ -11,20 +11,25 @@ function ProjectCard({
   project,
   index,
   onOpen,
-  scrollYProgress,
 }: {
   project: Project;
   index: number;
   onOpen: () => void;
-  scrollYProgress: any;
 }) {
-  const startOffset = 0.1 + index * 0.05;
-  const y = useTransform(scrollYProgress, [0, startOffset, 0.6], [80, 0, 0]);
-  const opacity = useTransform(scrollYProgress, [0, startOffset, startOffset + 0.15], [0, 0, 1]);
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [60, 0, 0, -20]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.6]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.95, 1, 1, 0.98]);
 
   return (
     <motion.button
-      style={{ y, opacity }}
+      ref={cardRef}
+      style={{ y, opacity, scale }}
       onClick={onOpen}
       className="bg-card rounded text-left elevation-1 hover:elevation-3 transition-shadow duration-300 overflow-hidden group w-full"
     >
@@ -46,6 +51,20 @@ function ProjectCard({
         {project.subtitle && (
           <p className="font-body text-sm text-accent font-medium mb-2">{project.subtitle}</p>
         )}
+        <div className="flex items-center gap-3 mb-2">
+          {project.year && (
+            <span className="font-body text-xs text-muted-foreground flex items-center gap-1">
+              <Calendar size={12} />
+              {project.year}
+            </span>
+          )}
+          {project.client && (
+            <span className="font-body text-xs text-muted-foreground flex items-center gap-1">
+              <User size={12} />
+              {project.client}
+            </span>
+          )}
+        </div>
         {project.tools.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {project.tools.map((tool) => (
@@ -126,6 +145,25 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.subtitle && (
             <p className="font-body text-sm text-accent font-medium mb-3">{project.subtitle}</p>
           )}
+
+          {/* Year & Client */}
+          {(project.year || project.client) && (
+            <div className="flex items-center gap-4 mb-4">
+              {project.year && (
+                <span className="font-body text-sm text-muted-foreground flex items-center gap-1.5">
+                  <Calendar size={14} />
+                  {project.year}
+                </span>
+              )}
+              {project.client && (
+                <span className="font-body text-sm text-muted-foreground flex items-center gap-1.5">
+                  <User size={14} />
+                  {project.client}
+                </span>
+              )}
+            </div>
+          )}
+
           {project.description && (
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
               {project.description}
@@ -241,7 +279,6 @@ export default function Portfolio() {
                 project={project}
                 index={i}
                 onOpen={() => setSelectedProject(project)}
-                scrollYProgress={scrollYProgress}
               />
             ))}
           </div>
