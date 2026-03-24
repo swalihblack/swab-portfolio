@@ -50,7 +50,7 @@ export default function Contact() {
         </motion.p>
 
         <motion.a
-          href="mailto:hello@swab.design"
+          href="mailto:swalihblack@gmail.com"
           style={{ y, opacity }}
           className="flex items-center justify-center gap-2 font-body text-accent hover:text-accent/80 text-sm mb-10 transition-colors"
         >
