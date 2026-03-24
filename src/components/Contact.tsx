@@ -55,7 +55,7 @@ export default function Contact() {
           className="flex items-center justify-center gap-2 font-body text-accent hover:text-accent/80 text-sm mb-10 transition-colors"
         >
           <Mail size={16} />
-          hello@swab.design
+          swalihblack@gmail.com
         </motion.a>
 
         <motion.form
