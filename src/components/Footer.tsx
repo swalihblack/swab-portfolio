@@ -1,26 +1,25 @@
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Footer() {
-  const { ref, isVisible } = useScrollReveal();
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ['start end', 'end end'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 0.6], [40, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary py-10">
-      <div ref={ref} className="container flex flex-col items-center gap-5">
-        <a
-          href="#"
-          className={`font-display text-xl font-bold text-primary-foreground tracking-tight ${
-            isVisible ? 'animate-fade-up' : 'opacity-0'
-          }`}
-        >
+    <footer ref={footerRef} className="bg-primary py-10 overflow-hidden">
+      <motion.div style={{ y, opacity }} className="container flex flex-col items-center gap-5">
+        <a href="#" className="font-display text-xl font-bold text-primary-foreground tracking-tight">
           swab
         </a>
 
-        <div
-          className={`flex items-center gap-6 ${
-            isVisible ? 'animate-fade-up [animation-delay:100ms]' : 'opacity-0'
-          }`}
-        >
+        <div className="flex items-center gap-6">
           {[
             { label: 'GitHub', href: 'https://github.com/swalih-ab' },
             { label: 'Behance', href: '#' },
@@ -38,14 +37,10 @@ export default function Footer() {
           ))}
         </div>
 
-        <p
-          className={`font-body text-xs text-primary-foreground/40 ${
-            isVisible ? 'animate-fade-up [animation-delay:200ms]' : 'opacity-0'
-          }`}
-        >
+        <p className="font-body text-xs text-primary-foreground/40">
           © {year} Swalih Abdullah. All rights reserved.
         </p>
-      </div>
+      </motion.div>
     </footer>
   );
 }

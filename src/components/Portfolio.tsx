@@ -1,19 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
 import { fallbackProjects } from '@/data/fallbackProjects';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ExternalLink, Loader2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-/**
- * CONFIGURATION
- * Replace these with your actual GitHub username and repository name.
- * The repo should have a /projects folder with subfolders for each project.
- *
- * To avoid rate limits, you can pass a GitHub PAT:
- *   token: 'ghp_xxxxxxxxxxxx'
- *
- * See useGitHubPortfolio hook for full documentation.
- */
 const GITHUB_OWNER = 'swalihblack';
 const GITHUB_REPO = 'swab-portfolio';
 
@@ -21,16 +11,22 @@ function ProjectCard({
   project,
   index,
   onOpen,
+  scrollYProgress,
 }: {
   project: Project;
   index: number;
   onOpen: () => void;
+  scrollYProgress: any;
 }) {
+  const startOffset = 0.1 + index * 0.05;
+  const y = useTransform(scrollYProgress, [0, startOffset, 0.6], [80, 0, 0]);
+  const opacity = useTransform(scrollYProgress, [0, startOffset, startOffset + 0.15], [0, 0, 1]);
+
   return (
-    <button
+    <motion.button
+      style={{ y, opacity }}
       onClick={onOpen}
       className="bg-card rounded text-left elevation-1 hover:elevation-3 transition-shadow duration-300 overflow-hidden group w-full"
-      style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
@@ -43,18 +39,13 @@ function ProjectCard({
           }}
         />
       </div>
-
       <div className="p-5">
         <h3 className="font-display text-lg font-semibold text-card-foreground mb-0.5">
           {project.title}
         </h3>
-
         {project.subtitle && (
-          <p className="font-body text-sm text-accent font-medium mb-2">
-            {project.subtitle}
-          </p>
+          <p className="font-body text-sm text-accent font-medium mb-2">{project.subtitle}</p>
         )}
-
         {project.tools.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {project.tools.map((tool) => (
@@ -68,17 +59,11 @@ function ProjectCard({
           </div>
         )}
       </div>
-    </button>
+    </motion.button>
   );
 }
 
-function ProjectModal({
-  project,
-  onClose,
-}: {
-  project: Project;
-  onClose: () => void;
-}) {
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const allImages = [project.coverUrl, ...project.photos];
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -91,7 +76,6 @@ function ProjectModal({
         className="bg-card rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto elevation-3"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Image carousel */}
         <div className="relative aspect-[16/10] bg-muted">
           <img
             src={allImages[currentImage]}
@@ -101,25 +85,16 @@ function ProjectModal({
               (e.target as HTMLImageElement).src = '/placeholder.svg';
             }}
           />
-
           {allImages.length > 1 && (
             <>
               <button
-                onClick={() =>
-                  setCurrentImage((p) =>
-                    p === 0 ? allImages.length - 1 : p - 1
-                  )
-                }
+                onClick={() => setCurrentImage((p) => (p === 0 ? allImages.length - 1 : p - 1))}
                 className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-1.5 hover:bg-black/70 active:scale-95 transition-all"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={() =>
-                  setCurrentImage((p) =>
-                    p === allImages.length - 1 ? 0 : p + 1
-                  )
-                }
+                onClick={() => setCurrentImage((p) => (p === allImages.length - 1 ? 0 : p + 1))}
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-1.5 hover:bg-black/70 active:scale-95 transition-all"
               >
                 <ChevronRight size={20} />
@@ -137,7 +112,6 @@ function ProjectModal({
               </div>
             </>
           )}
-
           <button
             onClick={onClose}
             className="absolute top-3 right-3 bg-black/50 text-white rounded-full p-1.5 hover:bg-black/70 active:scale-95 transition-all"
@@ -145,28 +119,18 @@ function ProjectModal({
             <X size={18} />
           </button>
         </div>
-
-        {/* Content */}
         <div className="p-6">
           <h3 className="font-display text-2xl font-bold text-card-foreground mb-1">
             {project.title}
           </h3>
-
           {project.subtitle && (
-            <p className="font-body text-sm text-accent font-medium mb-3">
-              {project.subtitle}
-            </p>
+            <p className="font-body text-sm text-accent font-medium mb-3">{project.subtitle}</p>
           )}
-
           {project.description && (
-            <p
-              className="font-body text-sm text-muted-foreground leading-relaxed mb-4"
-              style={{ textWrap: 'pretty' } as React.CSSProperties}
-            >
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
               {project.description}
             </p>
           )}
-
           {project.tools.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mb-4">
               {project.tools.map((tool) => (
@@ -179,7 +143,6 @@ function ProjectModal({
               ))}
             </div>
           )}
-
           {project.links.length > 0 && (
             <div className="flex flex-wrap gap-3">
               {project.links.map((link) => (
@@ -203,38 +166,44 @@ function ProjectModal({
 }
 
 export default function Portfolio() {
-  const { ref, isVisible } = useScrollReveal();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const headingY = useTransform(scrollYProgress, [0, 0.3, 1], [60, 0, -20]);
+  const headingOpacity = useTransform(scrollYProgress, [0, 0.15, 0.8, 1], [0, 1, 1, 0]);
+
   const { projects: ghProjects, loading, error } = useGitHubPortfolio({
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
-  // Fall back to local data when the GitHub API is unavailable
-  const projects = ghProjects.length > 0 ? ghProjects : (error ? fallbackProjects : ghProjects);
+  const projects = ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-secondary/40">
-      <div ref={ref} className="container">
-        <h2
-          className={`font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-4 ${
-            isVisible ? 'animate-fade-up' : 'opacity-0'
-          }`}
+    <section ref={sectionRef} id="portfolio" className="py-20 md:py-28 bg-secondary/40 overflow-hidden">
+      <div className="container">
+        <motion.h2
+          style={{ y: headingY, opacity: headingOpacity }}
+          className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-4"
         >
           Portfolio
-        </h2>
+        </motion.h2>
 
-        <div
-          className={`w-12 h-0.5 bg-accent mx-auto mb-12 ${
-            isVisible ? 'animate-fade-up [animation-delay:100ms]' : 'opacity-0'
-          }`}
+        <motion.div
+          style={{
+            opacity: headingOpacity,
+            scaleX: useTransform(scrollYProgress, [0, 0.2], [0, 1]),
+          }}
+          className="w-12 h-0.5 bg-accent mx-auto mb-12 origin-center"
         />
 
         {loading && (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <Loader2 size={28} className="animate-spin text-accent" />
-            <p className="font-body text-sm text-muted-foreground">
-              Loading projects...
-            </p>
+            <p className="font-body text-sm text-muted-foreground">Loading projects...</p>
           </div>
         )}
 
@@ -264,20 +233,15 @@ export default function Portfolio() {
           </p>
         )}
 
-        {!loading && !error && projects.length > 0 && (
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ${
-              isVisible
-                ? 'animate-fade-up [animation-delay:200ms]'
-                : 'opacity-0'
-            }`}
-          >
+        {!loading && projects.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => (
               <ProjectCard
                 key={project.name}
                 project={project}
                 index={i}
                 onOpen={() => setSelectedProject(project)}
+                scrollYProgress={scrollYProgress}
               />
             ))}
           </div>
@@ -285,10 +249,7 @@ export default function Portfolio() {
       </div>
 
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
     </section>
   );
