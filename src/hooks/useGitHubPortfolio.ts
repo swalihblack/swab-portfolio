@@ -3,8 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 /**
  * GitHub Portfolio Hook
  * 
- * Fetches project data from a GitHub repository's /projects directory.
- * 
  * EXPECTED REPO STRUCTURE:
  * /projects
  *   /ProjectName
@@ -14,18 +12,12 @@ import { useState, useEffect, useCallback } from 'react';
  *         "title": "Project Title",
  *         "subtitle": "Short tagline",
  *         "description": "Full description",
+ *         "year": "2024",
+ *         "client": "Client Name",
  *         "tools": ["Photoshop", "Illustrator"],
  *         "links": [{ "label": "Behance", "url": "https://..." }]
  *       }
  *     photo1.jpg     — Additional project photos (optional)
- *     photo2.jpg
- * 
- * RATE LIMITING:
- * GitHub API allows 60 requests/hour for unauthenticated requests.
- * To increase this to 5,000/hour, add a Personal Access Token (PAT):
- * 1. Go to GitHub → Settings → Developer Settings → Personal Access Tokens → Fine-grained tokens
- * 2. Create a token with "Contents" read access for your repo
- * 3. Pass it as the `token` parameter to useGitHubPortfolio
  */
 
 export interface ProjectLink {
@@ -38,6 +30,8 @@ export interface Project {
   title: string;
   subtitle: string;
   description: string;
+  year: string;
+  client: string;
   tools: string[];
   links: ProjectLink[];
   coverUrl: string;
@@ -93,7 +87,6 @@ export function useGitHubPortfolio({
       const projectPromises = folders.map(
         async (folder: { name: string; path: string; html_url: string }) => {
           try {
-            // Fetch folder contents to discover all files
             const folderRes = await fetch(
               `https://api.github.com/repos/${owner}/${repo}/contents/${folder.path}`,
               { headers }
@@ -102,10 +95,11 @@ export function useGitHubPortfolio({
             if (!folderRes.ok) return null;
             const folderContents = await folderRes.json();
 
-            // Parse details.json
             let title = folder.name;
             let subtitle = '';
             let description = '';
+            let year = '';
+            let client = '';
             let tools: string[] = [];
             let links: ProjectLink[] = [];
 
@@ -120,12 +114,13 @@ export function useGitHubPortfolio({
                 title = data.title || folder.name;
                 subtitle = data.subtitle || '';
                 description = data.description || '';
+                year = data.year || '';
+                client = data.client || '';
                 tools = data.tools || [];
                 links = data.links || [];
               }
             }
 
-            // Cover image
             const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}`;
             const coverFile = folderContents.find(
               (f: { name: string }) =>
@@ -136,7 +131,6 @@ export function useGitHubPortfolio({
               ? `${rawBase}/${folder.path}/${coverFile.name}`
               : '/placeholder.svg';
 
-            // Additional photos (any image that isn't the cover)
             const imageExtensions = /\.(jpg|jpeg|png|webp)$/i;
             const photos = folderContents
               .filter(
@@ -155,6 +149,8 @@ export function useGitHubPortfolio({
               title,
               subtitle,
               description,
+              year,
+              client,
               tools,
               links,
               coverUrl,

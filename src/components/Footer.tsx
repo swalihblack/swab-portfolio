@@ -8,12 +8,12 @@ export default function Footer() {
     offset: ['start end', 'end end'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 0.6], [40, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.8], [30, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   const year = new Date().getFullYear();
 
   return (
-    <footer ref={footerRef} className="bg-primary py-10 overflow-hidden">
+    <footer ref={footerRef} className="bg-primary py-10">
       <motion.div style={{ y, opacity }} className="container flex flex-col items-center gap-5">
         <a href="#" className="font-display text-xl font-bold text-primary-foreground tracking-tight">
           swab
