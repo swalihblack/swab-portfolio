@@ -1,4 +1,5 @@
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const tools = [
   { label: 'Ps', name: 'Photoshop', bg: 'bg-[hsl(200,80%,25%)]' },
@@ -9,47 +10,52 @@ const tools = [
 ];
 
 export default function About() {
-  const { ref, isVisible } = useScrollReveal();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [60, 0, -30]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const toolsY = useTransform(scrollYProgress, [0, 0.5, 1], [80, 0, -20]);
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-background">
-      <div ref={ref} className="container max-w-3xl">
-        <h2
-          className={`font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-4 ${
-            isVisible ? 'animate-fade-up' : 'opacity-0'
-          }`}
-          style={{ textWrap: 'balance' } as React.CSSProperties}
+    <section ref={sectionRef} id="about" className="py-20 md:py-28 bg-background overflow-hidden">
+      <div className="container max-w-3xl">
+        <motion.h2
+          style={{ y, opacity }}
+          className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-4"
         >
           About
-        </h2>
+        </motion.h2>
 
-        <div className={`w-12 h-0.5 bg-accent mx-auto mb-10 ${isVisible ? 'animate-fade-scale [animation-delay:100ms]' : 'opacity-0'}`} />
+        <motion.div
+          style={{ opacity, scaleX: useTransform(scrollYProgress, [0, 0.3], [0, 1]) }}
+          className="w-12 h-0.5 bg-accent mx-auto mb-10 origin-center"
+        />
 
-        <p
-          className={`font-body text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto ${
-            isVisible ? 'animate-fade-up [animation-delay:200ms]' : 'opacity-0'
-          }`}
-          style={{ textWrap: 'pretty' } as React.CSSProperties}
+        <motion.p
+          style={{ y, opacity }}
+          className="font-body text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto"
         >
           I'm Swalih Abdullah — a law student by day and a graphic designer in every other
           waking hour. I believe that the rigour of legal thinking and the freedom of creative
           expression aren't opposites — they're complementary forces. My work lives at that
           intersection: structured yet expressive, precise yet imaginative.
-        </p>
+        </motion.p>
 
-        {/* Tool icons with staggered scale-in */}
-        <div
-          className={`flex flex-wrap items-center justify-center gap-4 mt-12 ${
-            isVisible ? '' : 'opacity-0'
-          }`}
+        <motion.div
+          style={{ y: toolsY, opacity }}
+          className="flex flex-wrap items-center justify-center gap-4 mt-12"
         >
           {tools.map((tool, i) => (
-            <div
+            <motion.div
               key={tool.label}
-              className={`group flex flex-col items-center gap-2 ${
-                isVisible ? 'animate-fade-scale' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${350 + i * 80}ms` }}
+              style={{
+                y: useTransform(scrollYProgress, [0, 0.4 + i * 0.05, 1], [40 + i * 10, 0, -10]),
+              }}
+              className="group flex flex-col items-center gap-2"
             >
               <div
                 className={`${tool.bg} w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center elevation-1 group-hover:elevation-2 transition-shadow duration-200`}
@@ -58,12 +64,10 @@ export default function About() {
                   {tool.label}
                 </span>
               </div>
-              <span className="font-body text-xs text-muted-foreground">
-                {tool.name}
-              </span>
-            </div>
+              <span className="font-body text-xs text-muted-foreground">{tool.name}</span>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
