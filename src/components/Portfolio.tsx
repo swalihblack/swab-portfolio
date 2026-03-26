@@ -217,7 +217,22 @@ export default function Portfolio() {
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
-  const projects = ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects;
+
+  const projects = (ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects).map((project) => {
+    const fallback = fallbackProjects.find((item) => item.name === project.name);
+
+    return {
+      ...fallback,
+      ...project,
+      year: project.year || fallback?.year || '',
+      client: project.client || fallback?.client || '',
+      description: project.description || fallback?.description || '',
+      subtitle: project.subtitle || fallback?.subtitle || '',
+      tools: project.tools.length > 0 ? project.tools : fallback?.tools || [],
+      links: project.links.length > 0 ? project.links : fallback?.links || [],
+      photos: project.photos.length > 0 ? project.photos : fallback?.photos || [],
+    } as Project;
+  });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
