@@ -125,7 +125,7 @@ export function useGitHubPortfolio({
             const coverFile = folderContents.find(
               (f: { name: string }) =>
                 f.name.toLowerCase().startsWith('cover') &&
-                /\.(jpg|jpeg|png|webp)$/i.test(f.name)
+                /\.(jpg|jpeg|png|webp|gif|svg|bmp|tiff|tif|avif|ico)$/i.test(f.name)
             );
             const coverUrl = coverFile
               ? `${rawBase}/${folder.path}/${coverFile.name}`
