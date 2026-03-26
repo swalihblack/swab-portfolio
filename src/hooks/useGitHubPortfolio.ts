@@ -131,7 +131,7 @@ export function useGitHubPortfolio({
               ? `${rawBase}/${folder.path}/${coverFile.name}`
               : '/placeholder.svg';
 
-            const imageExtensions = /\.(jpg|jpeg|png|webp)$/i;
+            const imageExtensions = /\.(jpg|jpeg|png|webp|gif|svg|bmp|tiff|tif|avif|ico)$/i;
             const photos = folderContents
               .filter(
                 (f: { name: string; type: string }) =>
