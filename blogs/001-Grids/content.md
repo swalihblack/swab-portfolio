@@ -9,7 +9,7 @@ tags:
   - Visual Identity
   - UI/UX
 ---
-(./photo1.webp)
+
 ![Cover image showing a dynamic composition where structured grid lines are creatively disrupted by bold geometric shapes](./cover.webp)
 
 Design is often misunderstood as pure, unbridled creativity. In reality, the most compelling work is rooted in structure. Before a single pixel is placed, there is an underlying framework—a grid—that ensures consistency, readability, and balance. But there comes a point in every designer's journey where following the rules becomes too safe. 
