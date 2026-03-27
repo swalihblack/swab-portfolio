@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
 import { fallbackProjects } from '@/data/fallbackProjects';
-import { Loader2 } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ProjectModal } from '@/components/portfolio/ProjectModal';
 import { PortfolioViewToggle } from '@/components/portfolio/PortfolioViewToggle';
@@ -10,7 +11,12 @@ import { PortfolioViewToggle } from '@/components/portfolio/PortfolioViewToggle'
 const GITHUB_OWNER = 'swalihblack';
 const GITHUB_REPO = 'swab-portfolio';
 
-export default function Portfolio() {
+interface PortfolioProps {
+  maxProjects?: number;
+  showViewAll?: boolean;
+}
+
+export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -26,9 +32,8 @@ export default function Portfolio() {
   });
   const [gridMode, setGridMode] = useState<'single' | 'double'>('double');
 
-  const projects = (ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects).map((project) => {
+  const allProjects = (ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects).map((project) => {
     const fallback = fallbackProjects.find((item) => item.name === project.name);
-
     return {
       ...fallback,
       ...project,
@@ -41,6 +46,8 @@ export default function Portfolio() {
       photos: project.photos.length > 0 ? project.photos : fallback?.photos || [],
     } as Project;
   });
+
+  const projects = maxProjects ? allProjects.slice(0, maxProjects) : allProjects;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
@@ -52,7 +59,6 @@ export default function Portfolio() {
         >
           Portfolio
         </motion.h2>
-
         <motion.div
           style={{
             opacity: headingOpacity,
@@ -70,42 +76,34 @@ export default function Portfolio() {
 
         {error && !loading && projects.length === 0 && (
           <div className="text-center py-16">
-            <p className="font-body text-muted-foreground mb-2">
-              Projects are currently unavailable.
-            </p>
-            <p className="font-body text-xs text-muted-foreground/60">
-              Check back soon or visit the{' '}
-              <a
-                href={`https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline"
-              >
-                GitHub repository
-              </a>{' '}
-              directly.
-            </p>
+            <p className="font-body text-muted-foreground mb-2">Projects are currently unavailable.</p>
           </div>
         )}
 
         {!loading && !error && projects.length === 0 && (
-          <p className="font-body text-center text-muted-foreground py-16">
-            No projects found yet. Stay tuned!
-          </p>
+          <p className="font-body text-center text-muted-foreground py-16">No projects found yet. Stay tuned!</p>
         )}
 
         {!loading && projects.length > 0 && (
           <>
             <PortfolioViewToggle value={gridMode} onValueChange={setGridMode} />
             <div className={`grid gap-6 ${gridMode === 'single' ? 'grid-cols-1' : 'grid-cols-2'}`}>
-            {projects.map((project, i) => (
-              <ProjectCard
-                key={project.name}
-                project={project}
-                onOpen={() => setSelectedProject(project)}
-              />
-            ))}
+              {projects.map((project) => (
+                <ProjectCard key={project.name} project={project} onOpen={() => setSelectedProject(project)} />
+              ))}
             </div>
+
+            {showViewAll && allProjects.length > (maxProjects || 0) && (
+              <div className="text-center pt-10">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+                >
+                  View All Projects
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            )}
           </>
         )}
       </div>
