@@ -1,6 +1,6 @@
 ---
 title: "Breaking the Grid: When Rules Are Made to Be Bent"
-date: 2024-05-23
+date: 2026-03-27
 excerpt: "Mastering design means knowing the rules—and knowing exactly when to break them for maximum impact. Discover how strategic deviation creates memorable visual identities."
 tags:
   - Design Theory
