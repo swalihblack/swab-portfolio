@@ -106,15 +106,18 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           )}
 
           {project.tools.length > 0 && (
-            <div className="mb-4 flex flex-wrap gap-1.5">
-              {project.tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="rounded-sm bg-secondary px-2.5 py-1 font-body text-xs text-secondary-foreground"
-                >
-                  {tool}
-                </span>
-              ))}
+            <div className="mb-4">
+              <p className="font-body text-xs font-medium text-foreground mb-2 uppercase tracking-wide">Services</p>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-sm bg-secondary px-2.5 py-1 font-body text-xs text-secondary-foreground"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
 

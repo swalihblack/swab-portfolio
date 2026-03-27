@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Palette, BookOpen, Layout, Share2 } from 'lucide-react';
 
-const tools = [
-  { label: 'Ps', name: 'Photoshop', bg: 'bg-[hsl(200,80%,25%)]' },
-  { label: 'Ai', name: 'Illustrator', bg: 'bg-[hsl(25,85%,40%)]' },
-  { label: 'Id', name: 'InDesign', bg: 'bg-[hsl(340,70%,35%)]' },
-  { label: 'MS', name: 'MS Suite', bg: 'bg-[hsl(200,60%,35%)]' },
-  { label: 'AI', name: 'AI Tools', bg: 'bg-[hsl(260,50%,45%)]' },
+const services = [
+  { icon: Palette, name: 'Graphic Design', color: 'bg-accent' },
+  { icon: BookOpen, name: 'Editorial Design', color: 'bg-primary' },
+  { icon: Layout, name: 'Branding', color: 'bg-accent' },
+  { icon: Share2, name: 'Social Media Design', color: 'bg-primary' },
 ];
 
 export default function About() {
@@ -45,26 +45,29 @@ export default function About() {
           intersection: structured yet expressive, precise yet imaginative.
         </motion.p>
 
+        <motion.h3
+          style={{ y: toolsY, opacity }}
+          className="font-display text-xl font-bold text-foreground text-center mt-14 mb-8"
+        >
+          Services
+        </motion.h3>
+
         <motion.div
           style={{ y: toolsY, opacity }}
-          className="flex flex-wrap items-center justify-center gap-4 mt-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          {tools.map((tool, i) => (
+          {services.map((service, i) => (
             <motion.div
-              key={tool.label}
+              key={service.name}
               style={{
                 y: useTransform(scrollYProgress, [0, 0.4 + i * 0.05, 1], [40 + i * 10, 0, -10]),
               }}
-              className="group flex flex-col items-center gap-2"
+              className="group flex flex-col items-center gap-3 p-4 rounded-lg bg-card elevation-1 hover:elevation-2 transition-shadow duration-200"
             >
-              <div
-                className={`${tool.bg} w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center elevation-1 group-hover:elevation-2 transition-shadow duration-200`}
-              >
-                <span className="text-white font-body font-bold text-sm md:text-base">
-                  {tool.label}
-                </span>
+              <div className={`${service.color} w-12 h-12 rounded-lg flex items-center justify-center`}>
+                <service.icon size={22} className="text-primary-foreground" />
               </div>
-              <span className="font-body text-xs text-muted-foreground">{tool.name}</span>
+              <span className="font-body text-xs text-center font-medium text-foreground">{service.name}</span>
             </motion.div>
           ))}
         </motion.div>
