@@ -103,7 +103,11 @@ export function useGitHubBlog({ owner, repo, path = 'blogs', branch = 'main' }: 
                 date = meta.date || '';
                 excerpt = meta.excerpt || body.slice(0, 160).replace(/[#*_\n]/g, '').trim() + '...';
                 tags = meta.tags || [];
-                content = body;
+                // Rewrite relative image paths to raw GitHub URLs
+                content = body.replace(
+                  /\.\/([\w\-\.]+\.(jpg|jpeg|png|webp|gif|svg|bmp|tiff|tif|avif|ico))/gi,
+                  `${rawBase}/${folder.path}/$1`
+                );
               }
             }
 

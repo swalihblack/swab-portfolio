@@ -1,12 +1,37 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Palette, BookOpen, Layout, Share2 } from 'lucide-react';
+import { Palette, BookOpen, Layout, Share2, Briefcase } from 'lucide-react';
 
 const services = [
   { icon: Palette, name: 'Graphic Design', color: 'bg-accent' },
   { icon: BookOpen, name: 'Editorial Design', color: 'bg-primary' },
   { icon: Layout, name: 'Branding', color: 'bg-accent' },
   { icon: Share2, name: 'Social Media Design', color: 'bg-primary' },
+];
+
+/* ── Timeline data ──
+   Edit this array to update your profession timeline.
+   Each entry needs: year, role, org (organization), and an optional description.
+*/
+const timeline = [
+  {
+    year: '2024 – Present',
+    role: 'Freelance Graphic Designer',
+    org: 'Self-employed',
+    description: 'Delivering branding, editorial, and social media design for diverse clients.',
+  },
+  {
+    year: '2023 – 2024',
+    role: 'Junior Designer',
+    org: 'Creative Studio XYZ',
+    description: 'Worked on brand identity systems and print collateral for regional brands.',
+  },
+  {
+    year: '2022 – 2023',
+    role: 'Design Intern',
+    org: 'Agency ABC',
+    description: 'Assisted senior designers with layout, typography, and social media campaigns.',
+  },
 ];
 
 export default function About() {
@@ -45,6 +70,7 @@ export default function About() {
           intersection: structured yet expressive, precise yet imaginative.
         </motion.p>
 
+        {/* Services */}
         <motion.h3
           style={{ y: toolsY, opacity }}
           className="font-display text-xl font-bold text-foreground text-center mt-14 mb-8"
@@ -70,6 +96,61 @@ export default function About() {
               <span className="font-body text-xs text-center font-medium text-foreground">{service.name}</span>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.h3
+          style={{ y: toolsY, opacity }}
+          className="font-display text-xl font-bold text-foreground text-center mt-16 mb-10"
+        >
+          Experience
+        </motion.h3>
+
+        <motion.div style={{ y: toolsY, opacity }} className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+
+          <div className="space-y-10">
+            {timeline.map((item, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className={`relative flex items-start gap-4 md:gap-0 ${
+                    isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  {/* Dot */}
+                  <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent border-2 border-background -translate-x-1/2 mt-1.5 z-10" />
+
+                  {/* Content card */}
+                  <div
+                    className={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${
+                      isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-1.5 font-body text-xs font-semibold text-accent uppercase tracking-wider">
+                      <Briefcase size={12} />
+                      {item.year}
+                    </span>
+                    <h4 className="font-display text-base font-bold text-foreground mt-1">
+                      {item.role}
+                    </h4>
+                    <p className="font-body text-sm text-muted-foreground">{item.org}</p>
+                    {item.description && (
+                      <p className="font-body text-xs text-muted-foreground/80 mt-1 leading-relaxed">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>

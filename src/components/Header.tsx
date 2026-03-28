@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -12,10 +13,34 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
   const location = useLocation();
+  const { scrollY } = useScroll();
+  const isHome = location.pathname === '/';
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (isHome) {
+      // Show header only after scrolling past the viewport height (hero)
+      setVisible(latest > window.innerHeight - 60);
+    }
+  });
+
+  useEffect(() => {
+    // On non-home pages, always show header
+    if (!isHome) {
+      setVisible(true);
+    } else {
+      setVisible(window.scrollY > window.innerHeight - 60);
+    }
+  }, [isHome, location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm elevation-2">
+    <motion.header
+      initial={false}
+      animate={{ y: visible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm elevation-2"
+    >
       <div className="container flex items-center justify-between h-14 md:h-16">
         <Link
           to="/"
@@ -72,6 +97,6 @@ export default function Header() {
           </div>
         </nav>
       )}
-    </header>
+    </motion.header>
   );
 }
