@@ -21,16 +21,16 @@ const timeline = [
     description: 'Delivering branding, editorial, and social media design for diverse clients.',
   },
   {
-    year: '2023 – 2024',
+    year: '2021 – 2024',
     role: 'Junior Designer',
-    org: 'Creative Studio XYZ',
-    description: 'Worked on brand identity systems and print collateral for regional brands.',
+    org: 'Nasweeha',
+    description: 'Started as an intern for the education institution pro-bono and earned experience.',
   },
   {
-    year: '2022 – 2023',
-    role: 'Design Intern',
-    org: 'Agency ABC',
-    description: 'Assisted senior designers with layout, typography, and social media campaigns.',
+    year: '2015 – 2021',
+    role: 'Newbie',
+    org: 'Self-taught',
+    description: 'started learning graphic designing and computer just to satisfy curiosity, but later it bacame a passion.',
   },
 ];
 
