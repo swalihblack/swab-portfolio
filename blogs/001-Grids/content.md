@@ -10,8 +10,6 @@ tags:
   - UI/UX
 ---
 
-![Cover image showing a dynamic composition where structured grid lines are creatively disrupted by bold geometric shapes](./cover.webp)
-
 Design is often misunderstood as pure, unbridled creativity. In reality, the most compelling work is rooted in structure. Before a single pixel is placed, there is an underlying framework—a grid—that ensures consistency, readability, and balance. But there comes a point in every designer's journey where following the rules becomes too safe. 
 
 To create work that truly resonates, you must understand the structure well enough to challenge it. Much like legal precedents, design rules exist to be understood before they're strategically challenged. When done correctly, breaking the grid doesn't create chaos; it creates energy.
