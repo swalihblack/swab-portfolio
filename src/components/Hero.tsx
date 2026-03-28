@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import heroPhoto from '@/assets/hero-photo.png';
 
 export default function Hero() {
