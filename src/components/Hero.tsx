@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center bg-accent overflow-hidden"
+      className="relative h-screen flex items-center bg-accent overflow-hidden px-6 pt-16 md:pt-0"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(0_80%_50%/0.3),transparent_70%)]" />
@@ -63,14 +63,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap gap-3 mt-10"
           >
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 mt-10 px-8 py-3.5 bg-primary text-primary-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+            <a
+              href="#portfolio"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
             >
               View Work
               <ArrowDown size={16} />
-            </Link>
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-foreground text-accent font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+            >
+              Contact Me
+            </a>
           </motion.div>
         </motion.div>
 
