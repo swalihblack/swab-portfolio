@@ -18,20 +18,20 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center bg-accent overflow-hidden px-6 pt-24 md:pt-0"
+      className="relative h-screen flex items-start md:items-center bg-accent overflow-hidden px-6 pt-16 md:pt-0"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(0_80%_50%/0.3),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(0_0%_0%/0.2),transparent_60%)]" />
 
-      <div className="container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-6">
+      <div className="container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start md:items-center px-6 pt-6 md:pt-0">
         {/* Text */}
         <motion.div style={{ y, opacity, scale }}>
           <motion.p
             initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-body text-accent-foreground/70 text-sm md:text-base font-medium tracking-[0.25em] uppercase mb-6"
+            className="font-body text-accent-foreground/70 text-xs sm:text-sm md:text-base font-medium tracking-[0.22em] uppercase mb-4 md:mb-6"
           >
             Swalih Abdullah
           </motion.p>
@@ -40,7 +40,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-accent-foreground text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight"
+            className="font-display text-accent-foreground text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
             style={{ textWrap: 'balance' } as React.CSSProperties}
           >
             Precision in Law.
@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="font-body text-accent-foreground/60 text-base md:text-lg mt-6 max-w-md"
+            className="font-body text-accent-foreground/60 text-sm md:text-lg mt-4 md:mt-6 max-w-md"
             style={{ textWrap: 'pretty' } as React.CSSProperties}
           >
             Graphic designer bridging the discipline of law with the art of visual storytelling.
@@ -62,18 +62,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap gap-3 mt-10"
+            className="flex flex-nowrap gap-2 md:gap-3 mt-6 md:mt-10"
           >
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-4 md:px-8 py-3 md:py-3.5 bg-primary text-primary-foreground font-body font-medium text-xs md:text-sm rounded tracking-wide uppercase whitespace-nowrap ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
             >
               View Work
               <ArrowDown size={16} />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-foreground text-accent font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-4 md:px-8 py-3 md:py-3.5 bg-accent-foreground text-accent font-body font-medium text-xs md:text-sm rounded tracking-wide uppercase whitespace-nowrap ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
             >
               Contact Me
             </a>
