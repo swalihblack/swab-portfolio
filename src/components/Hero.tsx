@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center bg-accent overflow-hidden px-6 pt-16 md:pt-0"
+      className="relative h-screen flex items-center bg-accent overflow-hidden px-6 pt-24 md:pt-0"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(0_80%_50%/0.3),transparent_70%)]" />
