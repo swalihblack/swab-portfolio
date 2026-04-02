@@ -37,7 +37,7 @@ export default function BlogPage() {
                 </div>
               )}
 
-              {!loading && (error || posts.length === 0) && (
+              {!loading && allPosts.length === 0 && (
                 <p className="font-body text-center text-muted-foreground py-16">
                   Blog posts coming soon. Stay tuned!
                 </p>
