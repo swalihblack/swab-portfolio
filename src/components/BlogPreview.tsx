@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { useGitHubBlog } from '@/hooks/useGitHubBlog';
+import { fallbackBlogPosts } from '@/data/fallbackBlogPosts';
 import { BlogCard } from '@/components/blog/BlogCard';
 
 const GITHUB_OWNER = 'swalihblack';
