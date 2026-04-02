@@ -23,7 +23,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
       ref={cardRef}
       style={{ y, opacity, scale }}
       onClick={onOpen}
-      className="group w-full overflow-hidden rounded bg-card text-left elevation-1 transition-shadow duration-300 hover:elevation-3"
+      className="group flex h-full w-full flex-col overflow-hidden rounded bg-card text-left elevation-1 transition-shadow duration-300 hover:elevation-3"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
@@ -37,7 +37,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
         />
       </div>
 
-      <div className="space-y-1 p-4">
+      <div className="flex flex-1 flex-col justify-center space-y-1 p-4">
         <h3 className="font-display text-base font-semibold text-card-foreground md:text-lg">
           {project.title}
         </h3>
