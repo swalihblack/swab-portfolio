@@ -32,7 +32,8 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
   });
   const [gridMode, setGridMode] = useState<'single' | 'double'>('double');
 
-  const allProjects = (ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects).map((project) => {
+  // Use GitHub data if available, otherwise fallback local data
+  const allProjects = (ghProjects.length > 0 ? ghProjects : fallbackProjects).map((project) => {
     const fallback = fallbackProjects.find((item) => item.name === project.name);
     return {
       ...fallback,
