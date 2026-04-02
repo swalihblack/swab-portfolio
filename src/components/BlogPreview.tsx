@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { useGitHubBlog } from '@/hooks/useGitHubBlog';
+import { fallbackBlogPosts } from '@/data/fallbackBlogPosts';
 import { BlogCard } from '@/components/blog/BlogCard';
 
 const GITHUB_OWNER = 'swalihblack';
@@ -22,8 +23,8 @@ export default function BlogPreview() {
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
-
-  const latestPosts = posts.slice(0, 5);
+  const allPosts = posts.length > 0 ? posts : fallbackBlogPosts;
+  const latestPosts = allPosts.slice(0, 5);
 
   return (
     <section ref={sectionRef} className="py-20 md:py-28 bg-background overflow-hidden">
@@ -49,7 +50,7 @@ export default function BlogPreview() {
           </div>
         )}
 
-        {!loading && (error || latestPosts.length === 0) && (
+        {!loading && latestPosts.length === 0 && (
           <p className="font-body text-center text-muted-foreground py-12">
             Blog posts coming soon. Stay tuned!
           </p>
@@ -61,7 +62,7 @@ export default function BlogPreview() {
               <BlogCard key={post.slug} post={post} />
             ))}
 
-            {posts.length > 5 && (
+            {allPosts.length > 5 && (
               <div className="text-center pt-6">
                 <Link
                   to="/blog"

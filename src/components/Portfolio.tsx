@@ -32,7 +32,8 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
   });
   const [gridMode, setGridMode] = useState<'single' | 'double'>('double');
 
-  const allProjects = (ghProjects.length > 0 ? ghProjects : error ? fallbackProjects : ghProjects).map((project) => {
+  // Use GitHub data if available, otherwise fallback local data
+  const allProjects = (ghProjects.length > 0 ? ghProjects : fallbackProjects).map((project) => {
     const fallback = fallbackProjects.find((item) => item.name === project.name);
     return {
       ...fallback,
@@ -87,7 +88,7 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
         {!loading && projects.length > 0 && (
           <>
             <PortfolioViewToggle value={gridMode} onValueChange={setGridMode} />
-            <div className={`grid gap-6 ${gridMode === 'single' ? 'grid-cols-1' : 'grid-cols-2'}`}>
+            <div className={`grid gap-6 items-stretch ${gridMode === 'single' ? 'grid-cols-1' : 'grid-cols-2'}`}>
               {projects.map((project) => (
                 <ProjectCard key={project.name} project={project} onOpen={() => setSelectedProject(project)} />
               ))}

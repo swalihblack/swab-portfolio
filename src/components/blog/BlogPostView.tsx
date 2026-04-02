@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, Calendar, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Tag, User } from 'lucide-react';
 import type { BlogPost } from '@/hooks/useGitHubBlog';
 
 interface BlogPostViewProps {
@@ -44,24 +44,29 @@ export function BlogPostView({ post }: BlogPostViewProps) {
             })}
           </span>
         )}
-        {post.tags.length > 0 && (
-          <div className="flex items-center gap-2">
-            <Tag size={14} className="text-muted-foreground" />
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-sm bg-secondary px-2 py-0.5 font-body text-xs text-secondary-foreground"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        <span className="flex items-center gap-1.5 font-body text-sm text-muted-foreground">
+          <User size={14} />
+          Swalih Abdullah
+        </span>
       </div>
 
       <div className="prose-blog">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </div>
+
+      {post.tags.length > 0 && (
+        <div className="flex items-center gap-2 flex-wrap mt-10 pt-6 border-t border-border">
+          <Tag size={14} className="text-muted-foreground" />
+          {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-sm bg-secondary px-2 py-0.5 font-body text-xs text-secondary-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
   );
 }

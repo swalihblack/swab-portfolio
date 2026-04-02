@@ -1,55 +1,65 @@
 import type { Project } from '@/hooks/useGitHubPortfolio';
 
+const GITHUB_RAW = 'https://raw.githubusercontent.com/swalihblack/swab-portfolio/main';
+
 export const fallbackProjects: Project[] = [
   {
-    name: 'Brew-Brand-Identity',
-    title: 'Brew Coffee Co.',
-    subtitle: 'Brand Identity Design',
+    name: '001-Pulse-Magazine',
+    title: 'PULSE Magazine',
+    subtitle: 'Typesetting, Layout & Cover',
     description:
-      'Complete brand identity system for an artisan coffee roastery, including logo design, packaging, menu layouts, and in-store collateral.',
+      'I handled the complete visual execution of this student union magazine—from typesetting manuscripts contributed by multiple student authors to designing the interior layout and cover. The goal was to create a clean, professional publication that reflects the energy of the student body while maintaining clarity and consistency across diverse content.',
     year: '2024',
-    client: 'Brew Coffee Co.',
-    tools: ['Illustrator', 'Photoshop', 'InDesign'],
+    client: 'Atharva College Union',
+    tools: ['Illustrator', 'Photoshop', 'InDesign', 'MS Word', 'ChatGPT'],
     links: [
-      { label: 'Behance', url: 'https://behance.net' },
-      { label: 'Live Site', url: 'https://example.com' },
+      { label: 'GDrive', url: 'https://drive.google.com/file/d/11kRZEadkkgz-l1Lovc1Rdlc1g4sd2nGB/view?usp=drive_link' },
+      { label: 'Preview', url: 'https://online.fliphtml5.com/dctmb/kmbl' },
     ],
-    coverUrl:
-      'https://raw.githubusercontent.com/swalihblack/swab-portfolio/main/projects/Brew-Brand-Identity/cover.jpg',
+    coverUrl: `${GITHUB_RAW}/projects/001-Pulse-Magazine/cover.webp`,
     photos: [],
-    folderUrl:
-      'https://github.com/swalihblack/swab-portfolio/tree/main/projects/Brew-Brand-Identity',
+    folderUrl: 'https://github.com/swalihblack/swab-portfolio/tree/main/projects/001-Pulse-Magazine',
   },
   {
-    name: 'Soundwave-Festival-Poster',
-    title: 'Soundwave Festival',
-    subtitle: 'Event Poster & Campaign',
+    name: '002-Kuruvikalude-Republic',
+    title: 'Kuruvikalude Republic',
+    subtitle: 'Cover Design',
     description:
-      'Bold poster series and promotional campaign for Soundwave Music Festival 2024.',
-    year: '2024',
-    client: 'Soundwave Events',
-    tools: ['Photoshop', 'Illustrator', 'After Effects'],
-    links: [{ label: 'Behance', url: 'https://behance.net' }],
-    coverUrl:
-      'https://raw.githubusercontent.com/swalihblack/swab-portfolio/main/projects/Soundwave-Festival-Poster/cover.jpg',
+      'I designed the cover for this novel, creating a visual identity that reflects the tone and themes of the story. Working closely with the publisher, I developed a concept that balances literary sensibility with market appeal, resulting in a distinctive cover tailored for the target readership.',
+    year: '2025',
+    client: 'Miracle Books',
+    tools: ['Illustrator', 'Photoshop', 'ChatGPT'],
+    links: [{ label: 'Instagram', url: 'https://www.instagram.com/swalihblack' }],
+    coverUrl: `${GITHUB_RAW}/projects/002-Kuruvikalude-Republic/cover.webp`,
     photos: [],
-    folderUrl:
-      'https://github.com/swalihblack/swab-portfolio/tree/main/projects/Soundwave-Festival-Poster',
+    folderUrl: 'https://github.com/swalihblack/swab-portfolio/tree/main/projects/002-Kuruvikalude-Republic',
   },
   {
-    name: 'Lexis-Law-Brochure',
-    title: 'Lexis & Partners',
-    subtitle: 'Corporate Brochure Design',
+    name: '003-Watch-Ninna-Samayam',
+    title: 'Watch Ninna Samayam',
+    subtitle: 'Cover Design',
     description:
-      'A sophisticated tri-fold brochure and digital PDF for a boutique law firm.',
-    year: '2023',
-    client: 'Lexis & Partners LLP',
-    tools: ['InDesign', 'Photoshop', 'MS Word'],
-    links: [{ label: 'PDF Preview', url: 'https://example.com' }],
-    coverUrl:
-      'https://raw.githubusercontent.com/swalihblack/swab-portfolio/main/projects/Lexis-Law-Brochure/cover.jpg',
+      'I designed the cover for this gothic‑themed novel, crafting a visual identity that reflects its atmospheric tone—dark, haunting, and centered on a young protagonist. The final cover balances literary mood with market appeal, creating an evocative entry point for readers.',
+    year: '2025',
+    client: 'Pusthakasadya',
+    tools: ['Illustrator', 'Photoshop', 'ChatGPT'],
+    links: [{ label: 'Instagram', url: 'https://www.instagram.com/swalihblack' }],
+    coverUrl: `${GITHUB_RAW}/projects/003-Watch-Ninna-Samayam/cover.webp`,
     photos: [],
-    folderUrl:
-      'https://github.com/swalihblack/swab-portfolio/tree/main/projects/Lexis-Law-Brochure',
+    folderUrl: 'https://github.com/swalihblack/swab-portfolio/tree/main/projects/003-Watch-Ninna-Samayam',
+  },
+  {
+    name: '004-Ramadan-Campaign',
+    title: 'Ramadan Campaign',
+    subtitle: 'Poster Design',
+    description:
+      'I designed a series of posters for the masjid\'s Ramadan campaign, creating a cohesive visual identity to promote events, daily prayers, and community initiatives throughout the holy month. The designs balance spiritual resonance with clear communication, ensuring information was accessible and visually engaging for the congregation.',
+    year: '2026',
+    client: 'Kanhirathingal Juma Masjid',
+    tools: ['Photoshop', 'Nano Banana Pro', 'Google Flow'],
+    links: [{ label: 'Instagram', url: 'https://www.instagram.com/swalihblack' }],
+    coverUrl: `${GITHUB_RAW}/projects/004-Ramadan-Campaign/cover.webp`,
+    photos: [`${GITHUB_RAW}/projects/004-Ramadan-Campaign/photo1.webp`],
+    folderUrl: 'https://github.com/swalihblack/swab-portfolio/tree/main/projects/004-Ramadan-Campaign',
   },
 ];

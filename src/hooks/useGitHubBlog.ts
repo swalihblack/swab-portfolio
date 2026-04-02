@@ -27,14 +27,30 @@ function parseFrontmatter(raw: string): { meta: Record<string, any>; content: st
   const content = match[2];
   const meta: Record<string, any> = {};
 
-  for (const line of metaBlock.split('\n')) {
+  const lines = metaBlock.split('\n');
+  let currentKey = '';
+
+  for (const line of lines) {
+    // Array item line (e.g. "  - Design Theory")
+    const arrayItemMatch = line.match(/^\s+-\s+(.+)$/);
+    if (arrayItemMatch && currentKey) {
+      if (!Array.isArray(meta[currentKey])) {
+        meta[currentKey] = [];
+      }
+      meta[currentKey].push(arrayItemMatch[1].replace(/^["']|["']$/g, ''));
+      continue;
+    }
+
     const colonIndex = line.indexOf(':');
     if (colonIndex === -1) continue;
     const key = line.slice(0, colonIndex).trim();
     let value = line.slice(colonIndex + 1).trim();
+    currentKey = key;
 
-    // Handle arrays like [tag1, tag2]
-    if (value.startsWith('[') && value.endsWith(']')) {
+    if (!value) {
+      // Value will come as array items on next lines
+      meta[key] = [];
+    } else if (value.startsWith('[') && value.endsWith(']')) {
       meta[key] = value
         .slice(1, -1)
         .split(',')
@@ -83,7 +99,6 @@ export function useGitHubBlog({ owner, repo, path = 'blogs', branch = 'main' }: 
 
             const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}`;
 
-            // Find content.md
             const contentFile = folderContents.find(
               (f: { name: string }) => f.name === 'content.md'
             );
@@ -102,8 +117,7 @@ export function useGitHubBlog({ owner, repo, path = 'blogs', branch = 'main' }: 
                 title = meta.title || folder.name;
                 date = meta.date || '';
                 excerpt = meta.excerpt || body.slice(0, 160).replace(/[#*_\n]/g, '').trim() + '...';
-                tags = meta.tags || [];
-                // Rewrite relative image paths to raw GitHub URLs
+                tags = Array.isArray(meta.tags) ? meta.tags : [];
                 content = body.replace(
                   /\.\/([\w\-\.]+\.(jpg|jpeg|png|webp|gif|svg|bmp|tiff|tif|avif|ico))/gi,
                   `${rawBase}/${folder.path}/$1`

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useGitHubBlog } from '@/hooks/useGitHubBlog';
+import { fallbackBlogPosts } from '@/data/fallbackBlogPosts';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogPostView } from '@/components/blog/BlogPostView';
 import { Loader2 } from 'lucide-react';
@@ -16,7 +17,8 @@ export default function BlogPage() {
     repo: GITHUB_REPO,
   });
 
-  const selectedPost = slug ? posts.find((p) => p.slug === slug) : null;
+  const allPosts = posts.length > 0 ? posts : fallbackBlogPosts;
+  const selectedPost = slug ? allPosts.find((p) => p.slug === slug) : null;
 
   return (
     <div className="min-h-screen pt-14">
@@ -35,15 +37,15 @@ export default function BlogPage() {
                 </div>
               )}
 
-              {!loading && (error || posts.length === 0) && (
+              {!loading && allPosts.length === 0 && (
                 <p className="font-body text-center text-muted-foreground py-16">
                   Blog posts coming soon. Stay tuned!
                 </p>
               )}
 
-              {!loading && posts.length > 0 && (
+              {!loading && allPosts.length > 0 && (
                 <div className="space-y-3">
-                  {posts.map((post) => (
+                  {allPosts.map((post) => (
                     <BlogCard key={post.slug} post={post} />
                   ))}
                 </div>
