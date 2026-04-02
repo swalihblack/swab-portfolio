@@ -23,8 +23,8 @@ export default function BlogPreview() {
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
-
-  const latestPosts = posts.slice(0, 5);
+  const allPosts = posts.length > 0 ? posts : fallbackBlogPosts;
+  const latestPosts = allPosts.slice(0, 5);
 
   return (
     <section ref={sectionRef} className="py-20 md:py-28 bg-background overflow-hidden">
