@@ -50,7 +50,7 @@ export default function BlogPreview() {
           </div>
         )}
 
-        {!loading && (error || latestPosts.length === 0) && (
+        {!loading && latestPosts.length === 0 && (
           <p className="font-body text-center text-muted-foreground py-12">
             Blog posts coming soon. Stay tuned!
           </p>
