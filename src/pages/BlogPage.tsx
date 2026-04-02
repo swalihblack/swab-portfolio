@@ -17,7 +17,8 @@ export default function BlogPage() {
     repo: GITHUB_REPO,
   });
 
-  const selectedPost = slug ? posts.find((p) => p.slug === slug) : null;
+  const allPosts = posts.length > 0 ? posts : fallbackBlogPosts;
+  const selectedPost = slug ? allPosts.find((p) => p.slug === slug) : null;
 
   return (
     <div className="min-h-screen pt-14">
