@@ -43,9 +43,9 @@ export default function BlogPage() {
                 </p>
               )}
 
-              {!loading && posts.length > 0 && (
+              {!loading && allPosts.length > 0 && (
                 <div className="space-y-3">
-                  {posts.map((post) => (
+                  {allPosts.map((post) => (
                     <BlogCard key={post.slug} post={post} />
                   ))}
                 </div>
