@@ -62,7 +62,7 @@ export default function BlogPreview() {
               <BlogCard key={post.slug} post={post} />
             ))}
 
-            {posts.length > 5 && (
+            {allPosts.length > 5 && (
               <div className="text-center pt-6">
                 <Link
                   to="/blog"
