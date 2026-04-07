@@ -83,7 +83,7 @@ export default function Hero() {
         {/* Photo */}
         <motion.div
           style={{ y: photoY }}
-          className="flex justify-center md:justify-end"
+          className="flex justify-center md:justify-end md:items-end md:self-end"
         >
           <motion.img
             src={heroPhoto}
@@ -93,7 +93,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="w-64 md:w-80 lg:w-96 drop-shadow-2xl"
+            className="w-64 md:w-80 lg:w-96 drop-shadow-2xl object-contain"
           />
         </motion.div>
       </div>

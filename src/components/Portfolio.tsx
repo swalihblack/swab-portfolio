@@ -2,8 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useGitHubPortfolio, type Project } from '@/hooks/useGitHubPortfolio';
-import { fallbackProjects } from '@/data/fallbackProjects';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight, Loader2, RefreshCw } from 'lucide-react';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ProjectModal } from '@/components/portfolio/ProjectModal';
 import { PortfolioViewToggle } from '@/components/portfolio/PortfolioViewToggle';
@@ -26,28 +25,13 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
   const headingY = useTransform(scrollYProgress, [0, 0.3, 1], [60, 0, -20]);
   const headingOpacity = useTransform(scrollYProgress, [0, 0.15, 0.8, 1], [0, 1, 1, 0]);
 
-  const { projects: ghProjects, loading, error } = useGitHubPortfolio({
+  const { projects: ghProjects, loading, error, refetch } = useGitHubPortfolio({
     owner: GITHUB_OWNER,
     repo: GITHUB_REPO,
   });
   const [gridMode, setGridMode] = useState<'single' | 'double'>('double');
 
-  // Use GitHub data if available, otherwise fallback local data
-  const allProjects = (ghProjects.length > 0 ? ghProjects : fallbackProjects).map((project) => {
-    const fallback = fallbackProjects.find((item) => item.name === project.name);
-    return {
-      ...fallback,
-      ...project,
-      year: project.year || fallback?.year || '',
-      client: project.client || fallback?.client || '',
-      description: project.description || fallback?.description || '',
-      subtitle: project.subtitle || fallback?.subtitle || '',
-      tools: project.tools.length > 0 ? project.tools : fallback?.tools || [],
-      links: project.links.length > 0 ? project.links : fallback?.links || [],
-      photos: project.photos.length > 0 ? project.photos : fallback?.photos || [],
-    } as Project;
-  });
-
+  const allProjects = ghProjects;
   const projects = maxProjects ? allProjects.slice(0, maxProjects) : allProjects;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -75,9 +59,16 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
           </div>
         )}
 
-        {error && !loading && projects.length === 0 && (
-          <div className="text-center py-16">
-            <p className="font-body text-muted-foreground mb-2">Projects are currently unavailable.</p>
+        {error && !loading && (
+          <div className="flex flex-col items-center justify-center py-16 gap-4">
+            <p className="font-body text-muted-foreground">Couldn't load projects. Please try again later.</p>
+            <button
+              onClick={() => refetch()}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200"
+            >
+              <RefreshCw size={14} />
+              Retry
+            </button>
           </div>
         )}
 

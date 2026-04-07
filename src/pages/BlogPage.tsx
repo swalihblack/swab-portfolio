@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useGitHubBlog } from '@/hooks/useGitHubBlog';
-import { fallbackBlogPosts } from '@/data/fallbackBlogPosts';
+
 import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogPostView } from '@/components/blog/BlogPostView';
 import { Loader2 } from 'lucide-react';
@@ -17,7 +17,7 @@ export default function BlogPage() {
     repo: GITHUB_REPO,
   });
 
-  const allPosts = posts.length > 0 ? posts : fallbackBlogPosts;
+  const allPosts = posts;
   const selectedPost = slug ? allPosts.find((p) => p.slug === slug) : null;
 
   return (
