@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import SearchDialog from '@/components/SearchDialog';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -64,16 +65,20 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <SearchDialog />
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-primary-foreground p-2 active:scale-95 transition-transform"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile search + hamburger */}
+        <div className="md:hidden flex items-center gap-1">
+          <SearchDialog />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-primary-foreground p-2 active:scale-95 transition-transform"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
