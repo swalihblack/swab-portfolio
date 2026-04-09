@@ -27,7 +27,7 @@ function parseFrontmatter(raw: string): { meta: Record<string, any>; content: st
   const content = match[2];
   const meta: Record<string, any> = {};
 
-  const lines = metaBlock.split('\n');
+  const lines = metaBlock.split('\n').map((l) => l.replace(/\r$/, ''));
   let currentKey = '';
 
   for (const line of lines) {
