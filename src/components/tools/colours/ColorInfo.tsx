@@ -38,9 +38,9 @@ export default function ColorInfo({ color, onChange }: Props) {
   };
 
   // Sync input when color changes externally
-  if (color !== hexInput && !hexInput.includes(color.slice(1))) {
+  useEffect(() => {
     setHexInput(color);
-  }
+  }, [color]);
 
   return (
     <div className="bg-card rounded-lg border border-border p-4">
