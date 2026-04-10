@@ -9,6 +9,7 @@ import BlogPage from "./pages/BlogPage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import SwabColoursPage from "./pages/SwabColoursPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/tools/swab-colours" element={<SwabColoursPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
