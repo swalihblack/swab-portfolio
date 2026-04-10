@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion';
 import SearchDialog from '@/components/SearchDialog';
 
 const navLinks = [
@@ -12,8 +12,14 @@ const navLinks = [
   { label: 'Contact', to: '/contact' },
 ];
 
+const toolLinks = [
+  { label: 'swabColours', to: '/tools/swab-colours', desc: 'Color theory & palettes' },
+];
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const location = useLocation();
   const { scrollY } = useScroll();
@@ -21,19 +27,28 @@ export default function Header() {
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (isHome) {
-      // Show header only after scrolling past the viewport height (hero)
       setVisible(latest > window.innerHeight - 60);
     }
   });
 
   useEffect(() => {
-    // On non-home pages, always show header
     if (!isHome) {
       setVisible(true);
     } else {
       setVisible(window.scrollY > window.innerHeight - 60);
     }
   }, [isHome, location]);
+
+  // Close tools dropdown when clicking outside
+  useEffect(() => {
+    const handleClick = () => setToolsOpen(false);
+    if (toolsOpen) {
+      document.addEventListener('click', handleClick);
+      return () => document.removeEventListener('click', handleClick);
+    }
+  }, [toolsOpen]);
+
+  const isToolsActive = location.pathname.startsWith('/tools');
 
   return (
     <motion.header
@@ -65,6 +80,52 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+
+          {/* Tools dropdown */}
+          <div className="relative">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setToolsOpen(!toolsOpen);
+              }}
+              className={`font-body text-sm font-medium tracking-wide uppercase transition-colors duration-200 flex items-center gap-1 ${
+                isToolsActive ? 'text-accent' : 'text-primary-foreground/80 hover:text-accent'
+              }`}
+            >
+              Tools
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${toolsOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            <AnimatePresence>
+              {toolsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full right-0 mt-2 w-52 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {toolLinks.map((tool) => (
+                    <Link
+                      key={tool.to}
+                      to={tool.to}
+                      onClick={() => setToolsOpen(false)}
+                      className={`block px-4 py-3 hover:bg-muted transition-colors ${
+                        location.pathname === tool.to ? 'bg-muted' : ''
+                      }`}
+                    >
+                      <span className="text-sm font-semibold text-foreground">{tool.label}</span>
+                      <span className="block text-xs text-muted-foreground mt-0.5">{tool.desc}</span>
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <SearchDialog />
         </nav>
 
@@ -99,6 +160,39 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Tools collapsible */}
+            <button
+              onClick={() => setMobileToolsOpen(!mobileToolsOpen)}
+              className={`font-body text-base font-medium py-2 transition-colors flex items-center gap-1 ${
+                isToolsActive ? 'text-accent' : 'text-primary-foreground/80'
+              }`}
+            >
+              Tools
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${mobileToolsOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            {mobileToolsOpen && (
+              <div className="pl-4 flex flex-col gap-2">
+                {toolLinks.map((tool) => (
+                  <Link
+                    key={tool.to}
+                    to={tool.to}
+                    onClick={() => { setMenuOpen(false); setMobileToolsOpen(false); }}
+                    className={`font-body text-sm py-1.5 transition-colors ${
+                      location.pathname === tool.to
+                        ? 'text-accent'
+                        : 'text-primary-foreground/70 hover:text-accent'
+                    }`}
+                  >
+                    {tool.label}
+                    <span className="block text-xs text-primary-foreground/40">{tool.desc}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </nav>
       )}
