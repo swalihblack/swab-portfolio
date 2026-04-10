@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { hexToRgb, rgbToHsl, rgbToCmyk, rgbToHsv, textColorForBg } from '@/lib/colorUtils';
 import { Copy, Check } from 'lucide-react';
 
