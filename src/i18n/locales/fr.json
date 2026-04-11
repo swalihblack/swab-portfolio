@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact",
+    "tools": "Outils",
+    "swabColours": "swabColours",
+    "swabColoursDesc": "Théorie des couleurs et palettes",
+    "swabLibrary": "Bibliothèque swabColours",
+    "swabLibraryDesc": "+1000 palettes curées"
+  },
+  "hero": {
+    "name": "Swalih Abdullah",
+    "headline1": "Précision en Droit.",
+    "headline2": "Créativité",
+    "headline3": "en Design.",
+    "subtitle": "Designer graphique alliant la discipline du droit à l'art de la narration visuelle.",
+    "viewWork": "Voir les Travaux",
+    "contactMe": "Me Contacter"
+  },
+  "about": {
+    "title": "À propos",
+    "bio": "Je suis Swalih Abdullah — étudiant en droit le jour et designer graphique à chaque autre heure éveillée. Je crois que la rigueur de la pensée juridique et la liberté d'expression créative ne sont pas opposées — ce sont des forces complémentaires.",
+    "services": "Services",
+    "experience": "Expérience",
+    "graphicDesign": "Design Graphique",
+    "editorialDesign": "Design Éditorial",
+    "branding": "Image de Marque",
+    "socialMedia": "Design Réseaux Sociaux"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "loading": "Chargement des projets...",
+    "error": "Impossible de charger les projets. Veuillez réessayer plus tard.",
+    "retry": "Réessayer",
+    "empty": "Pas encore de projets. Restez à l'écoute !",
+    "viewAll": "Voir Tous les Projets"
+  },
+  "blog": {
+    "title": "Blog",
+    "loading": "Chargement des articles...",
+    "error": "Impossible de charger les articles. Veuillez réessayer plus tard.",
+    "empty": "Articles à venir bientôt. Restez à l'écoute !",
+    "viewAll": "Voir Tous les Articles",
+    "notFound": "Article non trouvé."
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "Vous avez un projet en tête ? Parlons-en.",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "vous@exemple.com",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-moi de votre projet...",
+    "send": "Envoyer le Message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé ! Je vous répondrai bientôt."
+  },
+  "footer": {
+    "rights": "© {{year}} Swalih Abdullah. Tous droits réservés."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Cette page n'existe pas.",
+    "goHome": "Retour à l'Accueil"
+  },
+  "search": {
+    "placeholder": "Rechercher projets, articles, pages...",
+    "noResults": "Aucun résultat trouvé.",
+    "close": "pour fermer"
+  },
+  "swabColours": {
+    "title": "swab",
+    "titleAccent": "Colours",
+    "subtitle": "Outil couleur tout-en-un pour designers graphiques. Explorez la théorie des couleurs, les harmonies, les palettes et prévisualisez les couleurs en contexte réel.",
+    "harmonies": "Harmonies",
+    "preview": "Aperçu",
+    "palettes": "Palettes",
+    "suggest": "Suggestions",
+    "colorWheel": "Roue Chromatique",
+    "colorCodes": "Codes Couleur",
+    "searchPalettes": "Rechercher des palettes...",
+    "noPalettes": "Aucune palette ne correspond.",
+    "matchingPalettes": "Palettes correspondant à votre couleur",
+    "viewLibrary": "Voir la Bibliothèque Complète",
+    "complementary": "Complémentaire",
+    "complementaryDesc": "Opposé sur la roue chromatique — contraste élevé et vibrant.",
+    "analogous": "Analogue",
+    "analogousDesc": "Teintes adjacentes — naturellement harmonieuses et calmes.",
+    "triadic": "Triadique",
+    "triadicDesc": "Trois teintes équidistantes — équilibré et coloré.",
+    "splitComplementary": "Complémentaire Divisé",
+    "splitComplementaryDesc": "Base + deux adjacentes au complément — contraste plus doux.",
+    "tetradic": "Tétradique (Carré)",
+    "tetradicDesc": "Quatre teintes en rectangle — riche et varié.",
+    "monochromatic": "Monochromatique",
+    "monochromaticDesc": "Teinte unique avec luminosité variée — élégant et unifié.",
+    "pairsWith": "Couleurs qui s'accordent avec",
+    "website": "Site Web",
+    "mobileApp": "App Mobile",
+    "cardUI": "Carte UI",
+    "library": {
+      "title": "Bibliothèque swabColours",
+      "subtitle": "Parcourez plus de 1000 palettes dans {{count}} catégories.",
+      "allCategories": "Toutes",
+      "searchPlaceholder": "Rechercher des palettes...",
+      "showing": "Affichage de {{count}} palettes",
+      "noPalettes": "Aucune palette ne correspond à vos filtres."
+    }
+  }
+}

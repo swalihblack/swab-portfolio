@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "tools": "Herramientas",
+    "swabColours": "swabColours",
+    "swabColoursDesc": "Teoría del color y paletas",
+    "swabLibrary": "Biblioteca swabColours",
+    "swabLibraryDesc": "+1000 paletas curadas"
+  },
+  "hero": {
+    "name": "Swalih Abdullah",
+    "headline1": "Precisión en el Derecho.",
+    "headline2": "Creatividad",
+    "headline3": "en el Diseño.",
+    "subtitle": "Diseñador gráfico que une la disciplina del derecho con el arte de la narrativa visual.",
+    "viewWork": "Ver Trabajo",
+    "contactMe": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "bio": "Soy Swalih Abdullah — estudiante de derecho de día y diseñador gráfico en cada otra hora despierta. Creo que el rigor del pensamiento legal y la libertad de la expresión creativa no son opuestos — son fuerzas complementarias.",
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "graphicDesign": "Diseño Gráfico",
+    "editorialDesign": "Diseño Editorial",
+    "branding": "Branding",
+    "socialMedia": "Diseño para Redes Sociales"
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "loading": "Cargando proyectos...",
+    "error": "No se pudieron cargar los proyectos. Inténtalo más tarde.",
+    "retry": "Reintentar",
+    "empty": "Aún no hay proyectos. ¡Mantente atento!",
+    "viewAll": "Ver Todos los Proyectos"
+  },
+  "blog": {
+    "title": "Blog",
+    "loading": "Cargando publicaciones...",
+    "error": "No se pudieron cargar las publicaciones. Inténtalo más tarde.",
+    "empty": "Publicaciones próximamente. ¡Mantente atento!",
+    "viewAll": "Ver Todas las Publicaciones",
+    "notFound": "Publicación no encontrada."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? Hablemos.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te responderé pronto."
+  },
+  "footer": {
+    "rights": "© {{year}} Swalih Abdullah. Todos los derechos reservados."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Esta página no existe.",
+    "goHome": "Ir al Inicio"
+  },
+  "search": {
+    "placeholder": "Buscar proyectos, publicaciones, páginas...",
+    "noResults": "No se encontraron resultados.",
+    "close": "para cerrar"
+  },
+  "swabColours": {
+    "title": "swab",
+    "titleAccent": "Colours",
+    "subtitle": "Herramienta de color todo en uno para diseñadores gráficos. Explora teoría del color, armonías, paletas y previsualiza colores en contextos reales.",
+    "harmonies": "Armonías",
+    "preview": "Vista previa",
+    "palettes": "Paletas",
+    "suggest": "Sugerir",
+    "colorWheel": "Rueda de Color",
+    "colorCodes": "Códigos de Color",
+    "searchPalettes": "Buscar paletas...",
+    "noPalettes": "Ninguna paleta coincide con tu búsqueda.",
+    "matchingPalettes": "Paletas que coinciden con tu color",
+    "viewLibrary": "Ver Biblioteca Completa",
+    "complementary": "Complementario",
+    "complementaryDesc": "Opuesto en la rueda de color — alto contraste y vibrante.",
+    "analogous": "Análogo",
+    "analogousDesc": "Tonos adyacentes — naturalmente armoniosos y tranquilos.",
+    "triadic": "Triádico",
+    "triadicDesc": "Tres tonos equidistantes — equilibrado y colorido.",
+    "splitComplementary": "Complementario Dividido",
+    "splitComplementaryDesc": "Base + dos adyacentes al complemento — contraste más suave.",
+    "tetradic": "Tetrádico (Cuadrado)",
+    "tetradicDesc": "Cuatro tonos en rectángulo — rico y variado.",
+    "monochromatic": "Monocromático",
+    "monochromaticDesc": "Un solo tono con luminosidad variada — elegante y unificado.",
+    "pairsWith": "Colores que combinan bien con",
+    "website": "Sitio Web",
+    "mobileApp": "App Móvil",
+    "cardUI": "Tarjeta UI",
+    "library": {
+      "title": "Biblioteca swabColours",
+      "subtitle": "Explora más de 1000 paletas curadas en {{count}} categorías.",
+      "allCategories": "Todas",
+      "searchPlaceholder": "Buscar paletas...",
+      "showing": "Mostrando {{count}} paletas",
+      "noPalettes": "Ninguna paleta coincide con tus filtros."
+    }
+  }
+}
