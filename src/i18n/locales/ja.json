@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "about": "自己紹介",
+    "contact": "お問い合わせ",
+    "tools": "ツール",
+    "swabColours": "swabColours",
+    "swabColoursDesc": "色彩理論とパレット",
+    "swabLibrary": "swabColours ライブラリ",
+    "swabLibraryDesc": "1000以上のパレット"
+  },
+  "hero": {
+    "name": "スワリフ・アブドゥッラー",
+    "headline1": "法律の精密さ。",
+    "headline2": "創造性",
+    "headline3": "デザインの中に。",
+    "subtitle": "法律の規律とビジュアルストーリーテリングの芸術を結ぶグラフィックデザイナー。",
+    "viewWork": "作品を見る",
+    "contactMe": "お問い合わせ"
+  },
+  "about": {
+    "title": "自己紹介",
+    "bio": "私はスワリフ・アブドゥッラーです。昼は法学生、それ以外の時間はグラフィックデザイナーです。法的思考の厳格さと創造的表現の自由は対立するものではなく、補完的な力であると信じています。",
+    "services": "サービス",
+    "experience": "経験",
+    "graphicDesign": "グラフィックデザイン",
+    "editorialDesign": "エディトリアルデザイン",
+    "branding": "ブランディング",
+    "socialMedia": "SNSデザイン"
+  },
+  "portfolio": {
+    "title": "ポートフォリオ",
+    "loading": "プロジェクトを読み込み中...",
+    "error": "プロジェクトを読み込めませんでした。後でもう一度お試しください。",
+    "retry": "再試行",
+    "empty": "まだプロジェクトはありません。お楽しみに！",
+    "viewAll": "すべてのプロジェクトを見る"
+  },
+  "blog": {
+    "title": "ブログ",
+    "loading": "記事を読み込み中...",
+    "error": "記事を読み込めませんでした。後でもう一度お試しください。",
+    "empty": "ブログ記事は近日公開予定です。お楽しみに！",
+    "viewAll": "すべての記事を見る",
+    "notFound": "記事が見つかりません。"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "プロジェクトをお考えですか？お話しましょう。",
+    "name": "名前",
+    "namePlaceholder": "お名前",
+    "email": "メール",
+    "emailPlaceholder": "you@example.com",
+    "message": "メッセージ",
+    "messagePlaceholder": "プロジェクトについて教えてください...",
+    "send": "メッセージを送る",
+    "sending": "送信中...",
+    "success": "メッセージを送信しました！すぐにご連絡いたします。"
+  },
+  "footer": {
+    "rights": "© {{year}} Swalih Abdullah. All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "このページは存在しません。",
+    "goHome": "ホームへ"
+  },
+  "search": {
+    "placeholder": "プロジェクト、ブログ記事、ページを検索...",
+    "noResults": "結果が見つかりません。",
+    "close": "で閉じる"
+  },
+  "swabColours": {
+    "title": "swab",
+    "titleAccent": "Colours",
+    "subtitle": "グラフィックデザイナーのためのオールインワンカラーツール。色彩理論、ハーモニー、パレットを探索し、リアルなコンテキストで色をプレビューできます。",
+    "harmonies": "ハーモニー",
+    "preview": "プレビュー",
+    "palettes": "パレット",
+    "suggest": "提案",
+    "colorWheel": "カラーホイール",
+    "colorCodes": "カラーコード",
+    "searchPalettes": "パレットを検索...",
+    "noPalettes": "一致するパレットはありません。",
+    "matchingPalettes": "あなたの色に合うパレット",
+    "viewLibrary": "ライブラリ全体を見る",
+    "complementary": "補色",
+    "complementaryDesc": "カラーホイールの反対側 — 高いコントラストと活気。",
+    "analogous": "類似色",
+    "analogousDesc": "隣り合う色 — 自然に調和して穏やか。",
+    "triadic": "トライアド",
+    "triadicDesc": "均等に配置された3色 — バランスとカラフルさ。",
+    "splitComplementary": "分割補色",
+    "splitComplementaryDesc": "ベース + 補色の隣接2色 — 柔らかいコントラスト。",
+    "tetradic": "テトラード（スクエア）",
+    "tetradicDesc": "長方形の4色 — 豊かで多彩。",
+    "monochromatic": "モノクロマティック",
+    "monochromaticDesc": "明度を変えた単一色 — エレガントで統一感。",
+    "pairsWith": "相性の良い色",
+    "website": "ウェブサイト",
+    "mobileApp": "モバイルアプリ",
+    "cardUI": "カードUI",
+    "library": {
+      "title": "swabColours ライブラリ",
+      "subtitle": "{{count}}カテゴリの1000以上のパレットをブラウズ。",
+      "allCategories": "すべて",
+      "searchPlaceholder": "パレットを検索...",
+      "showing": "{{count}}パレットを表示中",
+      "noPalettes": "フィルターに一致するパレットはありません。"
+    }
+  }
+}

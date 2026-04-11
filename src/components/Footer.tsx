@@ -1,4 +1,8 @@
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+
 export default function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -27,7 +31,7 @@ export default function Footer() {
         </div>
 
         <p className="font-body text-xs text-primary-foreground/40">
-          © {year} Swalih Abdullah. All rights reserved.
+          {t('footer.rights', { year })}
         </p>
       </div>
     </footer>

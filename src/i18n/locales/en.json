@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "tools": "Tools",
+    "swabColours": "swabColours",
+    "swabColoursDesc": "Color theory & palettes",
+    "swabLibrary": "swabColours Library",
+    "swabLibraryDesc": "1000+ curated palettes"
+  },
+  "hero": {
+    "name": "Swalih Abdullah",
+    "headline1": "Precision in Law.",
+    "headline2": "Creativity",
+    "headline3": "in Design.",
+    "subtitle": "Graphic designer bridging the discipline of law with the art of visual storytelling.",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "title": "About",
+    "bio": "I'm Swalih Abdullah — a law student by day and a graphic designer in every other waking hour. I believe that the rigour of legal thinking and the freedom of creative expression aren't opposites — they're complementary forces. My work lives at that intersection: structured yet expressive, precise yet imaginative.",
+    "services": "Services",
+    "experience": "Experience",
+    "graphicDesign": "Graphic Design",
+    "editorialDesign": "Editorial Design",
+    "branding": "Branding",
+    "socialMedia": "Social Media Design"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "loading": "Loading projects...",
+    "error": "Couldn't load projects. Please try again later.",
+    "retry": "Retry",
+    "empty": "No projects found yet. Stay tuned!",
+    "viewAll": "View All Projects"
+  },
+  "blog": {
+    "title": "Blog",
+    "loading": "Loading posts...",
+    "error": "Couldn't load posts. Please try again later.",
+    "empty": "Blog posts coming soon. Stay tuned!",
+    "viewAll": "View All Posts",
+    "notFound": "Post not found."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind? Let's talk.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you soon."
+  },
+  "footer": {
+    "rights": "© {{year}} Swalih Abdullah. All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "This page doesn't exist.",
+    "goHome": "Go Home"
+  },
+  "search": {
+    "placeholder": "Search projects, blog posts, pages...",
+    "noResults": "No results found.",
+    "close": "to close"
+  },
+  "swabColours": {
+    "title": "swab",
+    "titleAccent": "Colours",
+    "subtitle": "All-in-one color tool for graphic designers. Explore color theory, harmonies, palettes, and preview colors in real contexts.",
+    "harmonies": "Harmonies",
+    "preview": "Preview",
+    "palettes": "Palettes",
+    "suggest": "Suggest",
+    "colorWheel": "Color Wheel",
+    "colorCodes": "Color Codes",
+    "searchPalettes": "Search palettes...",
+    "noPalettes": "No palettes match your search.",
+    "matchingPalettes": "Palettes matching your color",
+    "viewLibrary": "View Full Library",
+    "complementary": "Complementary",
+    "complementaryDesc": "Opposite on the color wheel — high contrast and vibrant.",
+    "analogous": "Analogous",
+    "analogousDesc": "Side-by-side hues — naturally harmonious and calm.",
+    "triadic": "Triadic",
+    "triadicDesc": "Three evenly spaced hues — balanced and colorful.",
+    "splitComplementary": "Split-Complementary",
+    "splitComplementaryDesc": "Base + two adjacent to complement — softer contrast.",
+    "tetradic": "Tetradic (Square)",
+    "tetradicDesc": "Four hues in a rectangle — rich and varied.",
+    "monochromatic": "Monochromatic",
+    "monochromaticDesc": "Single hue with varied lightness — elegant and unified.",
+    "pairsWith": "Colors that pair well with",
+    "website": "Website",
+    "mobileApp": "Mobile App",
+    "cardUI": "Card UI",
+    "library": {
+      "title": "swabColours Library",
+      "subtitle": "Browse 1000+ curated color palettes across {{count}} categories.",
+      "allCategories": "All",
+      "searchPlaceholder": "Search palettes...",
+      "showing": "Showing {{count}} palettes",
+      "noPalettes": "No palettes match your filters."
+    }
+  }
+}
