@@ -1,114 +1,13 @@
 {
-  "nav": {
-    "home": "Startseite",
-    "projects": "Projekte",
-    "blog": "Blog",
-    "about": "Über mich",
-    "contact": "Kontakt",
-    "tools": "Werkzeuge",
-    "swabColours": "swabColours",
-    "swabColoursDesc": "Farbtheorie & Paletten",
-    "swabLibrary": "swabColours Bibliothek",
-    "swabLibraryDesc": "1000+ kuratierte Paletten"
-  },
-  "hero": {
-    "name": "Swalih Abdullah",
-    "headline1": "Präzision im Recht.",
-    "headline2": "Kreativität",
-    "headline3": "im Design.",
-    "subtitle": "Grafikdesigner, der die Disziplin des Rechts mit der Kunst des visuellen Erzählens verbindet.",
-    "viewWork": "Arbeiten ansehen",
-    "contactMe": "Kontakt"
-  },
-  "about": {
-    "title": "Über mich",
-    "bio": "Ich bin Swalih Abdullah — tagsüber Jurastudent und in jeder anderen wachen Stunde Grafikdesigner. Ich glaube, dass die Strenge juristischen Denkens und die Freiheit kreativen Ausdrucks keine Gegensätze sind — sie sind komplementäre Kräfte.",
-    "services": "Dienstleistungen",
-    "experience": "Erfahrung",
-    "graphicDesign": "Grafikdesign",
-    "editorialDesign": "Redaktionsdesign",
-    "branding": "Branding",
-    "socialMedia": "Social-Media-Design"
-  },
-  "portfolio": {
-    "title": "Portfolio",
-    "loading": "Projekte werden geladen...",
-    "error": "Projekte konnten nicht geladen werden. Bitte versuchen Sie es später erneut.",
-    "retry": "Erneut versuchen",
-    "empty": "Noch keine Projekte. Bleiben Sie dran!",
-    "viewAll": "Alle Projekte ansehen"
-  },
-  "blog": {
-    "title": "Blog",
-    "loading": "Beiträge werden geladen...",
-    "error": "Beiträge konnten nicht geladen werden. Bitte versuchen Sie es später erneut.",
-    "empty": "Blogbeiträge kommen bald. Bleiben Sie dran!",
-    "viewAll": "Alle Beiträge ansehen",
-    "notFound": "Beitrag nicht gefunden."
-  },
-  "contact": {
-    "title": "Kontakt",
-    "subtitle": "Haben Sie ein Projekt im Sinn? Lassen Sie uns sprechen.",
-    "name": "Name",
-    "namePlaceholder": "Ihr Name",
-    "email": "E-Mail",
-    "emailPlaceholder": "sie@beispiel.de",
-    "message": "Nachricht",
-    "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt...",
-    "send": "Nachricht senden",
-    "sending": "Wird gesendet...",
-    "success": "Nachricht gesendet! Ich melde mich bald bei Ihnen."
-  },
-  "footer": {
-    "rights": "© {{year}} Swalih Abdullah. Alle Rechte vorbehalten."
-  },
-  "notFound": {
-    "title": "404",
-    "message": "Diese Seite existiert nicht.",
-    "goHome": "Zur Startseite"
-  },
-  "search": {
-    "placeholder": "Projekte, Blogbeiträge, Seiten suchen...",
-    "noResults": "Keine Ergebnisse gefunden.",
-    "close": "zum Schließen"
-  },
-  "swabColours": {
-    "title": "swab",
-    "titleAccent": "Colours",
-    "subtitle": "All-in-One-Farbwerkzeug für Grafikdesigner. Entdecken Sie Farbtheorie, Harmonien, Paletten und sehen Sie Farben in echten Kontexten.",
-    "harmonies": "Harmonien",
-    "preview": "Vorschau",
-    "palettes": "Paletten",
-    "suggest": "Vorschläge",
-    "colorWheel": "Farbrad",
-    "colorCodes": "Farbcodes",
-    "searchPalettes": "Paletten suchen...",
-    "noPalettes": "Keine passenden Paletten.",
-    "matchingPalettes": "Paletten passend zu Ihrer Farbe",
-    "viewLibrary": "Vollständige Bibliothek ansehen",
-    "complementary": "Komplementär",
-    "complementaryDesc": "Gegenüber auf dem Farbrad — hoher Kontrast und lebendig.",
-    "analogous": "Analog",
-    "analogousDesc": "Benachbarte Farbtöne — natürlich harmonisch und ruhig.",
-    "triadic": "Triadisch",
-    "triadicDesc": "Drei gleichmäßig verteilte Farbtöne — ausgewogen und farbenfroh.",
-    "splitComplementary": "Gespalten-Komplementär",
-    "splitComplementaryDesc": "Basis + zwei Nachbarn des Komplements — sanfterer Kontrast.",
-    "tetradic": "Tetradisch (Quadrat)",
-    "tetradicDesc": "Vier Farbtöne im Rechteck — reich und vielfältig.",
-    "monochromatic": "Monochromatisch",
-    "monochromaticDesc": "Ein Farbton mit variierter Helligkeit — elegant und einheitlich.",
-    "pairsWith": "Farben, die gut passen zu",
-    "website": "Website",
-    "mobileApp": "Mobile App",
-    "cardUI": "Karten-UI",
-    "library": {
-      "title": "swabColours Bibliothek",
-      "subtitle": "Durchsuchen Sie 1000+ kuratierte Farbpaletten in {{count}} Kategorien.",
-      "allCategories": "Alle",
-      "searchPlaceholder": "Paletten suchen...",
-      "showing": "{{count}} Paletten angezeigt",
-      "noPalettes": "Keine Paletten entsprechen Ihren Filtern."
-    }
-  }
+  "nav": { "home": "Startseite", "projects": "Projekte", "blog": "Blog", "about": "Über mich", "contact": "Kontakt", "tools": "Werkzeuge", "swabColours": "swabColours", "swabColoursDesc": "Farbtheorie & Paletten", "swabLab": "swabColours Labor", "swabLabDesc": "Farbexperimentierer", "swabLibrary": "swabColours Bibliothek", "swabLibraryDesc": "1000+ kuratierte Paletten" },
+  "hero": { "name": "Swalih Abdullah", "headline1": "Präzision im Recht.", "headline2": "Kreativität", "headline3": "im Design.", "subtitle": "Grafikdesigner, der die Disziplin des Rechts mit der Kunst des visuellen Erzählens verbindet.", "viewWork": "Arbeiten ansehen", "contactMe": "Kontakt" },
+  "about": { "title": "Über mich", "bio": "Ich bin Swalih Abdullah — tagsüber Jurastudent und in jeder anderen wachen Stunde Grafikdesigner. Ich glaube, dass die Strenge juristischen Denkens und die Freiheit kreativen Ausdrucks keine Gegensätze sind — sie sind komplementäre Kräfte.", "services": "Dienstleistungen", "experience": "Erfahrung", "graphicDesign": "Grafikdesign", "editorialDesign": "Redaktionsdesign", "branding": "Branding", "socialMedia": "Social-Media-Design", "webDesign": "Webdesign", "uiDesign": "UI-Design", "timeline": { "role1": "Freiberuflicher Grafikdesigner", "org1": "Selbständig", "desc1": "Lieferung von Branding, redaktionellem und Social-Media-Design für verschiedene Kunden.", "year1": "2024 – Gegenwart", "role2": "Junior Designer", "org2": "Nasweeha", "desc2": "Begann als Praktikant in der Bildungseinrichtung und sammelte Erfahrung.", "year2": "2021 – 2024", "role3": "Anfänger", "org3": "Autodidakt", "desc3": "Begann aus Neugier Grafikdesign zu lernen, später wurde es zur Leidenschaft.", "year3": "2015 – 2021" } },
+  "portfolio": { "title": "Portfolio", "loading": "Projekte werden geladen...", "error": "Projekte konnten nicht geladen werden.", "retry": "Erneut versuchen", "empty": "Noch keine Projekte.", "viewAll": "Alle Projekte ansehen" },
+  "blog": { "title": "Blog", "loading": "Beiträge werden geladen...", "error": "Beiträge konnten nicht geladen werden.", "empty": "Blogbeiträge kommen bald.", "viewAll": "Alle Beiträge ansehen", "notFound": "Beitrag nicht gefunden.", "readMore": "Mehr lesen", "backToBlog": "Zurück zum Blog" },
+  "contact": { "title": "Kontakt", "subtitle": "Haben Sie ein Projekt? Lassen Sie uns sprechen.", "name": "Name", "namePlaceholder": "Ihr Name", "email": "E-Mail", "emailPlaceholder": "sie@beispiel.de", "message": "Nachricht", "messagePlaceholder": "Erzählen Sie von Ihrem Projekt...", "send": "Nachricht senden", "sending": "Wird gesendet...", "success": "Nachricht gesendet!" },
+  "footer": { "rights": "© {{year}} Swalih Abdullah. Alle Rechte vorbehalten.", "languages": "Verfügbare Sprachen" },
+  "notFound": { "title": "404", "message": "Diese Seite existiert nicht.", "goHome": "Zur Startseite" },
+  "search": { "placeholder": "Suchen...", "noResults": "Keine Ergebnisse.", "close": "schließen" },
+  "tools": { "sectionTitle": "Design-Werkzeuge", "sectionSubtitle": "Kostenlose Werkzeuge für Grafikdesigner.", "swabColoursTitle": "swabColours Labor", "swabColoursDesc": "Farbtheorie, Harmonien und Vorschau in echten Designs.", "swabLibraryTitle": "swabColours Bibliothek", "swabLibraryDesc": "1000+ kuratierte Farbpaletten durchsuchen.", "openTool": "Werkzeug öffnen" },
+  "swabColours": { "title": "swab", "titleAccent": "Colours", "labTitle": "swabColours Labor", "libraryTitle": "swabColours Bibliothek", "subtitle": "All-in-One-Farbwerkzeug für Designer.", "harmonies": "Harmonien", "preview": "Vorschau", "palettes": "Paletten", "swabBoy": "swabBOY", "colorWheel": "Farbrad", "colorCodes": "Farbcodes", "searchPalettes": "Paletten suchen...", "noPalettes": "Keine passenden Paletten.", "matchingPalettes": "Passende Paletten", "viewLibrary": "Bibliothek ansehen", "goToLab": "Im Labor öffnen", "goToLibrary": "Zur Bibliothek", "selectedColors": "Ausgewählte Farben", "clearAll": "Alles löschen", "addColor": "Klicken um Farben hinzuzufügen", "harmonyMeter": "Harmonieanalyse", "complementary": "Komplementär", "complementaryDesc": "Gegenüber auf dem Farbrad — hoher Kontrast.", "analogous": "Analog", "analogousDesc": "Benachbarte Farbtöne — natürlich harmonisch.", "triadic": "Triadisch", "triadicDesc": "Drei gleichmäßig verteilte Farbtöne.", "splitComplementary": "Gespalten-Komplementär", "splitComplementaryDesc": "Basis + zwei Nachbarn des Komplements.", "tetradic": "Tetradisch", "tetradicDesc": "Vier Farbtöne im Rechteck.", "monochromatic": "Monochromatisch", "monochromaticDesc": "Ein Farbton mit variierter Helligkeit.", "pairsWith": "Farben die gut passen zu", "website": "Website", "mobileApp": "App", "cardUI": "Karte", "print": "Druck", "poster": "Poster", "library": { "title": "swabColours Bibliothek", "subtitle": "1000+ Paletten in {{count}} Kategorien.", "allCategories": "Alle", "searchPlaceholder": "Paletten suchen...", "showing": "{{count}} Paletten angezeigt", "noPalettes": "Keine passenden Paletten.", "selectPalette": "Palette auswählen", "previewPalette": "Vorschau", "selectedPalette": "Ausgewählte Palette" } }
 }

@@ -1,114 +1,13 @@
 {
-  "nav": {
-    "home": "首页",
-    "projects": "项目",
-    "blog": "博客",
-    "about": "关于",
-    "contact": "联系",
-    "tools": "工具",
-    "swabColours": "swabColours",
-    "swabColoursDesc": "色彩理论与调色板",
-    "swabLibrary": "swabColours 库",
-    "swabLibraryDesc": "1000+ 精选调色板"
-  },
-  "hero": {
-    "name": "Swalih Abdullah",
-    "headline1": "法律的精确。",
-    "headline2": "创造力",
-    "headline3": "在设计中。",
-    "subtitle": "将法律的严谨与视觉叙事艺术相结合的平面设计师。",
-    "viewWork": "查看作品",
-    "contactMe": "联系我"
-  },
-  "about": {
-    "title": "关于",
-    "bio": "我是Swalih Abdullah——白天是法学生，其余时间是平面设计师。我相信法律思维的严谨和创意表达的自由不是对立的——它们是互补的力量。",
-    "services": "服务",
-    "experience": "经验",
-    "graphicDesign": "平面设计",
-    "editorialDesign": "编辑设计",
-    "branding": "品牌设计",
-    "socialMedia": "社交媒体设计"
-  },
-  "portfolio": {
-    "title": "作品集",
-    "loading": "正在加载项目...",
-    "error": "无法加载项目。请稍后再试。",
-    "retry": "重试",
-    "empty": "暂无项目。敬请期待！",
-    "viewAll": "查看所有项目"
-  },
-  "blog": {
-    "title": "博客",
-    "loading": "正在加载文章...",
-    "error": "无法加载文章。请稍后再试。",
-    "empty": "博客文章即将推出。敬请期待！",
-    "viewAll": "查看所有文章",
-    "notFound": "未找到文章。"
-  },
-  "contact": {
-    "title": "联系我们",
-    "subtitle": "有项目想法？让我们谈谈。",
-    "name": "姓名",
-    "namePlaceholder": "您的姓名",
-    "email": "邮箱",
-    "emailPlaceholder": "you@example.com",
-    "message": "消息",
-    "messagePlaceholder": "告诉我您的项目...",
-    "send": "发送消息",
-    "sending": "发送中...",
-    "success": "消息已发送！我会尽快回复您。"
-  },
-  "footer": {
-    "rights": "© {{year}} Swalih Abdullah. 保留所有权利。"
-  },
-  "notFound": {
-    "title": "404",
-    "message": "此页面不存在。",
-    "goHome": "返回首页"
-  },
-  "search": {
-    "placeholder": "搜索项目、博客文章、页面...",
-    "noResults": "未找到结果。",
-    "close": "关闭"
-  },
-  "swabColours": {
-    "title": "swab",
-    "titleAccent": "Colours",
-    "subtitle": "平面设计师的全能色彩工具。探索色彩理论、和谐、调色板，并在真实场景中预览颜色。",
-    "harmonies": "和谐",
-    "preview": "预览",
-    "palettes": "调色板",
-    "suggest": "建议",
-    "colorWheel": "色轮",
-    "colorCodes": "颜色代码",
-    "searchPalettes": "搜索调色板...",
-    "noPalettes": "没有匹配的调色板。",
-    "matchingPalettes": "匹配您颜色的调色板",
-    "viewLibrary": "查看完整库",
-    "complementary": "互补色",
-    "complementaryDesc": "色轮上的对面——高对比度且鲜艳。",
-    "analogous": "类似色",
-    "analogousDesc": "相邻色调——自然和谐且平静。",
-    "triadic": "三色组",
-    "triadicDesc": "三个等距色调——平衡且丰富多彩。",
-    "splitComplementary": "分裂互补",
-    "splitComplementaryDesc": "基色+互补色的两个相邻色——更柔和的对比。",
-    "tetradic": "四色组（方形）",
-    "tetradicDesc": "矩形中的四种色调——丰富多样。",
-    "monochromatic": "单色",
-    "monochromaticDesc": "不同明度的单一色调——优雅统一。",
-    "pairsWith": "与之搭配的颜色",
-    "website": "网站",
-    "mobileApp": "移动应用",
-    "cardUI": "卡片UI",
-    "library": {
-      "title": "swabColours 库",
-      "subtitle": "浏览{{count}}个类别中的1000+精选调色板。",
-      "allCategories": "全部",
-      "searchPlaceholder": "搜索调色板...",
-      "showing": "显示{{count}}个调色板",
-      "noPalettes": "没有匹配筛选条件的调色板。"
-    }
-  }
+  "nav": { "home": "首页", "projects": "项目", "blog": "博客", "about": "关于", "contact": "联系", "tools": "工具", "swabColours": "swabColours", "swabColoursDesc": "色彩理论与调色板", "swabLab": "swabColours 实验室", "swabLabDesc": "色彩实验与预览", "swabLibrary": "swabColours 库", "swabLibraryDesc": "1000+ 精选调色板" },
+  "hero": { "name": "Swalih Abdullah", "headline1": "法律的精确。", "headline2": "创造力", "headline3": "在设计中。", "subtitle": "将法律的严谨与视觉叙事艺术相结合的平面设计师。", "viewWork": "查看作品", "contactMe": "联系我" },
+  "about": { "title": "关于", "bio": "我是Swalih Abdullah——白天是法学生，其余时间是平面设计师。我相信法律思维的严谨和创意表达的自由不是对立的——它们是互补的力量。", "services": "服务", "experience": "经验", "graphicDesign": "平面设计", "editorialDesign": "编辑设计", "branding": "品牌设计", "socialMedia": "社交媒体设计", "webDesign": "网页设计", "uiDesign": "UI设计", "timeline": { "role1": "自由平面设计师", "org1": "自雇", "desc1": "为不同客户提供品牌、编辑和社交媒体设计。", "year1": "2024 – 至今", "role2": "初级设计师", "org2": "Nasweeha", "desc2": "在教育机构实习并积累经验。", "year2": "2021 – 2024", "role3": "新手", "org3": "自学", "desc3": "为满足好奇心开始学习平面设计，后来变成了热情。", "year3": "2015 – 2021" } },
+  "portfolio": { "title": "作品集", "loading": "正在加载项目...", "error": "无法加载项目。", "retry": "重试", "empty": "暂无项目。", "viewAll": "查看所有项目" },
+  "blog": { "title": "博客", "loading": "正在加载文章...", "error": "无法加载文章。", "empty": "博客文章即将推出。", "viewAll": "查看所有文章", "notFound": "未找到文章。", "readMore": "阅读更多", "backToBlog": "返回博客" },
+  "contact": { "title": "联系我们", "subtitle": "有项目想法？让我们谈谈。", "name": "姓名", "namePlaceholder": "您的姓名", "email": "邮箱", "emailPlaceholder": "you@example.com", "message": "消息", "messagePlaceholder": "告诉我您的项目...", "send": "发送消息", "sending": "发送中...", "success": "消息已发送！" },
+  "footer": { "rights": "© {{year}} Swalih Abdullah. 保留所有权利。", "languages": "可用语言" },
+  "notFound": { "title": "404", "message": "此页面不存在。", "goHome": "返回首页" },
+  "search": { "placeholder": "搜索...", "noResults": "未找到结果。", "close": "关闭" },
+  "tools": { "sectionTitle": "设计工具", "sectionSubtitle": "为平面设计师打造的免费工具。", "swabColoursTitle": "swabColours 实验室", "swabColoursDesc": "探索色彩理论、和谐以及在真实设计中预览颜色。", "swabLibraryTitle": "swabColours 库", "swabLibraryDesc": "浏览1000+精选调色板。", "openTool": "打开工具" },
+  "swabColours": { "title": "swab", "titleAccent": "Colours", "labTitle": "swabColours 实验室", "libraryTitle": "swabColours 库", "subtitle": "平面设计师的全能色彩工具。", "harmonies": "和谐", "preview": "预览", "palettes": "调色板", "swabBoy": "swabBOY", "colorWheel": "色轮", "colorCodes": "颜色代码", "searchPalettes": "搜索调色板...", "noPalettes": "没有匹配的调色板。", "matchingPalettes": "匹配您颜色的调色板", "viewLibrary": "查看完整库", "goToLab": "在实验室中打开", "goToLibrary": "前往库", "selectedColors": "已选颜色", "clearAll": "清除全部", "addColor": "点击任意位置添加颜色", "harmonyMeter": "和谐分析", "complementary": "互补色", "complementaryDesc": "色轮上的对面——高对比度。", "analogous": "类似色", "analogousDesc": "相邻色调——自然和谐。", "triadic": "三色组", "triadicDesc": "三个等距色调。", "splitComplementary": "分裂互补", "splitComplementaryDesc": "基色+互补色的两个相邻色。", "tetradic": "四色组", "tetradicDesc": "矩形中的四种色调。", "monochromatic": "单色", "monochromaticDesc": "不同明度的单一色调。", "pairsWith": "与之搭配的颜色", "website": "网站", "mobileApp": "应用", "cardUI": "卡片", "print": "印刷", "poster": "海报", "library": { "title": "swabColours 库", "subtitle": "浏览{{count}}个类别中的1000+调色板。", "allCategories": "全部", "searchPlaceholder": "搜索调色板...", "showing": "显示{{count}}个调色板", "noPalettes": "没有匹配的调色板。", "selectPalette": "选择调色板", "previewPalette": "预览", "selectedPalette": "已选调色板" } }
 }
