@@ -8,6 +8,8 @@
     "tools": "Tools",
     "swabColours": "swabColours",
     "swabColoursDesc": "Color theory & palettes",
+    "swabLab": "swabColours Lab",
+    "swabLabDesc": "Color experimenter & previewer",
     "swabLibrary": "swabColours Library",
     "swabLibraryDesc": "1000+ curated palettes"
   },
@@ -28,7 +30,23 @@
     "graphicDesign": "Graphic Design",
     "editorialDesign": "Editorial Design",
     "branding": "Branding",
-    "socialMedia": "Social Media Design"
+    "socialMedia": "Social Media Design",
+    "webDesign": "Web Design",
+    "uiDesign": "UI Design",
+    "timeline": {
+      "role1": "Freelance Graphic Designer",
+      "org1": "Self-employed",
+      "desc1": "Delivering branding, editorial, and social media design for diverse clients.",
+      "year1": "2024 – Present",
+      "role2": "Junior Designer",
+      "org2": "Nasweeha",
+      "desc2": "Started as an intern for the education institution pro-bono and earned experience.",
+      "year2": "2021 – 2024",
+      "role3": "Newbie",
+      "org3": "Self-taught",
+      "desc3": "Started learning graphic designing and computer just to satisfy curiosity, but later it became a passion.",
+      "year3": "2015 – 2021"
+    }
   },
   "portfolio": {
     "title": "Portfolio",
@@ -44,7 +62,9 @@
     "error": "Couldn't load posts. Please try again later.",
     "empty": "Blog posts coming soon. Stay tuned!",
     "viewAll": "View All Posts",
-    "notFound": "Post not found."
+    "notFound": "Post not found.",
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog"
   },
   "contact": {
     "title": "Get in Touch",
@@ -60,7 +80,8 @@
     "success": "Message sent! I'll get back to you soon."
   },
   "footer": {
-    "rights": "© {{year}} Swalih Abdullah. All rights reserved."
+    "rights": "© {{year}} Swalih Abdullah. All rights reserved.",
+    "languages": "Available Languages"
   },
   "notFound": {
     "title": "404",
@@ -72,20 +93,37 @@
     "noResults": "No results found.",
     "close": "to close"
   },
+  "tools": {
+    "sectionTitle": "Design Tools",
+    "sectionSubtitle": "Free tools built for graphic designers.",
+    "swabColoursTitle": "swabColours Lab",
+    "swabColoursDesc": "Explore color theory, harmonies, and preview colors in real designs.",
+    "swabLibraryTitle": "swabColours Library",
+    "swabLibraryDesc": "Browse 1000+ curated color palettes across dozens of categories.",
+    "openTool": "Open Tool"
+  },
   "swabColours": {
     "title": "swab",
     "titleAccent": "Colours",
+    "labTitle": "swabColours Lab",
+    "libraryTitle": "swabColours Library",
     "subtitle": "All-in-one color tool for graphic designers. Explore color theory, harmonies, palettes, and preview colors in real contexts.",
     "harmonies": "Harmonies",
     "preview": "Preview",
     "palettes": "Palettes",
-    "suggest": "Suggest",
+    "swabBoy": "swabBOY",
     "colorWheel": "Color Wheel",
     "colorCodes": "Color Codes",
     "searchPalettes": "Search palettes...",
     "noPalettes": "No palettes match your search.",
     "matchingPalettes": "Palettes matching your color",
     "viewLibrary": "View Full Library",
+    "goToLab": "Open in Lab",
+    "goToLibrary": "Go to Library",
+    "selectedColors": "Selected Colors",
+    "clearAll": "Clear All",
+    "addColor": "Click anywhere to add colors",
+    "harmonyMeter": "Harmony Analysis",
     "complementary": "Complementary",
     "complementaryDesc": "Opposite on the color wheel — high contrast and vibrant.",
     "analogous": "Analogous",
@@ -102,13 +140,35 @@
     "website": "Website",
     "mobileApp": "Mobile App",
     "cardUI": "Card UI",
+    "print": "Print",
+    "poster": "Poster",
+    "previewHome": "Home",
+    "previewHero": "Hero",
+    "previewHeader": "Header",
+    "previewFooter": "Footer",
+    "preview404": "404 Page",
+    "previewLogin": "Login",
+    "previewDashboard": "Dashboard",
+    "previewProfile": "Profile Card",
+    "previewPricing": "Pricing Card",
+    "previewStats": "Stats Card",
+    "previewFlyer": "Flyer",
+    "previewEvent": "Event",
+    "previewMinimal": "Minimal",
+    "previewBrochure": "Brochure",
+    "previewBusinessCard": "Business Card",
+    "previewLetterhead": "Letterhead",
+    "previewInvoice": "Invoice",
     "library": {
       "title": "swabColours Library",
       "subtitle": "Browse 1000+ curated color palettes across {{count}} categories.",
       "allCategories": "All",
       "searchPlaceholder": "Search palettes...",
       "showing": "Showing {{count}} palettes",
-      "noPalettes": "No palettes match your filters."
+      "noPalettes": "No palettes match your filters.",
+      "selectPalette": "Select Palette",
+      "previewPalette": "Preview",
+      "selectedPalette": "Selected Palette"
     }
   }
 }
