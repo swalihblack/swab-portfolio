@@ -17,7 +17,6 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('click', handler);
   }, [open]);
 
-  // Update document direction for RTL languages
   useEffect(() => {
     const lang = LANGUAGES.find(l => l.code === i18n.language);
     document.documentElement.dir = lang?.dir || 'ltr';
@@ -34,8 +33,8 @@ export default function LanguageSwitcher() {
         aria-label="Change language"
         title={currentLang.nativeName}
       >
-        <Globe size={18} />
-        <span className="text-xs font-medium uppercase hidden md:inline">{currentLang.code}</span>
+        <Globe size={16} />
+        <span className="text-xs font-bold uppercase">{currentLang.code}</span>
       </button>
 
       <AnimatePresence>
@@ -55,9 +54,12 @@ export default function LanguageSwitcher() {
                   i18n.language === lang.code ? 'bg-muted' : ''
                 }`}
               >
-                <div>
-                  <span className="text-sm font-medium text-foreground">{lang.nativeName}</span>
-                  <span className="block text-xs text-muted-foreground">{lang.name}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase text-muted-foreground w-5">{lang.code}</span>
+                  <div>
+                    <span className="text-sm font-medium text-foreground">{lang.nativeName}</span>
+                    <span className="block text-xs text-muted-foreground">{lang.name}</span>
+                  </div>
                 </div>
                 {i18n.language === lang.code && <Check size={14} className="text-accent" />}
               </button>
