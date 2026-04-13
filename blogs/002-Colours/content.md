@@ -108,7 +108,7 @@ Always tie your colour rationale to business goals. When clients understand the 
 Colour theory is not about memorising combinations. It is about building a decision-making framework that scales with every project, every client, and every medium you touch. Master the wheel. Internalise the harmonies. Systematise your palettes. Then, when the project demands it, break the rules with precision.
 
 If you are looking to streamline your colour workflow, I have built a lightweight, developer-friendly tool that generates accessible palettes, exports design tokens, and integrates directly with Figma, CSS, and Tailwind.
-
-🎨 [Explore My All-in-One Colour Tool](https://swabdesigns.lovable.app/tools/swab-colours){:target="_blank" rel="noopener noreferrer"}
-
+---
+[Experiment](https://swabdesigns.lovable.app/tools/swab-colours){:target="_blank" rel="noopener noreferrer"}
+---
 What is your go-to harmony for brand work? Drop it in the comments or tag me on social—I would love to see how you are pushing colour forward this year. Let us learn from each other.
