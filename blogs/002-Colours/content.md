@@ -99,7 +99,7 @@ Clients do not buy colour palettes. They buy clarity, conversion, and competitiv
 - **B2B/Tech:** Analogous cool tones with a single warm accent communicate stability while highlighting action points. Trust + clarity = shorter sales cycles.
 - **Lifestyle/Editorial:** Triadic or tetradic palettes create visual rhythm that encourages longer scroll depth and content engagement. Rhythm retains attention.
 
-Always tie your colour rationale to business goals. When clients understand the *why*, approvals move faster. Revisions shrink. Trust compounds.
+Always tie your colour rationale to business goals. When clients understand the *why?*, approvals move faster. Revisions shrink. Trust compounds.
 
 ![Minimalist Workspace & Colour Workflow](./photo6.webp)
 
@@ -109,6 +109,6 @@ Colour theory is not about memorising combinations. It is about building a decis
 
 If you are looking to streamline your colour workflow, I have built a lightweight, developer-friendly tool that generates accessible palettes, exports design tokens, and integrates directly with Figma, CSS, and Tailwind.
 
-[click here](https://swabdesigns.lovable.app/tools/swab-colours)to access swabColours Lab
+[click here](https://swabdesigns.lovable.app/tools/swab-colours) to access swabColours Lab
 
 What is your go-to harmony for brand work? Drop it in the comments or tag me on social—I would love to see how you are pushing colour forward this year. Let us learn from each other.
