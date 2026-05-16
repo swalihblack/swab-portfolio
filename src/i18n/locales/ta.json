@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "நிற கோட்பாடு & தட்டுகள்",
     "swabLibrary": "swabColours நூலகம்",
-    "swabLibraryDesc": "1000+ தட்டுகள்"
+    "swabLibraryDesc": "1000+ தட்டுகள்",
+    "swabLab": "swabColours ஆய்வகம்",
+    "swabLabDesc": "வண்ண பரிசோதனை மற்றும் முன்னோட்டம்"
   },
   "hero": {
     "name": "ஸ்வாலிஹ் அப்துல்லா",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "தட்டுகளைத் தேடு...",
       "showing": "{{count}} தட்டுகள் காட்டப்படுகின்றன",
       "noPalettes": "வடிகட்டிகளுடன் பொருந்தும் தட்டுகள் இல்லை."
-    }
+    },
+    "swabBoy": "வர்மா AI",
+    "swabBoyTagline": "ராஜா ரவி வர்மாவால் ஈர்க்கப்பட்டது — இந்திய நிறங்களின் மேதை."
+  },
+  "tools": {
+    "sectionTitle": "வடிவமைப்பு கருவிகள்",
+    "sectionSubtitle": "கிராஃபிக் வடிவமைப்பாளர்களுக்கான இலவச கருவிகள்.",
+    "swabColoursTitle": "swabColours ஆய்வகம்",
+    "swabColoursDesc": "நிற கோட்பாடு, இணக்கம் ஆராய்ந்து உண்மையான வடிவமைப்புகளில் முன்னோட்டம் பாருங்கள்.",
+    "swabLibraryTitle": "swabColours நூலகம்",
+    "swabLibraryDesc": "1000+ தேர்ந்தெடுக்கப்பட்ட வண்ணப் பேலட்டுகளைப் பாருங்கள்.",
+    "openTool": "திற"
   }
 }

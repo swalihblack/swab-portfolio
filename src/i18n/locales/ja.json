@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "色彩理論とパレット",
     "swabLibrary": "swabColours ライブラリ",
-    "swabLibraryDesc": "1000以上のパレット"
+    "swabLibraryDesc": "1000以上のパレット",
+    "swabLab": "swabColours ラボ",
+    "swabLabDesc": "カラー実験とプレビュー"
   },
   "hero": {
     "name": "スワリフ・アブドゥッラー",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "パレットを検索...",
       "showing": "{{count}}パレットを表示中",
       "noPalettes": "フィルターに一致するパレットはありません。"
-    }
+    },
+    "swabBoy": "ヴァルマ AI",
+    "swabBoyTagline": "インドの色彩の巨匠ラージャー・ラヴィ・ヴァルマにインスパイア。"
+  },
+  "tools": {
+    "sectionTitle": "デザインツール",
+    "sectionSubtitle": "グラフィックデザイナー向けの無料ツール。",
+    "swabColoursTitle": "swabColours ラボ",
+    "swabColoursDesc": "色彩理論、ハーモニーを探索し、実際のデザインで色をプレビュー。",
+    "swabLibraryTitle": "swabColours ライブラリ",
+    "swabLibraryDesc": "1000以上の厳選カラーパレットを閲覧。",
+    "openTool": "ツールを開く"
   }
 }

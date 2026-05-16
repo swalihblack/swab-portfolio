@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "Теория цвета и палитры",
     "swabLibrary": "Библиотека swabColours",
-    "swabLibraryDesc": "1000+ палитр"
+    "swabLibraryDesc": "1000+ палитр",
+    "swabLab": "Лаборатория swabColours",
+    "swabLabDesc": "Эксперименты и предпросмотр цвета"
   },
   "hero": {
     "name": "Свалих Абдулла",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "Поиск палитр...",
       "showing": "Показано {{count}} палитр",
       "noPalettes": "Нет палитр, соответствующих фильтрам."
-    }
+    },
+    "swabBoy": "Варма ИИ",
+    "swabBoyTagline": "Вдохновлено Раджей Рави Вармой — мастером индийского цвета."
+  },
+  "tools": {
+    "sectionTitle": "Инструменты дизайна",
+    "sectionSubtitle": "Бесплатные инструменты для графических дизайнеров.",
+    "swabColoursTitle": "Лаборатория swabColours",
+    "swabColoursDesc": "Изучайте теорию цвета, гармонии и просматривайте цвета в реальных дизайнах.",
+    "swabLibraryTitle": "Библиотека swabColours",
+    "swabLibraryDesc": "Просмотрите более 1000 готовых цветовых палитр.",
+    "openTool": "Открыть"
   }
 }
