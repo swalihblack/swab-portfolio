@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "रंग सिद्धांत और पैलेट",
     "swabLibrary": "swabColours लाइब्रेरी",
-    "swabLibraryDesc": "1000+ क्यूरेटेड पैलेट"
+    "swabLibraryDesc": "1000+ क्यूरेटेड पैलेट",
+    "swabLab": "swabColours लैब",
+    "swabLabDesc": "रंग प्रयोगकर्ता और पूर्वावलोकन"
   },
   "hero": {
     "name": "स्वालिह अब्दुल्ला",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "पैलेट खोजें...",
       "showing": "{{count}} पैलेट दिखा रहे हैं",
       "noPalettes": "फ़िल्टर से कोई पैलेट मेल नहीं खाता।"
-    }
+    },
+    "swabBoy": "वर्मा AI",
+    "swabBoyTagline": "राजा रवि वर्मा से प्रेरित — भारतीय रंग के मास्टर।"
+  },
+  "tools": {
+    "sectionTitle": "डिज़ाइन टूल्स",
+    "sectionSubtitle": "ग्राफिक डिज़ाइनरों के लिए मुफ्त टूल।",
+    "swabColoursTitle": "swabColours लैब",
+    "swabColoursDesc": "रंग सिद्धांत, सामंजस्य का अन्वेषण करें और वास्तविक डिज़ाइनों में रंग देखें।",
+    "swabLibraryTitle": "swabColours लाइब्रेरी",
+    "swabLibraryDesc": "1000+ क्यूरेटेड कलर पैलेट देखें।",
+    "openTool": "टूल खोलें"
   }
 }

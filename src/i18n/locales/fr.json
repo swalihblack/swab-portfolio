@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "Théorie des couleurs et palettes",
     "swabLibrary": "Bibliothèque swabColours",
-    "swabLibraryDesc": "+1000 palettes curées"
+    "swabLibraryDesc": "+1000 palettes curées",
+    "swabLab": "Laboratoire swabColours",
+    "swabLabDesc": "Expérimentateur et aperçu de couleurs"
   },
   "hero": {
     "name": "Swalih Abdullah",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "Rechercher des palettes...",
       "showing": "Affichage de {{count}} palettes",
       "noPalettes": "Aucune palette ne correspond à vos filtres."
-    }
+    },
+    "swabBoy": "Varma IA",
+    "swabBoyTagline": "Inspiré par Raja Ravi Varma — maître de la couleur indienne."
+  },
+  "tools": {
+    "sectionTitle": "Outils de Design",
+    "sectionSubtitle": "Outils gratuits pour les graphistes.",
+    "swabColoursTitle": "Laboratoire swabColours",
+    "swabColoursDesc": "Explorez la théorie des couleurs, les harmonies et prévisualisez les couleurs dans de vrais designs.",
+    "swabLibraryTitle": "Bibliothèque swabColours",
+    "swabLibraryDesc": "Parcourez plus de 1000 palettes de couleurs.",
+    "openTool": "Ouvrir"
   }
 }

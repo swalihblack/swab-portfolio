@@ -111,7 +111,7 @@
     "harmonies": "Harmonies",
     "preview": "Preview",
     "palettes": "Palettes",
-    "swabBoy": "swabBOY",
+    "swabBoy": "Varma AI",
     "colorWheel": "Color Wheel",
     "colorCodes": "Color Codes",
     "searchPalettes": "Search palettes...",
@@ -169,6 +169,7 @@
       "selectPalette": "Select Palette",
       "previewPalette": "Preview",
       "selectedPalette": "Selected Palette"
-    }
+    },
+    "swabBoyTagline": "Inspired by Raja Ravi Varma — the master of Indian color."
   }
 }

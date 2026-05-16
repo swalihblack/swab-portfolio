@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "نظرية الألوان والباليتات",
     "swabLibrary": "مكتبة swabColours",
-    "swabLibraryDesc": "+1000 باليت منسقة"
+    "swabLibraryDesc": "+1000 باليت منسقة",
+    "swabLab": "مختبر swabColours",
+    "swabLabDesc": "مجرّب الألوان والمعاينة"
   },
   "hero": {
     "name": "صالح عبد الله",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "ابحث في الباليتات...",
       "showing": "عرض {{count}} باليت",
       "noPalettes": "لا توجد باليتات مطابقة للفلاتر."
-    }
+    },
+    "swabBoy": "فارما AI",
+    "swabBoyTagline": "مستوحى من راجا رافي فارما — سيد الألوان الهندي."
+  },
+  "tools": {
+    "sectionTitle": "أدوات التصميم",
+    "sectionSubtitle": "أدوات مجانية لمصممي الجرافيك.",
+    "swabColoursTitle": "مختبر swabColours",
+    "swabColoursDesc": "استكشف نظرية الألوان والتناغمات وعاين الألوان في تصاميم حقيقية.",
+    "swabLibraryTitle": "مكتبة swabColours",
+    "swabLibraryDesc": "تصفح أكثر من 1000 باليت ألوان منسقة.",
+    "openTool": "افتح الأداة"
   }
 }

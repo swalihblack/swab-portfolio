@@ -9,7 +9,9 @@
     "swabColours": "swabColours",
     "swabColoursDesc": "കളർ തിയറി & പാലറ്റുകൾ",
     "swabLibrary": "swabColours ലൈബ്രറി",
-    "swabLibraryDesc": "1000+ ക്യൂറേറ്റഡ് പാലറ്റുകൾ"
+    "swabLibraryDesc": "1000+ ക്യൂറേറ്റഡ് പാലറ്റുകൾ",
+    "swabLab": "swabColours ലാബ്",
+    "swabLabDesc": "നിറം പരീക്ഷണവും പ്രിവ്യൂവും"
   },
   "hero": {
     "name": "സ്വാലിഹ് അബ്ദുല്ല",
@@ -109,6 +111,17 @@
       "searchPlaceholder": "പാലറ്റുകൾ തിരയുക...",
       "showing": "{{count}} പാലറ്റുകൾ കാണിക്കുന്നു",
       "noPalettes": "ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്ന പാലറ്റുകൾ ഇല്ല."
-    }
+    },
+    "swabBoy": "വർമ്മ AI",
+    "swabBoyTagline": "രാജാ രവി വർമ്മയിൽ നിന്നുള്ള പ്രചോദനം — ഇന്ത്യൻ വർണ്ണത്തിന്റെ ഉസ്താദ്."
+  },
+  "tools": {
+    "sectionTitle": "ഡിസൈൻ ടൂളുകൾ",
+    "sectionSubtitle": "ഗ്രാഫിക് ഡിസൈനർമാർക്കായി സൗജന്യ ടൂളുകൾ.",
+    "swabColoursTitle": "swabColours ലാബ്",
+    "swabColoursDesc": "നിറ സിദ്ധാന്തവും ഹാർമണികളും പര്യവേക്ഷണം ചെയ്യൂ, യഥാർത്ഥ ഡിസൈനുകളിൽ പ്രിവ്യൂ കാണൂ.",
+    "swabLibraryTitle": "swabColours ലൈബ്രറി",
+    "swabLibraryDesc": "1000+ ക്യൂറേറ്റഡ് കളർ പാലറ്റുകൾ ബ്രൗസ് ചെയ്യൂ.",
+    "openTool": "ടൂൾ തുറക്കുക"
   }
 }

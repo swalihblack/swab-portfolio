@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import heroPhoto from '@/assets/hero-photo.png';
+import HeroTopBar from '@/components/HeroTopBar';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative h-screen flex items-start md:items-center bg-accent overflow-hidden px-6 pt-16 md:pt-0">
+      <HeroTopBar />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(0_80%_50%/0.3),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(0_0%_0%/0.2),transparent_60%)]" />
 
@@ -40,10 +42,40 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div style={{ y: photoY }} className="flex justify-center md:justify-end md:items-end md:self-end">
-          <motion.img src={heroPhoto} alt="Swalih Abdullah" width={800} height={1024} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="w-64 md:w-80 lg:w-96 drop-shadow-2xl object-contain" />
+        <motion.div
+          style={{ y: photoY }}
+          className="hidden md:flex md:justify-end md:items-end md:self-end"
+        >
+          <motion.img
+            src={heroPhoto}
+            alt="Swalih Abdullah"
+            width={800}
+            height={1024}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:w-80 lg:w-96 drop-shadow-2xl object-contain"
+          />
         </motion.div>
       </div>
+
+      {/* Mobile photo — anchored to the bottom of the hero so the cutout always
+          sits flush with the hero's bottom edge, regardless of viewport height. */}
+      <motion.div
+        style={{ y: photoY }}
+        className="md:hidden absolute bottom-0 right-0 left-0 flex justify-center items-end pointer-events-none"
+      >
+        <motion.img
+          src={heroPhoto}
+          alt="Swalih Abdullah"
+          width={800}
+          height={1024}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="h-[55vh] max-h-[520px] w-auto object-contain object-bottom drop-shadow-2xl"
+        />
+      </motion.div>
     </section>
   );
 }
