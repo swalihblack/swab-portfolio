@@ -107,6 +107,9 @@ export default function SwabBoy({ colors, onSelect }: Props) {
         <h3 className="font-display text-sm font-bold text-foreground">{t('swabColours.swabBoy')}</h3>
         <span className="bg-accent text-accent-foreground text-[9px] px-1.5 py-0.5 rounded font-bold">AI</span>
       </div>
+      <p className="text-[11px] italic text-muted-foreground">
+        {t('swabColours.swabBoyTagline', 'Inspired by Raja Ravi Varma — the master of Indian color.')}
+      </p>
       <p className="text-xs text-muted-foreground">
         Smart suggestions based on your {colors.length} selected color{colors.length !== 1 ? 's' : ''}.
       </p>
