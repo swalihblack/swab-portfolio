@@ -4,26 +4,46 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { PALETTE_LIBRARY, CATEGORIES, type Palette } from '@/data/paletteLibrary';
-import { textColorForBg } from '@/lib/colorUtils';
+import { textColorForBg, getColorFamily, COLOR_FAMILIES, hexToRgb, rgbToHsl, luminance } from '@/lib/colorUtils';
 import ColorPreviewPanel from '@/components/tools/colours/ColorPreviewPanel';
-import { ArrowLeft, FlaskConical, Eye, X } from 'lucide-react';
+import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal } from 'lucide-react';
+
+type SortKey = 'relevance' | 'name' | 'hue' | 'lightness' | 'category';
 
 export default function SwabLibraryPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<string>('All');
+  const [family, setFamily] = useState<string>('All');
+  const [sort, setSort] = useState<SortKey>('relevance');
+  const [showFilters, setShowFilters] = useState(false);
   const [selectedPalette, setSelectedPalette] = useState<Palette | null>(null);
 
   const filtered = useMemo(() => {
-    let results = PALETTE_LIBRARY;
+    let results = PALETTE_LIBRARY.slice();
     if (category !== 'All') results = results.filter(p => p.category === category);
+    if (family !== 'All') {
+      results = results.filter(p => p.colors.some(c => getColorFamily(c) === family));
+    }
     if (search.trim()) {
       const q = search.toLowerCase();
-      results = results.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      results = results.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.colors.some(c => c.toLowerCase().includes(q) || getColorFamily(c).toLowerCase().includes(q))
+      );
+    }
+    const hueOf = (p: Palette) => rgbToHsl(...hexToRgb(p.colors[0]))[0];
+    const lumOf = (p: Palette) => p.colors.reduce((s, c) => s + luminance(...hexToRgb(c)), 0) / p.colors.length;
+    switch (sort) {
+      case 'name': results.sort((a, b) => a.name.localeCompare(b.name)); break;
+      case 'hue': results.sort((a, b) => hueOf(a) - hueOf(b)); break;
+      case 'lightness': results.sort((a, b) => lumOf(b) - lumOf(a)); break;
+      case 'category': results.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name)); break;
     }
     return results;
-  }, [search, category]);
+  }, [search, category, family, sort]);
 
   const openInLab = (palette: Palette) => {
     const colorsParam = palette.colors.map(c => c.replace('#', '')).join(',');
@@ -78,28 +98,59 @@ export default function SwabLibraryPage() {
           )}
 
           {/* Filters */}
-          <div className="flex flex-col md:flex-row gap-3 mb-6">
-            <input type="text" placeholder={t('swabColours.library.searchPlaceholder')} value={search} onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 bg-muted rounded-md px-3 py-2 text-sm text-foreground border border-border focus:outline-none focus:ring-1 focus:ring-accent" />
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            <button onClick={() => setCategory('All')}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${category === 'All' ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}>
-              {t('swabColours.library.allCategories')} ({PALETTE_LIBRARY.length})
-            </button>
-            {CATEGORIES.map(cat => {
-              const count = PALETTE_LIBRARY.filter(p => p.category === cat).length;
-              return (
-                <button key={cat} onClick={() => setCategory(cat)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${category === cat ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}>
-                  {cat} ({count})
+          <div className="bg-card border border-border rounded-lg p-3 mb-4 space-y-3">
+            <div className="flex flex-col md:flex-row gap-2">
+              <input type="text" placeholder={t('swabColours.library.searchHint', 'Search by name, color, hex (e.g. ruby, #FF6347)…')} value={search} onChange={(e) => setSearch(e.target.value)}
+                className="flex-1 bg-muted rounded-md px-3 py-2 text-sm text-foreground border border-border focus:outline-none focus:ring-1 focus:ring-accent" />
+              <div className="flex gap-2 flex-wrap">
+                <select value={family} onChange={(e) => setFamily(e.target.value)}
+                  className="bg-muted rounded-md px-3 py-2 text-sm text-foreground border border-border focus:outline-none focus:ring-1 focus:ring-accent">
+                  <option value="All">{t('swabColours.library.allFamilies', 'All color families')}</option>
+                  {COLOR_FAMILIES.map(f => <option key={f} value={f}>{f}</option>)}
+                </select>
+                <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}
+                  className="bg-muted rounded-md px-3 py-2 text-sm text-foreground border border-border focus:outline-none focus:ring-1 focus:ring-accent">
+                  <option value="relevance">{t('swabColours.library.sortRelevance', 'Sort: Default')}</option>
+                  <option value="name">{t('swabColours.library.sortName', 'Sort: Name')}</option>
+                  <option value="hue">{t('swabColours.library.sortHue', 'Sort: Hue')}</option>
+                  <option value="lightness">{t('swabColours.library.sortLightness', 'Sort: Lightness')}</option>
+                  <option value="category">{t('swabColours.library.sortCategory', 'Sort: Category')}</option>
+                </select>
+                <button onClick={() => setShowFilters(s => !s)}
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-muted text-xs font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                  <SlidersHorizontal size={14} />
+                  {showFilters ? t('swabColours.library.hideCategories', 'Hide categories') : t('swabColours.library.showCategories', 'Categories')}
                 </button>
-              );
-            })}
-          </div>
+              </div>
+            </div>
 
-          <p className="text-xs text-muted-foreground mb-4">{t('swabColours.library.showing', { count: filtered.length })}</p>
+            {showFilters && (
+              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border">
+                <button onClick={() => setCategory('All')}
+                  className={`px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors ${category === 'All' ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}>
+                  {t('swabColours.library.allCategories')} ({PALETTE_LIBRARY.length})
+                </button>
+                {CATEGORIES.map(cat => {
+                  const count = PALETTE_LIBRARY.filter(p => p.category === cat).length;
+                  if (count === 0) return null;
+                  return (
+                    <button key={cat} onClick={() => setCategory(cat)}
+                      className={`px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors ${category === cat ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}>
+                      {cat} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <span>{t('swabColours.library.showing', { count: filtered.length })}</span>
+              {(category !== 'All' || family !== 'All' || search || sort !== 'relevance') && (
+                <button onClick={() => { setCategory('All'); setFamily('All'); setSearch(''); setSort('relevance'); }}
+                  className="text-accent hover:underline">{t('swabColours.library.reset', 'Reset filters')}</button>
+              )}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {filtered.map((palette, idx) => (
