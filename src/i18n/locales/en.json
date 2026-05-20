@@ -168,8 +168,20 @@
       "noPalettes": "No palettes match your filters.",
       "selectPalette": "Select Palette",
       "previewPalette": "Preview",
-      "selectedPalette": "Selected Palette"
+      "selectedPalette": "Selected Palette",
+      "searchHint": "Search by name, color, hex (e.g. ruby, #FF6347)…",
+      "allFamilies": "All color families",
+      "sortRelevance": "Sort: Default",
+      "sortName": "Sort: Name",
+      "sortHue": "Sort: Hue",
+      "sortLightness": "Sort: Lightness",
+      "sortCategory": "Sort: Category",
+      "showCategories": "Categories",
+      "hideCategories": "Hide categories",
+      "reset": "Reset filters"
     },
-    "swabBoyTagline": "Inspired by Raja Ravi Varma — the master of Indian color."
+    "swabBoyTagline": "Inspired by Raja Ravi Varma — the master of Indian color.",
+    "previewUsingOnly": "Previews use only your {{n}} selected color{{s}}.",
+    "relationToPrimary": "Relation to primary"
   }
 }
