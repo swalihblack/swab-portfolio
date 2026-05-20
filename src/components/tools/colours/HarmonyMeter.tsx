@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { hexToRgb, rgbToHsl } from '@/lib/colorUtils';
+import { hexToRgb, rgbToHsl, textColorForBg } from '@/lib/colorUtils';
 
 interface Props {
   colors: string[];
@@ -9,6 +9,16 @@ interface Props {
 function hueDiff(h1: number, h2: number): number {
   const d = Math.abs(h1 - h2);
   return Math.min(d, 360 - d);
+}
+
+function classifyRelation(diff: number): { key: string; label: string } {
+  if (diff <= 15) return { key: 'mono', label: 'Monochromatic' };
+  if (diff <= 40) return { key: 'analogous', label: 'Analogous' };
+  if (diff >= 165) return { key: 'complementary', label: 'Complementary' };
+  if (diff >= 110 && diff <= 130) return { key: 'triadic', label: 'Triadic' };
+  if ((diff >= 140 && diff <= 160) || (diff >= 200 && diff <= 220)) return { key: 'splitComp', label: 'Split-Complementary' };
+  if (diff >= 80 && diff <= 100) return { key: 'tetradic', label: 'Tetradic' };
+  return { key: 'neutral', label: 'Contrast' };
 }
 
 export default function HarmonyMeter({ colors }: Props) {
@@ -43,20 +53,58 @@ export default function HarmonyMeter({ colors }: Props) {
     ].filter(h => h.pct > 0);
   }, [colors, t]);
 
+  const primaryRelations = useMemo(() => {
+    if (colors.length < 2) return [];
+    const primaryHue = rgbToHsl(...hexToRgb(colors[0]))[0];
+    return colors.slice(1).map(c => {
+      const h = rgbToHsl(...hexToRgb(c))[0];
+      const diff = hueDiff(primaryHue, h);
+      return { color: c, diff: Math.round(diff), ...classifyRelation(diff) };
+    });
+  }, [colors]);
+
   if (!analysis || analysis.length === 0) return null;
 
   return (
-    <div className="space-y-1.5">
-      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{t('swabColours.harmonyMeter')}</p>
-      {analysis.map(h => (
-        <div key={h.key} className="flex items-center gap-2">
-          <span className="text-[10px] text-muted-foreground w-28 truncate">{h.label}</span>
-          <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-            <div className="h-full rounded-full transition-all duration-500" style={{ width: `${h.pct}%`, backgroundColor: h.color }} />
+    <div className="space-y-3">
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{t('swabColours.harmonyMeter')}</p>
+        {analysis.map(h => (
+          <div key={h.key} className="flex items-center gap-2">
+            <span className="text-[10px] text-muted-foreground w-28 truncate">{h.label}</span>
+            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+              <div className="h-full rounded-full transition-all duration-500" style={{ width: `${h.pct}%`, backgroundColor: h.color }} />
+            </div>
+            <span className="text-[10px] text-foreground font-mono w-8 text-right">{h.pct}%</span>
           </div>
-          <span className="text-[10px] text-foreground font-mono w-8 text-right">{h.pct}%</span>
+        ))}
+      </div>
+
+      {primaryRelations.length > 0 && (
+        <div className="space-y-1.5 pt-2 border-t border-border">
+          <div className="flex items-center gap-2">
+            <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+              {t('swabColours.relationToPrimary', 'Relation to primary')}
+            </p>
+            <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
+              <span className="w-3 h-3 rounded-sm border border-border" style={{ backgroundColor: colors[0] }} />
+              <span className="font-mono">{colors[0].toUpperCase()}</span>
+            </span>
+          </div>
+          {primaryRelations.map((r, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <span
+                className="w-12 text-center text-[9px] font-mono rounded-sm border border-border py-0.5"
+                style={{ backgroundColor: r.color, color: textColorForBg(r.color) }}
+              >
+                {r.color.toUpperCase()}
+              </span>
+              <span className="text-[10px] text-foreground flex-1 truncate">{r.label}</span>
+              <span className="text-[10px] text-muted-foreground font-mono">Δ{r.diff}°</span>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }
