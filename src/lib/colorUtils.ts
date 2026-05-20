@@ -132,6 +132,27 @@ export function textColorForBg(hex: string): string {
   return l > 0.179 ? '#000000' : '#FFFFFF';
 }
 
+// ── Color family classification ──
+
+export const COLOR_FAMILIES = [
+  'Red', 'Orange', 'Yellow', 'Green', 'Cyan', 'Blue', 'Purple', 'Pink', 'Neutral',
+] as const;
+export type ColorFamily = typeof COLOR_FAMILIES[number];
+
+export function getColorFamily(hex: string): ColorFamily {
+  const [h, s] = rgbToHsl(...hexToRgb(hex));
+  if (s < 12) return 'Neutral';
+  if (h < 15 || h >= 345) return 'Red';
+  if (h < 40) return 'Orange';
+  if (h < 65) return 'Yellow';
+  if (h < 170) return 'Green';
+  if (h < 200) return 'Cyan';
+  if (h < 255) return 'Blue';
+  if (h < 290) return 'Purple';
+  if (h < 345) return 'Pink';
+  return 'Red';
+}
+
 // ── Palette library ──
 
 export const PALETTE_LIBRARY = [
