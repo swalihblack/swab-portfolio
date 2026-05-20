@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { textColorForBg, hexToRgb, rgbToHsl, hslToRgb, rgbToHex } from '@/lib/colorUtils';
+import { textColorForBg } from '@/lib/colorUtils';
 
 interface Props {
   colors: string[];
@@ -8,32 +8,30 @@ interface Props {
 
 type PreviewType = 'website' | 'app' | 'card' | 'print' | 'poster';
 
+// Use ONLY the user's selected colors. Cycle through them by index — no
+// generated/derived hues. With a single color, every role collapses to it.
 function deriveColors(colors: string[]) {
-  const primary = colors[0] || '#E63946';
-  const secondary = colors[1] || shiftHue(primary, 30);
-  const accent = colors[2] || shiftHue(primary, 120);
-  const bg = colors[3] || makeTint(primary, 96);
-  const dark = colors[4] || makeShade(primary, 12);
-  return { primary, secondary, accent, bg, dark, textOnPrimary: textColorForBg(primary), textOnSecondary: textColorForBg(secondary), textOnAccent: textColorForBg(accent), all: colors };
-}
-
-function shiftHue(hex: string, deg: number) {
-  const [h, s, l] = rgbToHsl(...hexToRgb(hex));
-  return rgbToHex(...hslToRgb((h + deg) % 360, s, l));
-}
-function makeTint(hex: string, lightness: number) {
-  const [h, s] = rgbToHsl(...hexToRgb(hex));
-  return rgbToHex(...hslToRgb(h, Math.max(s - 60, 5), lightness));
-}
-function makeShade(hex: string, lightness: number) {
-  const [h, s] = rgbToHsl(...hexToRgb(hex));
-  return rgbToHex(...hslToRgb(h, Math.min(s + 5, 100), lightness));
+  const list = colors.length ? colors : ['#E63946'];
+  const at = (i: number) => list[i % list.length];
+  const primary = at(0);
+  const secondary = at(1);
+  const accent = at(2);
+  const bg = at(3);
+  const dark = at(4);
+  return {
+    primary, secondary, accent, bg, dark,
+    textOnPrimary: textColorForBg(primary),
+    textOnSecondary: textColorForBg(secondary),
+    textOnAccent: textColorForBg(accent),
+    textOnBg: textColorForBg(bg),
+    textOnDark: textColorForBg(dark),
+    all: list,
+  };
 }
 
 export default function ColorPreviewPanel({ colors }: Props) {
   const { t } = useTranslation();
   const [type, setType] = useState<PreviewType>('website');
-  const [variant, setVariant] = useState(0);
   const c = deriveColors(colors);
 
   const types: { key: PreviewType; label: string }[] = [
@@ -52,33 +50,41 @@ export default function ColorPreviewPanel({ colors }: Props) {
     poster: [t('swabColours.previewFlyer'), t('swabColours.previewEvent'), t('swabColours.previewMinimal')],
   };
 
+  const renderVariant = (idx: number) => {
+    switch (type) {
+      case 'website': return <WebsitePreview variant={idx} c={c} />;
+      case 'app': return <AppPreview variant={idx} c={c} />;
+      case 'card': return <CardPreview variant={idx} c={c} />;
+      case 'print': return <PrintPreview variant={idx} c={c} />;
+      case 'poster': return <PosterPreview variant={idx} c={c} />;
+    }
+  };
+
   return (
     <div className="mt-4 space-y-4">
-      {/* Type selector */}
       <div className="flex gap-2 flex-wrap">
         {types.map(tp => (
-          <button key={tp.key} onClick={() => { setType(tp.key); setVariant(0); }}
+          <button key={tp.key} onClick={() => setType(tp.key)}
             className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${type === tp.key ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}>
             {tp.label}
           </button>
         ))}
       </div>
-      {/* Variant selector */}
-      <div className="flex gap-1.5 flex-wrap">
-        {variants[type].map((v, i) => (
-          <button key={v} onClick={() => setVariant(i)}
-            className={`px-2.5 py-1 rounded text-[11px] font-medium transition-colors ${variant === i ? 'bg-foreground text-background' : 'bg-muted/60 text-muted-foreground hover:bg-muted'}`}>
-            {v}
-          </button>
+      <p className="text-[10px] text-muted-foreground">
+        {t('swabColours.previewUsingOnly', 'Previews use only your {{n}} selected color{{s}}.', { n: c.all.length, s: c.all.length === 1 ? '' : 's' })}
+      </p>
+      <div className="space-y-6">
+        {variants[type].map((label, i) => (
+          <div key={label + i}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{label}</span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+            <div className="bg-card border border-border rounded-lg overflow-hidden">
+              {renderVariant(i)}
+            </div>
+          </div>
         ))}
-      </div>
-      {/* Preview */}
-      <div className="bg-card border border-border rounded-lg overflow-hidden">
-        {type === 'website' && <WebsitePreview variant={variant} c={c} />}
-        {type === 'app' && <AppPreview variant={variant} c={c} />}
-        {type === 'card' && <CardPreview variant={variant} c={c} />}
-        {type === 'print' && <PrintPreview variant={variant} c={c} />}
-        {type === 'poster' && <PosterPreview variant={variant} c={c} />}
       </div>
     </div>
   );
