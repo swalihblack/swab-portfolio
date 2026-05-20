@@ -42,28 +42,17 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          style={{ y: photoY }}
-          className="hidden md:flex md:justify-end md:items-end md:self-end"
-        >
-          <motion.img
-            src={heroPhoto}
-            alt="Swalih Abdullah"
-            width={800}
-            height={1024}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="md:w-80 lg:w-96 drop-shadow-2xl object-contain"
-          />
-        </motion.div>
+        {/* Desktop spacer to preserve the 2-column grid layout; the actual
+            image is anchored to the bottom of the hero so the cutout sits
+            flush with the hero's bottom edge. */}
+        <div className="hidden md:block" aria-hidden="true" />
       </div>
 
-      {/* Mobile photo — anchored to the bottom of the hero so the cutout always
-          sits flush with the hero's bottom edge, regardless of viewport height. */}
+      {/* Hero photo — anchored to the bottom of the hero so the cutout
+          always sits flush with the hero's bottom edge across all viewports. */}
       <motion.div
         style={{ y: photoY }}
-        className="md:hidden absolute bottom-0 right-0 left-0 flex justify-center items-end pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 flex md:justify-end justify-center items-end pointer-events-none md:pr-[5vw] lg:pr-[8vw]"
       >
         <motion.img
           src={heroPhoto}
@@ -73,7 +62,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="h-[55vh] max-h-[520px] w-auto object-contain object-bottom drop-shadow-2xl"
+          className="h-[55vh] max-h-[520px] md:h-[88vh] md:max-h-[860px] w-auto object-contain object-bottom drop-shadow-2xl"
         />
       </motion.div>
     </section>
