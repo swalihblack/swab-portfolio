@@ -1,3 +1,5 @@
+import { getColorName } from '@/lib/colorNames';
+
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { textColorForBg, assignRoles } from '@/lib/colorUtils';
@@ -69,6 +71,20 @@ export default function ColorPreviewPanel({ colors }: Props) {
       <p className="text-[10px] text-muted-foreground">
         {t('swabColours.previewUsingOnly', 'Previews use only your {{n}} selected color{{s}}.', { n: c.all.length, s: c.all.length === 1 ? '' : 's' })}
       </p>
+      <div className="grid grid-cols-5 gap-1.5">
+        {([
+          ['Primary', c.primary], ['Secondary', c.secondary], ['Accent', c.accent], ['Background', c.bg], ['Text', c.dark],
+        ] as const).map(([role, hex]) => (
+          <div key={role} className="rounded-md overflow-hidden border border-border">
+            <div className="h-8" style={{ backgroundColor: hex }} />
+            <div className="px-1.5 py-1 bg-muted">
+              <p className="text-[8px] font-bold uppercase tracking-wider text-muted-foreground leading-tight">{role}</p>
+              <p className="text-[9px] font-semibold text-foreground leading-tight truncate">{getColorName(hex)}</p>
+              <p className="text-[8px] font-mono text-muted-foreground leading-tight">{hex.toUpperCase()}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="space-y-6">
         {variants[type].map((label, i) => (
           <div key={label + i}>
