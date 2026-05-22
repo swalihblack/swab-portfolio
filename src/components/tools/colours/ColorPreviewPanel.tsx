@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { textColorForBg } from '@/lib/colorUtils';
+import { textColorForBg, assignRoles } from '@/lib/colorUtils';
 
 interface Props {
   colors: string[];
@@ -8,24 +8,20 @@ interface Props {
 
 type PreviewType = 'website' | 'app' | 'card' | 'print' | 'poster';
 
-// Use ONLY the user's selected colors. Cycle through them by index — no
-// generated/derived hues. With a single color, every role collapses to it.
+// Use ONLY the user's selected colors. Roles are assigned semantically by
+// lightness + saturation — not by index — so previews stay meaningful
+// regardless of how the palette was authored.
 function deriveColors(colors: string[]) {
-  const list = colors.length ? colors : ['#E63946'];
-  const at = (i: number) => list[i % list.length];
-  const primary = at(0);
-  const secondary = at(1);
-  const accent = at(2);
-  const bg = at(3);
-  const dark = at(4);
+  const r = assignRoles(colors);
   return {
-    primary, secondary, accent, bg, dark,
-    textOnPrimary: textColorForBg(primary),
-    textOnSecondary: textColorForBg(secondary),
-    textOnAccent: textColorForBg(accent),
-    textOnBg: textColorForBg(bg),
-    textOnDark: textColorForBg(dark),
-    all: list,
+    primary: r.primary, secondary: r.secondary, accent: r.accent,
+    bg: r.bg, dark: r.dark,
+    textOnPrimary: textColorForBg(r.primary),
+    textOnSecondary: textColorForBg(r.secondary),
+    textOnAccent: textColorForBg(r.accent),
+    textOnBg: textColorForBg(r.bg),
+    textOnDark: textColorForBg(r.dark),
+    all: r.all,
   };
 }
 
