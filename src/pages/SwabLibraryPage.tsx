@@ -89,8 +89,9 @@ export default function SwabLibraryPage() {
               </div>
               <div className="flex rounded-md overflow-hidden h-10 mb-4">
                 {selectedPalette.colors.map((c, i) => (
-                  <div key={i} className="flex-1 flex items-center justify-center" style={{ backgroundColor: c }}>
-                    <span className="text-[9px] font-mono" style={{ color: textColorForBg(c) }}>{c}</span>
+                  <div key={i} className="flex-1 flex flex-col items-center justify-center leading-tight" style={{ backgroundColor: c, color: textColorForBg(c) }}>
+                    <span className="text-[10px] font-semibold">{getColorName(c)}</span>
+                    <span className="text-[9px] font-mono opacity-80">{c.toUpperCase()}</span>
                   </div>
                 ))}
               </div>
