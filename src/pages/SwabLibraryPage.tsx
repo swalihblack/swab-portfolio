@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { PALETTE_LIBRARY, CATEGORIES, type Palette } from '@/data/paletteLibrary';
 import { textColorForBg, getColorFamily, COLOR_FAMILIES, hexToRgb, rgbToHsl, luminance } from '@/lib/colorUtils';
+import { getColorName } from '@/lib/colorNames';
 import ColorPreviewPanel from '@/components/tools/colours/ColorPreviewPanel';
 import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal } from 'lucide-react';
 
