@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { PALETTE_LIBRARY, CATEGORIES, type Palette } from '@/data/paletteLibrary';
 import { textColorForBg, getColorFamily, COLOR_FAMILIES, hexToRgb, rgbToHsl, luminance } from '@/lib/colorUtils';
+import { getColorName } from '@/lib/colorNames';
 import ColorPreviewPanel from '@/components/tools/colours/ColorPreviewPanel';
 import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal } from 'lucide-react';
 
@@ -31,7 +32,11 @@ export default function SwabLibraryPage() {
       results = results.filter(p =>
         p.name.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
-        p.colors.some(c => c.toLowerCase().includes(q) || getColorFamily(c).toLowerCase().includes(q))
+        p.colors.some(c =>
+          c.toLowerCase().includes(q) ||
+          getColorFamily(c).toLowerCase().includes(q) ||
+          getColorName(c).toLowerCase().includes(q)
+        )
       );
     }
     const hueOf = (p: Palette) => rgbToHsl(...hexToRgb(p.colors[0]))[0];
@@ -88,8 +93,9 @@ export default function SwabLibraryPage() {
               </div>
               <div className="flex rounded-md overflow-hidden h-10 mb-4">
                 {selectedPalette.colors.map((c, i) => (
-                  <div key={i} className="flex-1 flex items-center justify-center" style={{ backgroundColor: c }}>
-                    <span className="text-[9px] font-mono" style={{ color: textColorForBg(c) }}>{c}</span>
+                  <div key={i} className="flex-1 flex flex-col items-center justify-center leading-tight" style={{ backgroundColor: c, color: textColorForBg(c) }}>
+                    <span className="text-[10px] font-semibold">{getColorName(c)}</span>
+                    <span className="text-[9px] font-mono opacity-80">{c.toUpperCase()}</span>
                   </div>
                 ))}
               </div>
@@ -175,8 +181,9 @@ function PaletteCard({ palette, onSelect, onOpenLab, selected }: { palette: Pale
       </div>
       <div className="flex rounded-md overflow-hidden h-10 mb-2">
         {palette.colors.map((c, i) => (
-          <div key={i} className="flex-1 flex items-center justify-center" style={{ backgroundColor: c }} title={c}>
-            <span className="text-[8px] font-mono opacity-0 group-hover:opacity-80 transition-opacity" style={{ color: textColorForBg(c) }}>{c}</span>
+          <div key={i} className="flex-1 flex flex-col items-center justify-center leading-tight" style={{ backgroundColor: c }} title={`${getColorName(c)} ${c.toUpperCase()}`}>
+            <span className="text-[8px] font-semibold opacity-0 group-hover:opacity-90 transition-opacity" style={{ color: textColorForBg(c) }}>{getColorName(c)}</span>
+            <span className="text-[7px] font-mono opacity-0 group-hover:opacity-70 transition-opacity" style={{ color: textColorForBg(c) }}>{c.toUpperCase()}</span>
           </div>
         ))}
       </div>

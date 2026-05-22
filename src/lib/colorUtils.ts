@@ -196,3 +196,44 @@ export function getSuggestedColors(hex: string): { color: string; reason: string
     { color: hslToHex(h + 150, Math.min(s + 5, 100), Math.min(l + 10, 85)), reason: 'Split-complementary — balanced contrast' },
   ];
 }
+
+// ── Role assignment ──
+// Given any palette, assign semantic roles: primary, secondary, accent, bg, dark, text.
+// Primary = most saturated mid-light. BG = lightest. Dark/Text = darkest. Accent = next most saturated.
+export interface RoleColors {
+  primary: string; secondary: string; accent: string;
+  bg: string; dark: string; text: string;
+  all: string[];
+}
+
+export function assignRoles(colors: string[]): RoleColors {
+  const list = colors.length ? colors : ['#E63946'];
+  const enriched = list.map(hex => {
+    const [r, g, b] = hexToRgb(hex);
+    const [h, s, l] = rgbToHsl(r, g, b);
+    return { hex, h, s, l, lum: luminance(r, g, b) };
+  });
+
+  // Lightest → background
+  const byLight = [...enriched].sort((a, b) => b.l - a.l);
+  // Darkest → dark/text
+  const byDark = [...enriched].sort((a, b) => a.l - b.l);
+  // Most saturated (with reasonable lightness) → primary, accent
+  const bySat = [...enriched]
+    .filter(c => c.l > 15 && c.l < 85)
+    .sort((a, b) => b.s - a.s);
+
+  const bg = byLight[0]?.hex ?? list[0];
+  const dark = byDark[0]?.hex ?? list[list.length - 1];
+  const primary = (bySat[0] ?? enriched[0]).hex;
+  const accentCand = bySat.find(c => c.hex !== primary);
+  const accent = (accentCand ?? enriched[Math.min(2, enriched.length - 1)]).hex;
+  const secondaryCand = bySat.find(c => c.hex !== primary && c.hex !== accent)
+    ?? enriched.find(c => c.hex !== primary && c.hex !== accent && c.hex !== bg && c.hex !== dark);
+  const secondary = (secondaryCand ?? enriched[Math.min(1, enriched.length - 1)]).hex;
+  // text uses darkest unless bg is dark
+  const bgL = byLight[0]?.l ?? 50;
+  const text = bgL > 50 ? dark : (byLight[0]?.hex ?? '#fff');
+
+  return { primary, secondary, accent, bg, dark, text, all: list };
+}
