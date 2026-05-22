@@ -32,7 +32,11 @@ export default function SwabLibraryPage() {
       results = results.filter(p =>
         p.name.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
-        p.colors.some(c => c.toLowerCase().includes(q) || getColorFamily(c).toLowerCase().includes(q))
+        p.colors.some(c =>
+          c.toLowerCase().includes(q) ||
+          getColorFamily(c).toLowerCase().includes(q) ||
+          getColorName(c).toLowerCase().includes(q)
+        )
       );
     }
     const hueOf = (p: Palette) => rgbToHsl(...hexToRgb(p.colors[0]))[0];
