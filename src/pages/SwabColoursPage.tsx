@@ -98,9 +98,10 @@ export default function SwabColoursPage() {
                   }`}
                   style={{ backgroundColor: c }}
                 >
-                  <span className="text-[9px] font-mono" style={{ color: textColorForBg(c) }}>
-                    {c.toUpperCase()}
-                  </span>
+                  <div className="flex flex-col items-center leading-tight" style={{ color: textColorForBg(c) }}>
+                    <span className="text-[9px] font-semibold">{getColorName(c)}</span>
+                    <span className="text-[8px] font-mono opacity-80">{c.toUpperCase()}</span>
+                  </div>
                   {selectedColors.length > 1 && (
                     <span
                       onClick={(e) => { e.stopPropagation(); removeColor(i); }}
