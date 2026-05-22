@@ -13,6 +13,7 @@ import HarmonyMeter from '@/components/tools/colours/HarmonyMeter';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { X, Library, Sparkles } from 'lucide-react';
 import { textColorForBg } from '@/lib/colorUtils';
+import { getColorName } from '@/lib/colorNames';
 
 export default function SwabColoursPage() {
   const [searchParams] = useSearchParams();
