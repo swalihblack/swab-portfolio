@@ -181,8 +181,9 @@ function PaletteCard({ palette, onSelect, onOpenLab, selected }: { palette: Pale
       </div>
       <div className="flex rounded-md overflow-hidden h-10 mb-2">
         {palette.colors.map((c, i) => (
-          <div key={i} className="flex-1 flex items-center justify-center" style={{ backgroundColor: c }} title={c}>
-            <span className="text-[8px] font-mono opacity-0 group-hover:opacity-80 transition-opacity" style={{ color: textColorForBg(c) }}>{c}</span>
+          <div key={i} className="flex-1 flex flex-col items-center justify-center leading-tight" style={{ backgroundColor: c }} title={`${getColorName(c)} ${c.toUpperCase()}`}>
+            <span className="text-[8px] font-semibold opacity-0 group-hover:opacity-90 transition-opacity" style={{ color: textColorForBg(c) }}>{getColorName(c)}</span>
+            <span className="text-[7px] font-mono opacity-0 group-hover:opacity-70 transition-opacity" style={{ color: textColorForBg(c) }}>{c.toUpperCase()}</span>
           </div>
         ))}
       </div>
