@@ -27,6 +27,7 @@ export default function Header() {
   const toolLinks = [
     { label: t('nav.swabLab'), to: '/tools/swab-colours', desc: t('nav.swabLabDesc') },
     { label: t('nav.swabLibrary'), to: '/tools/swab-colours/library', desc: t('nav.swabLibraryDesc') },
+    { label: t('tints.title'), to: '/tools/swab-colours/tints-shades', desc: `${t('tints.tints')} · ${t('tints.shades')}` },
   ];
 
   useMotionValueEvent(scrollY, 'change', (latest) => {

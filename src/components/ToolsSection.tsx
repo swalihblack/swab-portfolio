@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Palette, BookOpen, ArrowRight } from 'lucide-react';
+import { Palette, BookOpen, ArrowRight, Layers } from 'lucide-react';
 
 export default function ToolsSection() {
   const { t } = useTranslation();
@@ -25,6 +25,13 @@ export default function ToolsSection() {
       desc: t('tools.swabLibraryDesc'),
       to: '/tools/swab-colours/library',
       color: 'bg-primary',
+    },
+    {
+      icon: Layers,
+      title: t('tints.title'),
+      desc: `${t('tints.tints')} · ${t('tints.shades')}`,
+      to: '/tools/swab-colours/tints-shades',
+      color: 'bg-accent',
     },
   ];
 
