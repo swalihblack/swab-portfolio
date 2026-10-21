@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { PALETTE_LIBRARY } from '@/data/paletteLibrary';
 import { textColorForBg, hexToRgb, rgbToHsl } from '@/lib/colorUtils';
 import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { getColorName } from '@/lib/colorNames';
 
 interface Props {
   onSelect: (hex: string) => void;
@@ -72,19 +74,19 @@ export default function ColorPalettes({ onSelect, selectedColor }: Props) {
               <h4 className="text-xs font-semibold text-foreground truncate">{palette.name}</h4>
               <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded">{palette.category}</span>
             </div>
-            <div className="flex rounded-md overflow-hidden h-12">
+            <div className="flex rounded-md overflow-hidden h-16">
               {palette.colors.map((c, i) => (
-                <button
+                <Button
+                  variant="ghost"
                   key={i}
                   onClick={() => onSelect(c)}
-                  className="flex-1 flex items-center justify-center transition-transform hover:scale-y-110 hover:z-10"
-                  style={{ backgroundColor: c }}
+                  className="min-w-0 flex-1 h-full rounded-none p-0.5 flex-col gap-1 whitespace-normal"
+                  style={{ backgroundColor: c, color: textColorForBg(c) }}
                   title={c}
                 >
-                  <span className="text-[9px] font-mono opacity-0 hover:opacity-80 transition-opacity" style={{ color: textColorForBg(c) }}>
-                    {c}
-                  </span>
-                </button>
+                  <span className="text-[9px] font-semibold break-words w-full">{getColorName(c)}</span>
+                  <span className="text-[10px] font-mono" dir="ltr">{c.toUpperCase()}</span>
+                </Button>
               ))}
             </div>
           </div>

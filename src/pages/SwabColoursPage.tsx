@@ -14,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { X, Library, Sparkles } from 'lucide-react';
 import { textColorForBg } from '@/lib/colorUtils';
 import { getColorName } from '@/lib/colorNames';
+import ColourToolLinks from '@/components/tools/colours/ColourToolLinks';
 
 export default function SwabColoursPage() {
   const [searchParams] = useSearchParams();
@@ -76,6 +77,7 @@ export default function SwabColoursPage() {
           </div>
 
           {/* Selected Colors Bar */}
+          <ColourToolLinks current="lab" colors={selectedColors} />
           <div className="bg-card border border-border rounded-lg p-3 mb-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xs font-semibold text-foreground">{t('swabColours.selectedColors')}</h3>

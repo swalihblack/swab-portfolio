@@ -7,7 +7,9 @@ import { PALETTE_LIBRARY, CATEGORIES, type Palette } from '@/data/paletteLibrary
 import { textColorForBg, getColorFamily, COLOR_FAMILIES, hexToRgb, rgbToHsl, luminance } from '@/lib/colorUtils';
 import { getColorName } from '@/lib/colorNames';
 import ColorPreviewPanel from '@/components/tools/colours/ColorPreviewPanel';
-import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal } from 'lucide-react';
+import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal, Layers } from 'lucide-react';
+import ColourToolLinks from '@/components/tools/colours/ColourToolLinks';
+import { Button } from '@/components/ui/button';
 
 type SortKey = 'relevance' | 'name' | 'hue' | 'lightness' | 'category';
 
@@ -76,6 +78,7 @@ export default function SwabLibraryPage() {
           </div>
 
           {/* Selected palette preview */}
+          <ColourToolLinks current="library" colors={selectedPalette?.colors} />
           {selectedPalette && (
             <div className="mb-6 bg-card border border-accent/30 rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
@@ -173,28 +176,30 @@ export default function SwabLibraryPage() {
 }
 
 function PaletteCard({ palette, onSelect, onOpenLab, selected }: { palette: Palette; onSelect: () => void; onOpenLab: () => void; selected: boolean }) {
+  const { t } = useTranslation();
   return (
     <div className={`bg-card border rounded-lg p-3 transition-colors group ${selected ? 'border-accent' : 'border-border hover:border-accent/50'}`}>
       <div className="flex items-center justify-between mb-2">
         <h4 className="text-xs font-semibold text-foreground truncate">{palette.name}</h4>
         <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded">{palette.category}</span>
       </div>
-      <div className="flex rounded-md overflow-hidden h-10 mb-2">
+      <div className="flex rounded-md overflow-hidden h-16 mb-2">
         {palette.colors.map((c, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center justify-center leading-tight" style={{ backgroundColor: c }} title={`${getColorName(c)} ${c.toUpperCase()}`}>
-            <span className="text-[8px] font-semibold opacity-0 group-hover:opacity-90 transition-opacity" style={{ color: textColorForBg(c) }}>{getColorName(c)}</span>
-            <span className="text-[7px] font-mono opacity-0 group-hover:opacity-70 transition-opacity" style={{ color: textColorForBg(c) }}>{c.toUpperCase()}</span>
+          <div key={i} className="min-w-0 flex-1 flex flex-col items-center justify-center leading-tight px-0.5" style={{ backgroundColor: c, color: textColorForBg(c) }} title={`${getColorName(c)} ${c.toUpperCase()}`}>
+            <span className="text-[9px] font-semibold text-center break-words w-full">{getColorName(c)}</span>
+            <span className="text-[10px] font-mono mt-1" dir="ltr">{c.toUpperCase()}</span>
           </div>
         ))}
       </div>
       <div className="flex gap-2">
         <button onClick={onSelect} className="flex-1 flex items-center justify-center gap-1 px-2 py-1 rounded text-[10px] font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-          <Eye size={10} /> Preview
+          <Eye size={10} /> {t('swabColours.preview')}
         </button>
         <button onClick={onOpenLab} className="flex-1 flex items-center justify-center gap-1 px-2 py-1 rounded text-[10px] font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
           <FlaskConical size={10} /> Lab
         </button>
       </div>
+      <Button asChild variant="ghost" size="sm" className="w-full text-xs mt-1 whitespace-normal h-auto min-h-9"><Link to={`/tools/swab-colours/tints-shades?colors=${palette.colors.map(c => c.slice(1)).join(',')}`}><Layers />{t('tints.title')}</Link></Button>
     </div>
   );
 }

@@ -21,6 +21,9 @@ const PAGES: SearchResult[] = [
   { type: 'page', title: 'Blog', subtitle: 'All blog posts', url: '/blog' },
   { type: 'page', title: 'About', subtitle: 'About Swalih Abdullah', url: '/about' },
   { type: 'page', title: 'Contact', subtitle: 'Get in touch', url: '/contact' },
+  { type: 'page', title: 'swabColours Lab', subtitle: 'Colour harmonies and previews', url: '/tools/swab-colours' },
+  { type: 'page', title: 'swabColours Library', subtitle: 'Colour palettes', url: '/tools/swab-colours/library' },
+  { type: 'page', title: 'swabColours Tints & Shades', subtitle: 'Tint and shade generator', url: '/tools/swab-colours/tints-shades' },
 ];
 
 export default function SearchDialog() {
