@@ -13,7 +13,7 @@ export const fallbackBlogPosts: BlogPost[] = [
     coverUrl: `${GITHUB_RAW}/blogs/001-Grids/cover.webp`,
     content: `Design is often misunderstood as pure, unbridled creativity. In reality, the most compelling work is rooted in structure. Before a single pixel is placed, there is an underlying framework—a grid—that ensures consistency, readability, and balance. But there comes a point in every designer's journey where following the rules becomes too safe. 
 
-To create work that truly resonates, you must understand the structure well enough to challenge it. Much like legal precedents, design rules exist to be understood before they're strategically challenged. When done correctly, breaking the grid doesn't create chaos; it creates energy.
+To create work that truly resonates, you must understand the structure well enough to challenge it. Design principles provide a foundation for intentional experimentation. When done correctly, breaking the grid doesn't create chaos; it creates energy.
 
 ## The Foundation: Why Grids Exist
 
@@ -47,7 +47,7 @@ When elements defy the expected structure, the human brain pauses to process the
 
 The critical skill is knowing *when* to break the rules. 
 
-*   **Stick to the Grid:** Financial reports, legal interfaces, healthcare dashboards, and long-form reading content. Here, clarity and trust are paramount.
+*   **Stick to the Grid:** Financial reports, product interfaces, healthcare dashboards, and long-form reading content. Here, clarity and trust are paramount.
 *   **Break the Grid:** Brand campaign landing pages, artistic portfolios, music festival posters, and product launches. Here, emotion and memorability are the goals.
 
 ![A final polished branding mockup that successfully uses broken grid techniques for high impact](${GITHUB_RAW}/blogs/001-Grids/photo6.webp)
