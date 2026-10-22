@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "Präzision im Recht.",
+    "headline1": "Präzision im Design.",
     "headline2": "Kreativität",
-    "headline3": "im Design.",
-    "subtitle": "Grafikdesigner, der die Disziplin des Rechts mit der Kunst des visuellen Erzählens verbindet.",
+    "headline3": "in jedem Detail.",
+    "subtitle": "Grafikdesigner für unverwechselbare Marken, Editorial-Layouts und digitale Erlebnisse.",
     "viewWork": "Arbeiten ansehen",
     "contactMe": "Kontakt"
   },
   "about": {
     "title": "Über mich",
-    "bio": "Ich bin Swalih Abdullah — tagsüber Jurastudent und in jeder anderen wachen Stunde Grafikdesigner. Ich glaube, dass die Strenge juristischen Denkens und die Freiheit kreativen Ausdrucks keine Gegensätze sind — sie sind komplementäre Kräfte.",
+    "bio": "Ich bin Swalih Abdullah — Grafikdesigner mit Schwerpunkt auf Branding, Editorial Design und digitalen Erlebnissen. Ich verbinde durchdachte Struktur mit ausdrucksstarken visuellen Elementen und gestalte klare, einprägsame Designs.",
     "services": "Dienstleistungen",
     "experience": "Erfahrung",
     "graphicDesign": "Grafikdesign",
@@ -154,5 +154,19 @@
       "selectedPalette": "Ausgewählte Palette"
     },
     "swabBoyTagline": "Inspiriert von Raja Ravi Varma — Meister der indischen Farbe."
+  },
+  "tints": {
+    "title": "swabColours Tönungen & Schattierungen",
+    "input": "Hex-Farben",
+    "generate": "Generieren",
+    "shades": "Schattierungen",
+    "tints": "Tönungen",
+    "steps": "Schritte",
+    "base": "Basis",
+    "invalid": "Gib gültige 3- oder 6-stellige Hex-Farben ein, getrennt durch Leerzeichen.",
+    "copy": "Hex kopieren",
+    "copied": "Kopiert",
+    "download": "CSV herunterladen",
+    "copyError": "Kopieren nicht möglich. Bitte kopiere den Hex-Wert manuell."
   }
 }

@@ -14,7 +14,7 @@ import { getColorName } from '@/lib/colorNames';
 export default function SwabTintsShadesPage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
-  const initialInput = params.get('colors')?.replaceAll(',', ' ') || '#42EB99';
+  const initialInput = params.get('colors')?.replace(/,/g, ' ') || '#42EB99';
   const [input, setInput] = useState(initialInput);
   const [colors, setColors] = useState(() => {
     try { return parseHexColors(initialInput); } catch { return ['#42EB99']; }

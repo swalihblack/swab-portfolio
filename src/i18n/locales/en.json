@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "Precision in Law.",
+    "headline1": "Precision in Design.",
     "headline2": "Creativity",
-    "headline3": "in Design.",
-    "subtitle": "Graphic designer bridging the discipline of law with the art of visual storytelling.",
+    "headline3": "in Every Detail.",
+    "subtitle": "Graphic designer creating distinctive brands, editorial layouts, and digital experiences.",
     "viewWork": "View Work",
     "contactMe": "Contact Me"
   },
   "about": {
     "title": "About",
-    "bio": "I'm Swalih Abdullah — a law student by day and a graphic designer in every other waking hour. I believe that the rigour of legal thinking and the freedom of creative expression aren't opposites — they're complementary forces. My work lives at that intersection: structured yet expressive, precise yet imaginative.",
+    "bio": "I'm Swalih Abdullah — a graphic designer focused on branding, editorial design, and digital experiences. I combine thoughtful structure with expressive visuals to create clear, memorable designs.",
     "services": "Services",
     "experience": "Experience",
     "graphicDesign": "Graphic Design",
@@ -183,5 +183,19 @@
     "swabBoyTagline": "Inspired by Raja Ravi Varma — the master of Indian color.",
     "previewUsingOnly": "Previews use only your {{n}} selected color{{s}}.",
     "relationToPrimary": "Relation to primary"
+  },
+  "tints": {
+    "title": "swabColours Tints & Shades",
+    "input": "Hex colours",
+    "generate": "Generate",
+    "shades": "Shades",
+    "tints": "Tints",
+    "steps": "Steps",
+    "base": "Base",
+    "invalid": "Enter valid 3- or 6-digit hex colours separated by spaces.",
+    "copy": "Copy hex",
+    "copied": "Copied",
+    "download": "Download CSV",
+    "copyError": "Could not copy. Please copy the hex manually."
   }
 }

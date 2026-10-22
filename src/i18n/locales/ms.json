@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "Ketepatan dalam Undang-undang.",
+    "headline1": "Ketepatan dalam reka bentuk.",
     "headline2": "Kreativiti",
-    "headline3": "dalam Reka Bentuk.",
-    "subtitle": "Pereka grafik yang menghubungkan disiplin undang-undang dengan seni penceritaan visual.",
+    "headline3": "dalam setiap perincian.",
+    "subtitle": "Pereka grafik yang menghasilkan jenama tersendiri, susun atur editorial dan pengalaman digital.",
     "viewWork": "Lihat Karya",
     "contactMe": "Hubungi Saya"
   },
   "about": {
     "title": "Tentang",
-    "bio": "Saya Swalih Abdullah — pelajar undang-undang pada siang hari dan pereka grafik pada setiap masa lain. Saya percaya ketegasan pemikiran undang-undang dan kebebasan ekspresi kreatif bukan bertentangan — ia adalah kuasa pelengkap.",
+    "bio": "Saya Swalih Abdullah — pereka grafik yang memberi tumpuan kepada penjenamaan, reka bentuk editorial dan pengalaman digital. Saya menggabungkan struktur yang teliti dengan visual ekspresif untuk menghasilkan reka bentuk yang jelas dan mudah diingati.",
     "services": "Perkhidmatan",
     "experience": "Pengalaman",
     "graphicDesign": "Reka Bentuk Grafik",
@@ -154,5 +154,19 @@
       "selectedPalette": "Palet Dipilih"
     },
     "swabBoyTagline": "Diinspirasi oleh Raja Ravi Varma — sang maestro warna India."
+  },
+  "tints": {
+    "title": "swabColours Warna Tint & Shade",
+    "input": "Warna heks",
+    "generate": "Jana",
+    "shades": "Warna shade",
+    "tints": "Warna tint",
+    "steps": "Langkah",
+    "base": "Asas",
+    "invalid": "Masukkan warna heks 3 atau 6 digit yang sah, dipisahkan dengan ruang.",
+    "copy": "Salin heks",
+    "copied": "Disalin",
+    "download": "Muat turun CSV",
+    "copyError": "Tidak dapat menyalin. Sila salin heks secara manual."
   }
 }

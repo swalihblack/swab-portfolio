@@ -1,4 +1,4 @@
-- [ ] Replace law-and-design positioning across all languages and search metadata.
-- [ ] Show hex codes permanently in palette swatches.
-- [ ] Add tint-and-shade generator and link all three colour tools.
-- [ ] Verify generator calculations and linked flows on desktop and mobile.
+- [x] Replace law-and-design positioning across all languages and search metadata.
+- [x] Show hex codes permanently in palette swatches.
+- [x] Add tint-and-shade generator and link all three colour tools.
+- [x] Verify generator calculations and linked flows on desktop and mobile.

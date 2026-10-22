@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "법의 정확함.",
-    "headline2": "창의성",
-    "headline3": "디자인에서.",
-    "subtitle": "법률의 규율과 시각적 스토리텔링 예술을 연결하는 그래픽 디자이너.",
+    "headline1": "디자인의 정밀함.",
+    "headline2": "모든 디테일에 담긴",
+    "headline3": "창의성.",
+    "subtitle": "개성 있는 브랜드, 에디토리얼 레이아웃, 디지털 경험을 만드는 그래픽 디자이너.",
     "viewWork": "작품 보기",
     "contactMe": "연락하기"
   },
   "about": {
     "title": "소개",
-    "bio": "저는 Swalih Abdullah입니다 — 낮에는 법학생, 그 외 시간에는 그래픽 디자이너입니다. 법적 사고의 엄격함과 창의적 표현의 자유는 대립하는 것이 아니라 상호 보완적인 힘이라고 믿습니다.",
+    "bio": "저는 Swalih Abdullah입니다. 브랜딩, 에디토리얼 디자인, 디지털 경험을 중심으로 작업하는 그래픽 디자이너입니다. 세심하게 구성한 구조와 표현력 있는 비주얼을 결합해 명확하고 기억에 남는 디자인을 만듭니다.",
     "services": "서비스",
     "experience": "경력",
     "graphicDesign": "그래픽 디자인",
@@ -154,5 +154,19 @@
       "selectedPalette": "선택된 팔레트"
     },
     "swabBoyTagline": "인도 색채의 거장 라자 라비 바르마에서 영감을 받음."
+  },
+  "tints": {
+    "title": "swabColours 틴트 & 셰이드",
+    "input": "Hex 색상",
+    "generate": "생성",
+    "shades": "셰이드",
+    "tints": "틴트",
+    "steps": "단계",
+    "base": "기본 색상",
+    "invalid": "공백으로 구분된 유효한 3자리 또는 6자리 hex 색상을 입력하세요.",
+    "copy": "Hex 복사",
+    "copied": "복사됨",
+    "download": "CSV 다운로드",
+    "copyError": "복사할 수 없습니다. Hex를 직접 복사해 주세요."
   }
 }

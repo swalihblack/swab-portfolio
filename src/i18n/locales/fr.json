@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "Précision en Droit.",
-    "headline2": "Créativité",
-    "headline3": "en Design.",
-    "subtitle": "Designer graphique alliant la discipline du droit à l'art de la narration visuelle.",
+    "headline1": "La précision du design.",
+    "headline2": "La créativité",
+    "headline3": "dans chaque détail.",
+    "subtitle": "Designer graphique créant des marques distinctives, des mises en page éditoriales et des expériences numériques.",
     "viewWork": "Voir les Travaux",
     "contactMe": "Me Contacter"
   },
   "about": {
     "title": "À propos",
-    "bio": "Je suis Swalih Abdullah — étudiant en droit le jour et designer graphique à chaque autre heure éveillée. Je crois que la rigueur de la pensée juridique et la liberté d'expression créative ne sont pas opposées — ce sont des forces complémentaires.",
+    "bio": "Je suis Swalih Abdullah — designer graphique spécialisé dans le branding, le design éditorial et les expériences numériques. J’associe une structure réfléchie à des visuels expressifs pour créer des designs clairs et mémorables.",
     "services": "Services",
     "experience": "Expérience",
     "graphicDesign": "Design Graphique",
@@ -123,5 +123,19 @@
     "swabLibraryTitle": "Bibliothèque swabColours",
     "swabLibraryDesc": "Parcourez plus de 1000 palettes de couleurs.",
     "openTool": "Ouvrir"
+  },
+  "tints": {
+    "title": "swabColours Teintes & nuances",
+    "input": "Couleurs hexadécimales",
+    "generate": "Générer",
+    "shades": "Nuances",
+    "tints": "Teintes",
+    "steps": "Étapes",
+    "base": "Base",
+    "invalid": "Saisissez des couleurs hexadécimales valides de 3 ou 6 chiffres, séparées par des espaces.",
+    "copy": "Copier l’hexadécimal",
+    "copied": "Copié",
+    "download": "Télécharger le CSV",
+    "copyError": "Copie impossible. Veuillez copier l’hexadécimal manuellement."
   }
 }
