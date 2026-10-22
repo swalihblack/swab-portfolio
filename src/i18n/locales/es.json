@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "Precisión en el Derecho.",
+    "headline1": "Precisión en el diseño.",
     "headline2": "Creatividad",
-    "headline3": "en el Diseño.",
-    "subtitle": "Diseñador gráfico que une la disciplina del derecho con el arte de la narrativa visual.",
+    "headline3": "en cada detalle.",
+    "subtitle": "Diseñador gráfico que crea marcas distintivas, diseños editoriales y experiencias digitales.",
     "viewWork": "Ver Trabajo",
     "contactMe": "Contáctame"
   },
   "about": {
     "title": "Sobre mí",
-    "bio": "Soy Swalih Abdullah — estudiante de derecho de día y diseñador gráfico en cada otra hora despierta. Creo que el rigor del pensamiento legal y la libertad de la expresión creativa no son opuestos — son fuerzas complementarias.",
+    "bio": "Soy Swalih Abdullah — diseñador gráfico especializado en branding, diseño editorial y experiencias digitales. Combino una estructura bien pensada con recursos visuales expresivos para crear diseños claros y memorables.",
     "services": "Servicios",
     "experience": "Experiencia",
     "graphicDesign": "Diseño Gráfico",
@@ -154,5 +154,19 @@
       "selectedPalette": "Paleta Seleccionada"
     },
     "swabBoyTagline": "Inspirado en Raja Ravi Varma — maestro del color indio."
+  },
+  "tints": {
+    "title": "swabColours tonos claros y oscuros",
+    "input": "Colores hexadecimales",
+    "generate": "Generar",
+    "shades": "Tonos oscuros",
+    "tints": "Tonos claros",
+    "steps": "Pasos",
+    "base": "Base",
+    "invalid": "Introduce colores hexadecimales válidos de 3 o 6 dígitos separados por espacios.",
+    "copy": "Copiar hexadecimal",
+    "copied": "Copiado",
+    "download": "Descargar CSV",
+    "copyError": "No se pudo copiar. Copia el valor hexadecimal manualmente."
   }
 }

@@ -15,16 +15,16 @@
   },
   "hero": {
     "name": "Swalih Abdullah",
-    "headline1": "法律的精确。",
-    "headline2": "创造力",
-    "headline3": "在设计中。",
-    "subtitle": "将法律的严谨与视觉叙事艺术相结合的平面设计师。",
+    "headline1": "设计，精准呈现。",
+    "headline2": "创意",
+    "headline3": "融于每个细节。",
+    "subtitle": "打造鲜明品牌、编辑版式与数字体验的平面设计师。",
     "viewWork": "查看作品",
     "contactMe": "联系我"
   },
   "about": {
     "title": "关于",
-    "bio": "我是Swalih Abdullah——白天是法学生，其余时间是平面设计师。我相信法律思维的严谨和创意表达的自由不是对立的——它们是互补的力量。",
+    "bio": "我是 Swalih Abdullah，一名专注于品牌塑造、编辑设计和数字体验的平面设计师。我将深思熟虑的结构与富有表现力的视觉元素结合，创造清晰而令人难忘的设计。",
     "services": "服务",
     "experience": "经验",
     "graphicDesign": "平面设计",
@@ -154,5 +154,19 @@
       "selectedPalette": "已选调色板"
     },
     "swabBoyTagline": "灵感来自印度色彩大师拉贾·拉维·瓦尔玛。"
+  },
+  "tints": {
+    "title": "swabColours 色调与明暗",
+    "input": "Hex 颜色",
+    "generate": "生成",
+    "shades": "明暗",
+    "tints": "色调",
+    "steps": "步骤",
+    "base": "基色",
+    "invalid": "请输入以空格分隔的有效 3 位或 6 位 hex 颜色。",
+    "copy": "复制 hex",
+    "copied": "已复制",
+    "download": "下载 CSV",
+    "copyError": "无法复制。请手动复制 hex。"
   }
 }
