@@ -30,7 +30,23 @@
     "graphicDesign": "تصميم جرافيك",
     "editorialDesign": "تصميم تحريري",
     "branding": "هوية بصرية",
-    "socialMedia": "تصميم وسائل التواصل"
+    "socialMedia": "تصميم وسائل التواصل",
+    "timeline": {
+      "desc1": "تقديم تصميم العلامات التجارية والمطبوعات ووسائل التواصل الاجتماعي لعملاء متنوعين.",
+      "desc2": "بدأت كمتدرب في مؤسسة تعليمية بلا مقابل واكتسبت الخبرة.",
+      "desc3": "بدأت تعلم التصميم الجرافيكي والحاسوب بدافع الفضول، ثم أصبح شغفاً.",
+      "org1": "عمل حر",
+      "org2": "نصويحة",
+      "org3": "تعلم ذاتي",
+      "role1": "مصمم جرافيك مستقل",
+      "role2": "مصمم مبتدئ",
+      "role3": "مبتدئ",
+      "year1": "2024 – الآن",
+      "year2": "2021 – 2024",
+      "year3": "2015 – 2021"
+    },
+    "uiDesign": "تصميم واجهات المستخدم",
+    "webDesign": "تصميم الويب"
   },
   "portfolio": {
     "title": "معرض الأعمال",
@@ -38,7 +54,15 @@
     "error": "تعذر تحميل المشاريع. يرجى المحاولة لاحقاً.",
     "retry": "إعادة المحاولة",
     "empty": "لا توجد مشاريع بعد. ترقبوا!",
-    "viewAll": "عرض جميع المشاريع"
+    "viewAll": "عرض جميع المشاريع",
+    "viewList": "قائمة",
+    "sortLabel": "ترتيب",
+    "filterAll": "الكل",
+    "sortNewest": "الأحدث أولاً",
+    "sortOldest": "الأقدم أولاً",
+    "sortName": "الاسم أ–ي",
+    "sortYear": "السنة",
+    "reset": "إعادة تعيين"
   },
   "blog": {
     "title": "المدونة",
@@ -46,7 +70,9 @@
     "error": "تعذر تحميل المقالات. يرجى المحاولة لاحقاً.",
     "empty": "مقالات قادمة قريباً. ترقبوا!",
     "viewAll": "عرض جميع المقالات",
-    "notFound": "المقال غير موجود."
+    "notFound": "المقال غير موجود.",
+    "backToBlog": "العودة إلى المدونة",
+    "readMore": "اقرأ المزيد"
   },
   "contact": {
     "title": "تواصل معنا",
@@ -62,7 +88,8 @@
     "success": "تم إرسال الرسالة! سأرد عليك قريباً."
   },
   "footer": {
-    "rights": "© {{year}} صالح عبد الله. جميع الحقوق محفوظة."
+    "rights": "© {{year}} صالح عبد الله. جميع الحقوق محفوظة.",
+    "languages": "اللغات المتوفرة"
   },
   "notFound": {
     "title": "404",
@@ -110,10 +137,55 @@
       "allCategories": "الكل",
       "searchPlaceholder": "ابحث في الباليتات...",
       "showing": "عرض {{count}} باليت",
-      "noPalettes": "لا توجد باليتات مطابقة للفلاتر."
+      "noPalettes": "لا توجد باليتات مطابقة للفلاتر.",
+      "allFamilies": "جميع عائلات الألوان",
+      "hideCategories": "إخفاء الفئات",
+      "previewPalette": "معاينة",
+      "reset": "إعادة تعيين الفلاتر",
+      "searchHint": "ابحث بالاسم أو اللون أو Hex (مثال: ruby, #FF6347)…",
+      "selectPalette": "اختر لوحة",
+      "selectedPalette": "اللوحة المحددة",
+      "showCategories": "الفئات",
+      "sortCategory": "ترتيب: الفئة",
+      "sortHue": "ترتيب: درجة اللون",
+      "sortLightness": "ترتيب: السطوع",
+      "sortName": "ترتيب: الاسم",
+      "sortRelevance": "ترتيب: افتراضي"
     },
     "swabBoy": "فارما AI",
-    "swabBoyTagline": "مستوحى من راجا رافي فارما — سيد الألوان الهندي."
+    "swabBoyTagline": "مستوحى من راجا رافي فارما — سيد الألوان الهندي.",
+    "labName": "المختبر",
+    "libraryName": "المكتبة",
+    "tintsName": "الصبغات والظلال",
+    "addColor": "انقر في أي مكان لإضافة الألوان",
+    "clearAll": "مسح الكل",
+    "goToLab": "افتح في المختبر",
+    "goToLibrary": "اذهب إلى المكتبة",
+    "harmonyMeter": "تحليل الانسجام",
+    "labTitle": "مختبر swabColours",
+    "libraryTitle": "مكتبة swabColours",
+    "poster": "بوستر",
+    "preview404": "صفحة 404",
+    "previewBrochure": "بروشور",
+    "previewBusinessCard": "بطاقة عمل",
+    "previewDashboard": "لوحة التحكم",
+    "previewEvent": "حدث",
+    "previewFlyer": "منشور",
+    "previewFooter": "التذييل",
+    "previewHeader": "الترويسة",
+    "previewHero": "الهيرو",
+    "previewHome": "الرئيسية",
+    "previewInvoice": "فاتورة",
+    "previewLetterhead": "ترويسة خطاب",
+    "previewLogin": "تسجيل الدخول",
+    "previewMinimal": "بسيط",
+    "previewPricing": "بطاقة الأسعار",
+    "previewProfile": "بطاقة الملف الشخصي",
+    "previewStats": "بطاقة الإحصائيات",
+    "previewUsingOnly": "تستخدم المعاينات ألوانك المحددة {{n}} فقط.",
+    "print": "طباعة",
+    "relationToPrimary": "العلاقة مع اللون الأساسي",
+    "selectedColors": "الألوان المحددة"
   },
   "tools": {
     "sectionTitle": "أدوات التصميم",

@@ -30,7 +30,23 @@
     "graphicDesign": "Design Graphique",
     "editorialDesign": "Design Éditorial",
     "branding": "Image de Marque",
-    "socialMedia": "Design Réseaux Sociaux"
+    "socialMedia": "Design Réseaux Sociaux",
+    "timeline": {
+      "desc1": "Création d'identités de marque, de mises en page éditoriales et de designs pour réseaux sociaux pour des clients variés.",
+      "desc2": "Commencé comme stagiaire pour un établissement d'enseignement à titre gracieux et acquis de l'expérience.",
+      "desc3": "Appris le graphisme et l'informatique par simple curiosité, qui est devenue une passion.",
+      "org1": "Indépendant",
+      "org2": "Nasweeha",
+      "org3": "Autodidacte",
+      "role1": "Graphiste freelance",
+      "role2": "Designer junior",
+      "role3": "Débutant",
+      "year1": "2024 – Aujourd'hui",
+      "year2": "2021 – 2024",
+      "year3": "2015 – 2021"
+    },
+    "uiDesign": "Design UI",
+    "webDesign": "Design Web"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -38,7 +54,15 @@
     "error": "Impossible de charger les projets. Veuillez réessayer plus tard.",
     "retry": "Réessayer",
     "empty": "Pas encore de projets. Restez à l'écoute !",
-    "viewAll": "Voir Tous les Projets"
+    "viewAll": "Voir Tous les Projets",
+    "viewList": "Liste",
+    "sortLabel": "Trier",
+    "filterAll": "Tout",
+    "sortNewest": "Plus récents",
+    "sortOldest": "Plus anciens",
+    "sortName": "Nom A–Z",
+    "sortYear": "Année",
+    "reset": "Réinitialiser"
   },
   "blog": {
     "title": "Blog",
@@ -46,7 +70,9 @@
     "error": "Impossible de charger les articles. Veuillez réessayer plus tard.",
     "empty": "Articles à venir bientôt. Restez à l'écoute !",
     "viewAll": "Voir Tous les Articles",
-    "notFound": "Article non trouvé."
+    "notFound": "Article non trouvé.",
+    "backToBlog": "Retour au blog",
+    "readMore": "Lire la suite"
   },
   "contact": {
     "title": "Contactez-moi",
@@ -62,7 +88,8 @@
     "success": "Message envoyé ! Je vous répondrai bientôt."
   },
   "footer": {
-    "rights": "© {{year}} Swalih Abdullah. Tous droits réservés."
+    "rights": "© {{year}} Swalih Abdullah. Tous droits réservés.",
+    "languages": "Langues disponibles"
   },
   "notFound": {
     "title": "404",
@@ -110,10 +137,55 @@
       "allCategories": "Toutes",
       "searchPlaceholder": "Rechercher des palettes...",
       "showing": "Affichage de {{count}} palettes",
-      "noPalettes": "Aucune palette ne correspond à vos filtres."
+      "noPalettes": "Aucune palette ne correspond à vos filtres.",
+      "allFamilies": "Toutes les familles de couleurs",
+      "hideCategories": "Masquer les catégories",
+      "previewPalette": "Aperçu",
+      "reset": "Réinitialiser les filtres",
+      "searchHint": "Rechercher par nom, couleur, hex (ex. ruby, #FF6347)…",
+      "selectPalette": "Sélectionner une palette",
+      "selectedPalette": "Palette sélectionnée",
+      "showCategories": "Catégories",
+      "sortCategory": "Trier : Catégorie",
+      "sortHue": "Trier : Teinte",
+      "sortLightness": "Trier : Luminosité",
+      "sortName": "Trier : Nom",
+      "sortRelevance": "Trier : Par défaut"
     },
     "swabBoy": "Varma IA",
-    "swabBoyTagline": "Inspiré par Raja Ravi Varma — maître de la couleur indienne."
+    "swabBoyTagline": "Inspiré par Raja Ravi Varma — maître de la couleur indienne.",
+    "labName": "Laboratoire",
+    "libraryName": "Bibliothèque",
+    "tintsName": "Teintes & nuances",
+    "addColor": "Cliquez n'importe où pour ajouter des couleurs",
+    "clearAll": "Tout effacer",
+    "goToLab": "Ouvrir dans le Lab",
+    "goToLibrary": "Aller à la Bibliothèque",
+    "harmonyMeter": "Analyse d'harmonie",
+    "labTitle": "Laboratoire swabColours",
+    "libraryTitle": "Bibliothèque swabColours",
+    "poster": "Affiche",
+    "preview404": "Page 404",
+    "previewBrochure": "Brochure",
+    "previewBusinessCard": "Carte de visite",
+    "previewDashboard": "Tableau de bord",
+    "previewEvent": "Événement",
+    "previewFlyer": "Flyer",
+    "previewFooter": "Pied de page",
+    "previewHeader": "En-tête",
+    "previewHero": "Héros",
+    "previewHome": "Accueil",
+    "previewInvoice": "Facture",
+    "previewLetterhead": "Papier à en-tête",
+    "previewLogin": "Connexion",
+    "previewMinimal": "Minimaliste",
+    "previewPricing": "Carte de tarifs",
+    "previewProfile": "Carte de profil",
+    "previewStats": "Carte de statistiques",
+    "previewUsingOnly": "Les aperçus n'utilisent que vos {{n}} couleur(s) sélectionnée(s).",
+    "print": "Impression",
+    "relationToPrimary": "Relation avec la couleur principale",
+    "selectedColors": "Couleurs sélectionnées"
   },
   "tools": {
     "sectionTitle": "Outils de Design",

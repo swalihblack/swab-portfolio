@@ -30,7 +30,23 @@
     "graphicDesign": "グラフィックデザイン",
     "editorialDesign": "エディトリアルデザイン",
     "branding": "ブランディング",
-    "socialMedia": "SNSデザイン"
+    "socialMedia": "SNSデザイン",
+    "timeline": {
+      "desc1": "多様なクライアント向けにブランディング・編集デザイン・SNSデザインを提供。",
+      "desc2": "教育機関で無償インターンとして始め、経験を積んだ。",
+      "desc3": "好奇心からグラフィックデザインとコンピュータを学び始め、後に情熱となった。",
+      "org1": "個人事業",
+      "org2": "Nasweeha",
+      "org3": "独学",
+      "role1": "フリーランスグラフィックデザイナー",
+      "role2": "ジュニアデザイナー",
+      "role3": "初心者",
+      "year1": "2024 – 現在",
+      "year2": "2021 – 2024",
+      "year3": "2015 – 2021"
+    },
+    "uiDesign": "UIデザイン",
+    "webDesign": "Webデザイン"
   },
   "portfolio": {
     "title": "ポートフォリオ",
@@ -38,7 +54,15 @@
     "error": "プロジェクトを読み込めませんでした。後でもう一度お試しください。",
     "retry": "再試行",
     "empty": "まだプロジェクトはありません。お楽しみに！",
-    "viewAll": "すべてのプロジェクトを見る"
+    "viewAll": "すべてのプロジェクトを見る",
+    "viewList": "リスト",
+    "sortLabel": "並べ替え",
+    "filterAll": "すべて",
+    "sortNewest": "新しい順",
+    "sortOldest": "古い順",
+    "sortName": "名前順",
+    "sortYear": "年",
+    "reset": "リセット"
   },
   "blog": {
     "title": "ブログ",
@@ -46,7 +70,9 @@
     "error": "記事を読み込めませんでした。後でもう一度お試しください。",
     "empty": "ブログ記事は近日公開予定です。お楽しみに！",
     "viewAll": "すべての記事を見る",
-    "notFound": "記事が見つかりません。"
+    "notFound": "記事が見つかりません。",
+    "backToBlog": "ブログに戻る",
+    "readMore": "続きを読む"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -62,7 +88,8 @@
     "success": "メッセージを送信しました！すぐにご連絡いたします。"
   },
   "footer": {
-    "rights": "© {{year}} Swalih Abdullah. All rights reserved."
+    "rights": "© {{year}} Swalih Abdullah. All rights reserved.",
+    "languages": "対応言語"
   },
   "notFound": {
     "title": "404",
@@ -110,10 +137,55 @@
       "allCategories": "すべて",
       "searchPlaceholder": "パレットを検索...",
       "showing": "{{count}}パレットを表示中",
-      "noPalettes": "フィルターに一致するパレットはありません。"
+      "noPalettes": "フィルターに一致するパレットはありません。",
+      "allFamilies": "すべての色グループ",
+      "hideCategories": "カテゴリを隠す",
+      "previewPalette": "プレビュー",
+      "reset": "フィルターをリセット",
+      "searchHint": "名前・色・HEXで検索（例: ruby, #FF6347）…",
+      "selectPalette": "パレットを選択",
+      "selectedPalette": "選択したパレット",
+      "showCategories": "カテゴリ",
+      "sortCategory": "並べ替え: カテゴリ",
+      "sortHue": "並べ替え: 色相",
+      "sortLightness": "並べ替え: 明るさ",
+      "sortName": "並べ替え: 名前",
+      "sortRelevance": "並べ替え: デフォルト"
     },
     "swabBoy": "ヴァルマ AI",
-    "swabBoyTagline": "インドの色彩の巨匠ラージャー・ラヴィ・ヴァルマにインスパイア。"
+    "swabBoyTagline": "インドの色彩の巨匠ラージャー・ラヴィ・ヴァルマにインスパイア。",
+    "labName": "ラボ",
+    "libraryName": "ライブラリ",
+    "tintsName": "色合いと濃淡",
+    "addColor": "どこでもクリックして色を追加",
+    "clearAll": "すべてクリア",
+    "goToLab": "ラボで開く",
+    "goToLibrary": "ライブラリへ",
+    "harmonyMeter": "調和解析",
+    "labTitle": "swabColours ラボ",
+    "libraryTitle": "swabColours ライブラリ",
+    "poster": "ポスター",
+    "preview404": "404ページ",
+    "previewBrochure": "パンフレット",
+    "previewBusinessCard": "名刺",
+    "previewDashboard": "ダッシュボード",
+    "previewEvent": "イベント",
+    "previewFlyer": "フライヤー",
+    "previewFooter": "フッター",
+    "previewHeader": "ヘッダー",
+    "previewHero": "ヒーロー",
+    "previewHome": "ホーム",
+    "previewInvoice": "請求書",
+    "previewLetterhead": "レターヘッド",
+    "previewLogin": "ログイン",
+    "previewMinimal": "ミニマル",
+    "previewPricing": "料金カード",
+    "previewProfile": "プロフィールカード",
+    "previewStats": "統計カード",
+    "previewUsingOnly": "プレビューは選択した{{n}}色のみ使用します。",
+    "print": "印刷",
+    "relationToPrimary": "プライマリー色との関係",
+    "selectedColors": "選択した色"
   },
   "tools": {
     "sectionTitle": "デザインツール",
