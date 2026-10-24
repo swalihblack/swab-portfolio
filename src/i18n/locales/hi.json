@@ -30,7 +30,23 @@
     "graphicDesign": "ग्राफिक डिज़ाइन",
     "editorialDesign": "संपादकीय डिज़ाइन",
     "branding": "ब्रांडिंग",
-    "socialMedia": "सोशल मीडिया डिज़ाइन"
+    "socialMedia": "सोशल मीडिया डिज़ाइन",
+    "timeline": {
+      "desc1": "विविध ग्राहकों के लिए ब्रांडिंग, एडिटोरियल और सोशल मीडिया डिज़ाइन देना।",
+      "desc2": "शिक्षा संस्थान के लिए निःशुल्क इंटर्न के रूप में शुरुआत की और अनुभव अर्जित किया।",
+      "desc3": "सिर्फ जिज्ञासा से ग्राफिक डिज़ाइन और कंप्यूटर सीखना शुरू किया, बाद में यह जुनून बन गया।",
+      "org1": "स्वतंत्र",
+      "org2": "नसवीहा",
+      "org3": "स्वयं-अध्ययन",
+      "role1": "फ्रीलांस ग्राफिक डिज़ाइनर",
+      "role2": "जूनियर डिज़ाइनर",
+      "role3": "नौसिखिया",
+      "year1": "2024 – वर्तमान",
+      "year2": "2021 – 2024",
+      "year3": "2015 – 2021"
+    },
+    "uiDesign": "UI डिज़ाइन",
+    "webDesign": "वेब डिज़ाइन"
   },
   "portfolio": {
     "title": "पोर्टफोलियो",
@@ -38,7 +54,15 @@
     "error": "प्रोजेक्ट्स लोड नहीं हो सके। कृपया बाद में पुनः प्रयास करें।",
     "retry": "पुनः प्रयास",
     "empty": "अभी तक कोई प्रोजेक्ट नहीं मिला। बने रहें!",
-    "viewAll": "सभी प्रोजेक्ट्स देखें"
+    "viewAll": "सभी प्रोजेक्ट्स देखें",
+    "viewList": "सूची",
+    "sortLabel": "क्रम",
+    "filterAll": "सभी",
+    "sortNewest": "नवीनतम पहले",
+    "sortOldest": "सबसे पुराने पहले",
+    "sortName": "नाम क–ज",
+    "sortYear": "वर्ष",
+    "reset": "रीसेट"
   },
   "blog": {
     "title": "ब्लॉग",
@@ -46,7 +70,9 @@
     "error": "पोस्ट्स लोड नहीं हो सके। कृपया बाद में पुनः प्रयास करें।",
     "empty": "ब्लॉग पोस्ट जल्द आ रहे हैं। बने रहें!",
     "viewAll": "सभी पोस्ट्स देखें",
-    "notFound": "पोस्ट नहीं मिला।"
+    "notFound": "पोस्ट नहीं मिला।",
+    "backToBlog": "ब्लॉग पर वापस",
+    "readMore": "और पढ़ें"
   },
   "contact": {
     "title": "संपर्क करें",
@@ -62,7 +88,8 @@
     "success": "संदेश भेज दिया! मैं जल्द ही आपसे संपर्क करूंगा।"
   },
   "footer": {
-    "rights": "© {{year}} स्वालिह अब्दुल्ला। सर्वाधिकार सुरक्षित।"
+    "rights": "© {{year}} स्वालिह अब्दुल्ला। सर्वाधिकार सुरक्षित।",
+    "languages": "उपलब्ध भाषाएँ"
   },
   "notFound": {
     "title": "404",
@@ -110,10 +137,55 @@
       "allCategories": "सभी",
       "searchPlaceholder": "पैलेट खोजें...",
       "showing": "{{count}} पैलेट दिखा रहे हैं",
-      "noPalettes": "फ़िल्टर से कोई पैलेट मेल नहीं खाता।"
+      "noPalettes": "फ़िल्टर से कोई पैलेट मेल नहीं खाता।",
+      "allFamilies": "सभी रंग परिवार",
+      "hideCategories": "श्रेणियाँ छिपाएँ",
+      "previewPalette": "प्रीव्यू",
+      "reset": "फ़िल्टर रीसेट करें",
+      "searchHint": "नाम, रंग, हेक्स से खोजें (जैसे ruby, #FF6347)…",
+      "selectPalette": "पैलेट चुनें",
+      "selectedPalette": "चयनित पैलेट",
+      "showCategories": "श्रेणियाँ",
+      "sortCategory": "क्रम: श्रेणी",
+      "sortHue": "क्रम: ह्यू",
+      "sortLightness": "क्रम: चमक",
+      "sortName": "क्रम: नाम",
+      "sortRelevance": "क्रम: डिफ़ॉल्ट"
     },
     "swabBoy": "वर्मा AI",
-    "swabBoyTagline": "राजा रवि वर्मा से प्रेरित — भारतीय रंग के मास्टर।"
+    "swabBoyTagline": "राजा रवि वर्मा से प्रेरित — भारतीय रंग के मास्टर।",
+    "labName": "लैब",
+    "libraryName": "लाइब्रेरी",
+    "tintsName": "हल्के और गहरे शेड",
+    "addColor": "रंग जोड़ने के लिए कहीं भी क्लिक करें",
+    "clearAll": "सब हटाएँ",
+    "goToLab": "लैब में खोलें",
+    "goToLibrary": "लाइब्रेरी पर जाएँ",
+    "harmonyMeter": "हारमोनी विश्लेषण",
+    "labTitle": "swabColours लैब",
+    "libraryTitle": "swabColours लाइब्रेरी",
+    "poster": "पोस्टर",
+    "preview404": "404 पेज",
+    "previewBrochure": "ब्रोशर",
+    "previewBusinessCard": "बिज़नेस कार्ड",
+    "previewDashboard": "डैशबोर्ड",
+    "previewEvent": "इवेंट",
+    "previewFlyer": "फ्लायर",
+    "previewFooter": "फुटर",
+    "previewHeader": "हेडर",
+    "previewHero": "हीरो",
+    "previewHome": "होम",
+    "previewInvoice": "इनवॉइस",
+    "previewLetterhead": "लेटरहेड",
+    "previewLogin": "लॉगिन",
+    "previewMinimal": "मिनिमल",
+    "previewPricing": "प्राइसिंग कार्ड",
+    "previewProfile": "प्रोफ़ाइल कार्ड",
+    "previewStats": "स्टैट्स कार्ड",
+    "previewUsingOnly": "प्रीव्यू केवल आपके चयनित {{n}} रंगों का उपयोग करते हैं।",
+    "print": "प्रिंट",
+    "relationToPrimary": "मुख्य रंग से संबंध",
+    "selectedColors": "चयनित रंग"
   },
   "tools": {
     "sectionTitle": "डिज़ाइन टूल्स",

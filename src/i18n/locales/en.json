@@ -54,7 +54,15 @@
     "error": "Couldn't load projects. Please try again later.",
     "retry": "Retry",
     "empty": "No projects found yet. Stay tuned!",
-    "viewAll": "View All Projects"
+    "viewAll": "View All Projects",
+    "viewList": "List",
+    "sortLabel": "Sort",
+    "filterAll": "All",
+    "sortNewest": "Newest first",
+    "sortOldest": "Oldest first",
+    "sortName": "Name A–Z",
+    "sortYear": "Year",
+    "reset": "Reset"
   },
   "blog": {
     "title": "Blog",
@@ -182,7 +190,10 @@
     },
     "swabBoyTagline": "Inspired by Raja Ravi Varma — the master of Indian color.",
     "previewUsingOnly": "Previews use only your {{n}} selected color{{s}}.",
-    "relationToPrimary": "Relation to primary"
+    "relationToPrimary": "Relation to primary",
+    "labName": "Lab",
+    "libraryName": "Library",
+    "tintsName": "Tints & Shades"
   },
   "tints": {
     "title": "swabColours Tints & Shades",
