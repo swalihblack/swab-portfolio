@@ -5,4 +5,4 @@
 - [x] Harmonize swabColours tool headings and cross-tool nav buttons (Lab / Library / Tints).
 - [x] Fill every missing translation across the 19 locale files (all non-blog strings).
 - [x] Home shows the latest 4 projects with a View All button.
-- [ ] Projects page: list view + sort + tool filters (code done — verify in preview).
+- [x] Projects page: list view + sort + tool filters (verified in preview).
