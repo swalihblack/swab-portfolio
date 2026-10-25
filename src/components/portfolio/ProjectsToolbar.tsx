@@ -58,7 +58,6 @@ export function ProjectsToolbar({ view, onViewChange, sort, onSortChange, tools,
       </div>
       {tools.length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="font-body text-xs text-muted-foreground">{t('portfolio.sortLabel')}</span>
           <button
             onClick={() => onToolChange(null)}
             aria-pressed={activeTool === null}

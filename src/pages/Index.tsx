@@ -14,7 +14,7 @@ const Index = () => {
       <Hero />
       <ToolsSection />
       <About />
-      <Portfolio maxProjects={6} showViewAll />
+      <Portfolio maxProjects={4} showViewAll />
       <BlogPreview />
       <Contact />
       <Footer />

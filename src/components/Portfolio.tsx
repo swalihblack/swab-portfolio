@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,9 @@ import { ArrowRight, Loader2, RefreshCw } from 'lucide-react';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ProjectModal } from '@/components/portfolio/ProjectModal';
 import { PortfolioViewToggle } from '@/components/portfolio/PortfolioViewToggle';
+import { ProjectsToolbar, type ProjectViewMode } from '@/components/portfolio/ProjectsToolbar';
+import { ProjectListItem } from '@/components/portfolio/ProjectListItem';
+import { sortProjects, type ProjectSortKey } from '@/lib/projectSort';
 
 const GITHUB_OWNER = 'swalihblack';
 const GITHUB_REPO = 'swab-portfolio';
@@ -14,9 +17,10 @@ const GITHUB_REPO = 'swab-portfolio';
 interface PortfolioProps {
   maxProjects?: number;
   showViewAll?: boolean;
+  showToolbar?: boolean;
 }
 
-export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) {
+export default function Portfolio({ maxProjects, showViewAll, showToolbar }: PortfolioProps) {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
@@ -24,10 +28,21 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
   const headingOpacity = useTransform(scrollYProgress, [0, 0.15, 0.8, 1], [0, 1, 1, 0]);
 
   const { projects: ghProjects, loading, error, refetch } = useGitHubPortfolio({ owner: GITHUB_OWNER, repo: GITHUB_REPO });
-  const [gridMode, setGridMode] = useState<'single' | 'double'>('double');
-  const allProjects = ghProjects;
-  const projects = maxProjects ? allProjects.slice(0, maxProjects) : allProjects;
+  const [view, setView] = useState<ProjectViewMode>('double');
+  const [sort, setSort] = useState<ProjectSortKey>('newest');
+  const [activeTool, setActiveTool] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const allProjects = ghProjects;
+  const toolOptions = useMemo(
+    () => [...new Set(allProjects.flatMap(p => p.tools))].sort((a, b) => a.localeCompare(b)),
+    [allProjects]
+  );
+  const visible = useMemo(() => {
+    const list = activeTool ? allProjects.filter(p => p.tools.includes(activeTool)) : allProjects;
+    return sortProjects(list, sort);
+  }, [allProjects, activeTool, sort]);
+  const projects = maxProjects ? visible.slice(0, maxProjects) : visible;
 
   return (
     <section ref={sectionRef} id="portfolio" className="py-20 md:py-28 bg-secondary/40 overflow-hidden">
@@ -59,12 +74,35 @@ export default function Portfolio({ maxProjects, showViewAll }: PortfolioProps) 
 
         {!loading && projects.length > 0 && (
           <>
-            <PortfolioViewToggle value={gridMode} onValueChange={setGridMode} />
-            <div className={`grid gap-6 items-stretch ${gridMode === 'single' ? 'grid-cols-1' : 'grid-cols-2'}`}>
-              {projects.map((project) => (
-                <ProjectCard key={project.name} project={project} onOpen={() => setSelectedProject(project)} />
-              ))}
-            </div>
+            {showToolbar ? (
+              <ProjectsToolbar
+                view={view}
+                onViewChange={setView}
+                sort={sort}
+                onSortChange={setSort}
+                tools={toolOptions}
+                activeTool={activeTool}
+                onToolChange={setActiveTool}
+              />
+            ) : (
+              <PortfolioViewToggle
+                value={view === 'list' ? 'single' : view}
+                onValueChange={(next) => setView(next)}
+              />
+            )}
+            {view === 'list' ? (
+              <div className="flex flex-col gap-4">
+                {projects.map((project) => (
+                  <ProjectListItem key={project.name} project={project} onOpen={() => setSelectedProject(project)} />
+                ))}
+              </div>
+            ) : (
+              <div className={`grid gap-6 items-stretch ${view === 'single' ? 'grid-cols-1' : 'grid-cols-2'}`}>
+                {projects.map((project) => (
+                  <ProjectCard key={project.name} project={project} onOpen={() => setSelectedProject(project)} />
+                ))}
+              </div>
+            )}
             {showViewAll && allProjects.length > (maxProjects || 0) && (
               <div className="text-center pt-10">
                 <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-body font-medium text-sm rounded tracking-wide uppercase ripple elevation-1 hover:elevation-2 active:scale-[0.97] transition-all duration-200">

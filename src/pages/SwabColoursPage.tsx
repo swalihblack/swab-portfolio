@@ -15,6 +15,7 @@ import { X, Library, Sparkles } from 'lucide-react';
 import { textColorForBg } from '@/lib/colorUtils';
 import { getColorName } from '@/lib/colorNames';
 import ColourToolLinks from '@/components/tools/colours/ColourToolLinks';
+import ToolHeading from '@/components/tools/colours/ToolHeading';
 
 export default function SwabColoursPage() {
   const [searchParams] = useSearchParams();
@@ -59,10 +60,7 @@ export default function SwabColoursPage() {
           {/* Header */}
           <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
-              <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                {t('swabColours.title')}<span className="text-accent">{t('swabColours.titleAccent')}</span>
-                <span className="text-lg font-normal text-muted-foreground ml-2">Lab</span>
-              </h1>
+              <ToolHeading tool="lab" />
               <p className="font-body text-muted-foreground mt-1 text-sm max-w-2xl">
                 {t('swabColours.subtitle')}
               </p>
