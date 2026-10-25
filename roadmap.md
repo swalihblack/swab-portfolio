@@ -2,3 +2,7 @@
 - [x] Show hex codes permanently in palette swatches.
 - [x] Add tint-and-shade generator and link all three colour tools.
 - [x] Verify generator calculations and linked flows on desktop and mobile.
+- [x] Harmonize swabColours tool headings and cross-tool nav buttons (Lab / Library / Tints).
+- [x] Fill every missing translation across the 19 locale files (all non-blog strings).
+- [x] Home shows the latest 4 projects with a View All button.
+- [x] Projects page: list view + sort + tool filters (verified in preview).

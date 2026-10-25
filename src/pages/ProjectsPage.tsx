@@ -6,7 +6,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen pt-14">
       <Header />
-      <Portfolio />
+      <Portfolio showToolbar />
       <Footer />
     </div>
   );

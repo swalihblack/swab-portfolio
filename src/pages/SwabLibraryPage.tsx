@@ -9,6 +9,7 @@ import { getColorName } from '@/lib/colorNames';
 import ColorPreviewPanel from '@/components/tools/colours/ColorPreviewPanel';
 import { ArrowLeft, FlaskConical, Eye, X, SlidersHorizontal, Layers } from 'lucide-react';
 import ColourToolLinks from '@/components/tools/colours/ColourToolLinks';
+import ToolHeading from '@/components/tools/colours/ToolHeading';
 import { Button } from '@/components/ui/button';
 
 type SortKey = 'relevance' | 'name' | 'hue' | 'lightness' | 'category';
@@ -68,7 +69,7 @@ export default function SwabLibraryPage() {
                 <ArrowLeft size={14} />
                 {t('swabColours.labTitle')}
               </Link>
-              <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground">{t('swabColours.library.title')}</h1>
+              <ToolHeading tool="library" />
               <p className="font-body text-muted-foreground mt-2 text-sm md:text-base max-w-2xl">{t('swabColours.library.subtitle', { count: CATEGORIES.length })}</p>
             </div>
             <Link to="/tools/swab-colours" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-muted text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">

@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import ColourToolLinks from '@/components/tools/colours/ColourToolLinks';
+import ToolHeading from '@/components/tools/colours/ToolHeading';
 import { generateTintShade, parseHexColors } from '@/lib/tintShadeUtils';
 import { textColorForBg } from '@/lib/colorUtils';
 import { getColorName } from '@/lib/colorNames';
@@ -53,7 +54,7 @@ export default function SwabTintsShadesPage() {
     <Header />
     <main className="min-h-screen bg-background pt-24 pb-16">
       <div className="container max-w-6xl">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5 break-words">{t('tints.title')}</h1>
+        <ToolHeading tool="tints" className="mb-5" />
         <ColourToolLinks current="tints" colors={colors} />
         <form onSubmit={generate} className="border-y border-border py-6 mb-6">
           <label htmlFor="hex-colors" className="block text-sm font-medium mb-2">{t('tints.input')}</label>
