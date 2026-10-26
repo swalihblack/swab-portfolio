@@ -1,0 +1,12 @@
+{
+  "title": "mytherapio App UI Design",
+  "subtitle": "UI/UX Design, Mobile App Design",
+  "year": "2026",
+  "client": "mytherapio",
+  "description": "I designed the user interfaces for mytherapio's two apps—a Client App for the public and a Partner App for admins—in Figma. The goal was to create a calm, trustworthy, and professional experience that stays consistent across both apps, guiding clients smoothly through therapy and legal advice services while giving partners a clear, efficient interface for managing their work.",
+  "tools": ["Figma", "Illustrator"],
+  "links": [
+    { "label": "Web", "url": "https://mytherapio.com/" },
+    { "label": "Figma", "url": "https://www.figma.com/design/1J6TgdPBDLTbPVQ6UlEg51/User-Interface" }
+  ]
+}
