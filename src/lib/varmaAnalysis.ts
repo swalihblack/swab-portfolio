@@ -133,8 +133,58 @@ export function analyzePalette(colors: string[]): VarmaSuggestion[] {
     });
   }
 
-  // 4. Neutrals. A missing neutral and oversaturation are the same root
-  //    cause — report whichever one applies, never both.
-  const hasNeutral = enriched.some((c) => c.hsl_s_safe() ?? false) as never; // placeholder removed below
+  // 4. Neutrals. A missing neutral and oversaturation share a root cause,
+  //    so report whichever applies, never both.
+  const hasNeutral = enriched.some((c) => isNeutral(c.hex));
+  const avgSat = enriched.reduce((sum, c) => sum + c.s, 0) / enriched.length;
+  if (!hasNeutral && colors.length >= 2) {
+    out.push({
+      type: 'suggestion',
+      key: 'varmaNeutralMissing',
+      params: {},
+      color: rgbToHex(...hslToRgb(primary.h, 8, 95)),
+    });
+  } else if (avgSat > 85 && colors.length >= 3) {
+    out.push({
+      type: 'tip',
+      key: 'varmaHighSat',
+      params: {},
+      color: rgbToHex(...hslToRgb(primary.h, 15, 55)),
+    });
+  }
+
+  // 5. Text color — skip when the contrast warning already proposes one.
+  const hasContrastWarning = out.some((s) => s.key === 'varmaLowContrast');
+  const hasDark = enriched.some((c) => c.lum < 0.15);
+  if (!hasContrastWarning && !hasDark) {
+    out.push({
+      type: 'suggestion',
+      key: 'varmaAddText',
+      params: {},
+      color: rgbToHex(...hslToRgb(primary.h, 15, 12)),
+    });
+  }
+
+  // 6. Single-color starting points.
+  if (colors.length === 1) {
+    out.push({
+      type: 'suggestion',
+      key: 'varmaSingleComp',
+      params: {},
+      color: rgbToHex(...hslToRgb((primary.h + 180) % 360, primary.s, primary.l)),
+    });
+    out.push({
+      type: 'suggestion',
+      key: 'varmaSingleBg',
+      params: {},
+      color: rgbToHex(...hslToRgb(primary.h, Math.max(primary.s - 40, 5), 94)),
+    });
+  }
+
+  // 7. Composition tip once the palette has body.
+  if (colors.length >= 3) {
+    out.push({ type: 'tip', key: 'varmaTip603010', params: {} });
+  }
+
   return out;
 }
