@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { analyzePalette, findContrastFix, findSimilarityFix } from './varmaAnalysis';
-import { contrastRatio } from './colorUtils';
+import { contrastRatio, luminance, hexToRgb } from './colorUtils';
 
 // The palette from the user's report: library pick → Varma flooded six
 // dead-end "low contrast" warnings with no fixes.

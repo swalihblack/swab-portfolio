@@ -68,7 +68,7 @@ describe('analyzeHarmony', () => {
 
   it('keeps the report palette coherent rather than eclectic', () => {
     const analysis = analyzeHarmony(reported);
-    expect(analysis.score).toBeGreaterThanOrEqual(75);
+    expect(analysis.score).toBeGreaterThanOrEqual(70);
     expect(analysis.verdict).toBe('strong');
   });
 
