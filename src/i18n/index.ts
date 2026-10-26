@@ -27,32 +27,49 @@ import vi from './locales/vi.json';
 import nl from './locales/nl.json';
 import pl from './locales/pl.json';
 import hi from './locales/hi.json';
+import fa from './locales/fa.json';
 
 export const LANGUAGES = [
-  { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اردو', dir: 'rtl' },
+  // Arabic-related (RTL)
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl' },
+  { code: 'ur', name: 'Urdu', nativeName: 'اردو', dir: 'rtl' },
+  { code: 'fa', name: 'Persian', nativeName: 'فارسی', dir: 'rtl' },
+
+  // English (default)
+  { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
+
+  // Indian languages (specific order)
   { code: 'ml', name: 'Malayalam', nativeName: 'മലയാളം', dir: 'ltr' },
   { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', dir: 'ltr' },
-  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ', dir: 'ltr' },
-  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', dir: 'ltr' },
-  { code: 'ko', name: 'Korean', nativeName: '한국어', dir: 'ltr' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', dir: 'ltr' },
+
+  // Other international languages
   { code: 'it', name: 'Italian', nativeName: 'Italiano', dir: 'ltr' },
   { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', dir: 'ltr' },
   { code: 'th', name: 'Thai', nativeName: 'ไทย', dir: 'ltr' },
   { code: 'pt', name: 'Portuguese', nativeName: 'Português', dir: 'ltr' },
   { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr' },
-  { code: 'ja', name: 'Japanese', nativeName: '日本語', dir: 'ltr' },
-  { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr' },
   { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr' },
   { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr' },
   { code: 'ru', name: 'Russian', nativeName: 'Русский', dir: 'ltr' },
-  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', dir: 'ltr' },
-  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', dir: 'ltr' },
-  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr' },
-  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', dir: 'ltr' },
   { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', dir: 'ltr' },
   { code: 'pl', name: 'Polish', nativeName: 'Polski', dir: 'ltr' },
+  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr' },
+  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', dir: 'ltr' },
+  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', dir: 'ltr' },
+
+  // Other Indian languages
+  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', dir: 'ltr' },
+
+  // Kanji-like languages
+  { code: 'ko', name: 'Korean', nativeName: '한국어', dir: 'ltr' },
+  { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr' },
+  { code: 'ja', name: 'Japanese', nativeName: '日本語', dir: 'ltr' },
+
+  // Kannada (last but before Hindi)
+  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ', dir: 'ltr' },
+
+  // Hindi (last)
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', dir: 'ltr' },
 ] as const;
 
@@ -61,30 +78,31 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      ur: { translation: ur },
       ar: { translation: ar },
+      ur: { translation: ur },
+      fa: { translation: fa },
+      en: { translation: en },
       ml: { translation: ml },
       ta: { translation: ta },
-      kn: { translation: kn },
-      te: { translation: te },
-      ko: { translation: ko },
+      bn: { translation: bn },
       it: { translation: it },
       ms: { translation: ms },
       th: { translation: th },
       pt: { translation: pt },
       es: { translation: es },
-      ja: { translation: ja },
-      zh: { translation: zh },
       fr: { translation: fr },
       de: { translation: de },
       ru: { translation: ru },
-      bn: { translation: bn },
-      id: { translation: id },
-      tr: { translation: tr },
-      vi: { translation: vi },
       nl: { translation: nl },
       pl: { translation: pl },
+      tr: { translation: tr },
+      vi: { translation: vi },
+      id: { translation: id },
+      te: { translation: te },
+      ko: { translation: ko },
+      zh: { translation: zh },
+      ja: { translation: ja },
+      kn: { translation: kn },
       hi: { translation: hi },
     },
     fallbackLng: 'en',
