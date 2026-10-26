@@ -102,7 +102,7 @@ export function analyzeHarmony(colors: string[]): HarmonyAnalysis {
     : [];
 
   const score = chromaticPairs ? Math.round((weighted / chromaticPairs) * 100) : 0;
-  const verdict = score >= 75 ? 'strong' : score >= 55 ? 'mixed' : 'eclectic';
+  const verdict = score >= 70 ? 'strong' : score >= 55 ? 'mixed' : 'eclectic';
 
   return {
     isNeutralPalette: chromatic.length < 2,

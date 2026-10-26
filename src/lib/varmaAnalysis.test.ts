@@ -66,10 +66,12 @@ describe('findContrastFix', () => {
     expect(fr).toBeGreaterThan(fb);
   });
 
-  it('returns null when no lightness of the hue can reach the target', () => {
-    // A background whose luminance sits mid-range cannot reach 4.5:1
-    // against any lightness of the same hue family.
-    expect(findContrastFix('#FF3B3B', '#8C8C8C')).toBeNull();
+  it('darkens toward the hue when the background is light', () => {
+    const fix = findContrastFix('#FF3B3B', '#FFFFFF');
+    expect(fix).not.toBeNull();
+    expect(contrastRatio(fix!, '#FFFFFF')).toBeGreaterThanOrEqual(4.5);
+    // Darker than the original red, not a lightened tint of it.
+    expect(luminance(...hexToRgb(fix!))).toBeLessThan(luminance(...hexToRgb('#FF3B3B')));
   });
 });
 
