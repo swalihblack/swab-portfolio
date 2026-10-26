@@ -20,6 +20,12 @@ import zh from './locales/zh.json';
 import fr from './locales/fr.json';
 import de from './locales/de.json';
 import ru from './locales/ru.json';
+import bn from './locales/bn.json';
+import id from './locales/id.json';
+import tr from './locales/tr.json';
+import vi from './locales/vi.json';
+import nl from './locales/nl.json';
+import pl from './locales/pl.json';
 import hi from './locales/hi.json';
 
 export const LANGUAGES = [
@@ -41,6 +47,12 @@ export const LANGUAGES = [
   { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr' },
   { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr' },
   { code: 'ru', name: 'Russian', nativeName: 'Русский', dir: 'ltr' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', dir: 'ltr' },
+  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', dir: 'ltr' },
+  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr' },
+  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', dir: 'ltr' },
+  { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', dir: 'ltr' },
+  { code: 'pl', name: 'Polish', nativeName: 'Polski', dir: 'ltr' },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', dir: 'ltr' },
 ] as const;
 
@@ -67,6 +79,12 @@ i18n
       fr: { translation: fr },
       de: { translation: de },
       ru: { translation: ru },
+      bn: { translation: bn },
+      id: { translation: id },
+      tr: { translation: tr },
+      vi: { translation: vi },
+      nl: { translation: nl },
+      pl: { translation: pl },
       hi: { translation: hi },
     },
     fallbackLng: 'en',
