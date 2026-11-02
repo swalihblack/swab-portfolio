@@ -73,9 +73,11 @@ describe('analyzeHarmony', () => {
   });
 
   it('scores scattered random hues as eclectic', () => {
-    // 45° and 210° style gaps that fit no recognized scheme.
-    const analysis = analyzeHarmony(['#00FF00', '#FFBF00', '#FF00BF']);
+    // Hues 0°, 50°, 305° — every *circular* gap (50°, 105°, 55°)
+    // fits no recognized scheme, so all three pairs are "contrast".
+    const analysis = analyzeHarmony(['#FF0000', '#FFD400', '#FF00EA']);
     expect(analysis.verdict).toBe('eclectic');
+    expect(analysis.bars).toEqual([{ key: 'contrast', pct: 100 }]);
   });
 
   it('wraps hue distance across 360°', () => {
