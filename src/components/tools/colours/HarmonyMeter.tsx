@@ -47,6 +47,7 @@ export default function HarmonyMeter({ colors }: Props) {
     <div className="space-y-3">
       {/* Overall score + verdict */}
       <div className="space-y-1.5">
+        <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{t('swabColours.harmonyMeter')}</p>
         <div className="flex items-center gap-2">
           <span className="text-[10px] text-muted-foreground w-28 truncate">{t('swabColours.harmonyScore')}</span>
           <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
