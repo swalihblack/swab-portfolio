@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Check } from 'lucide-react';
-import { LANGUAGES } from '@/i18n';
+import { getLanguageCode, LANGUAGES } from '@/i18n';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function LanguageSwitcher() {
@@ -18,12 +18,14 @@ export default function LanguageSwitcher() {
   }, [open]);
 
   useEffect(() => {
-    const lang = LANGUAGES.find(l => l.code === i18n.language);
+    const languageCode = getLanguageCode(i18n.language);
+    const lang = LANGUAGES.find(l => l.code === languageCode);
     document.documentElement.dir = lang?.dir || 'ltr';
-    document.documentElement.lang = i18n.language;
+    document.documentElement.lang = languageCode;
   }, [i18n.language]);
 
-  const currentLang = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
+  const currentLanguageCode = getLanguageCode(i18n.language);
+  const currentLang = LANGUAGES.find(l => l.code === currentLanguageCode) ?? LANGUAGES.find(l => l.code === 'en') ?? LANGUAGES[0];
 
   return (
     <div ref={ref} className="relative">
@@ -51,7 +53,7 @@ export default function LanguageSwitcher() {
                 key={lang.code}
                 onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
                 className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-muted transition-colors text-left ${
-                  i18n.language === lang.code ? 'bg-muted' : ''
+                  currentLanguageCode === lang.code ? 'bg-muted' : ''
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -61,7 +63,7 @@ export default function LanguageSwitcher() {
                     <span className="block text-xs text-muted-foreground">{lang.name}</span>
                   </div>
                 </div>
-                {i18n.language === lang.code && <Check size={14} className="text-accent" />}
+                {currentLanguageCode === lang.code && <Check size={14} className="text-accent" />}
               </button>
             ))}
           </motion.div>
