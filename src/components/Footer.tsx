@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { LANGUAGES } from '@/i18n';
+import { getLanguageCode, LANGUAGES } from '@/i18n';
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
   const year = new Date().getFullYear();
+  const currentLanguageCode = getLanguageCode(i18n.language);
 
   return (
     <footer className="relative z-10 border-t border-border bg-primary py-10">
@@ -33,7 +34,7 @@ export default function Footer() {
                 key={lang.code}
                 onClick={() => i18n.changeLanguage(lang.code)}
                 className={`font-body text-xs transition-colors duration-200 ${
-                  i18n.language === lang.code
+                  currentLanguageCode === lang.code
                     ? 'text-accent font-semibold'
                     : 'text-primary-foreground/50 hover:text-accent'
                 }`}

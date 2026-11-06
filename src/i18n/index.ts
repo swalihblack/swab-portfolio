@@ -73,6 +73,11 @@ export const LANGUAGES = [
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', dir: 'ltr' },
 ] as const;
 
+export function getLanguageCode(language: string): string {
+  const baseCode = language.toLowerCase().replace('_', '-').split('-')[0];
+  return LANGUAGES.find(({ code }) => code === baseCode)?.code ?? 'en';
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -106,9 +111,11 @@ i18n
       hi: { translation: hi },
     },
     fallbackLng: 'en',
+    supportedLngs: LANGUAGES.map(({ code }) => code),
+    load: 'languageOnly',
     interpolation: { escapeValue: false },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       caches: ['localStorage'],
     },
   });
