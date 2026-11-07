@@ -7,3 +7,4 @@
 - [x] Home shows the latest 4 projects with a View All button.
 - [x] Projects page: list view + sort + tool filters (verified in preview).
 - [x] Upgrade harmony analysis (chromatic pairs only, score + verdict, dominant relation) and Varma AI (functional warnings only, every warning ships a fix color); all 26 locales translated.
+- [x] Add an easily disabled Hindi language easter egg with a direct Urdu switch.

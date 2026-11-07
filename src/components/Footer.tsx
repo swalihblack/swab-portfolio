@@ -1,10 +1,22 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getLanguageCode, LANGUAGES } from '@/i18n';
+import HindiLanguageNotice from '@/components/HindiLanguageNotice';
+import { shouldShowHindiUnavailableNotice } from '@/lib/languageSelection';
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
+  const [hindiNoticeOpen, setHindiNoticeOpen] = useState(false);
   const year = new Date().getFullYear();
   const currentLanguageCode = getLanguageCode(i18n.language);
+
+  const selectLanguage = (languageCode: string) => {
+    if (shouldShowHindiUnavailableNotice(languageCode)) {
+      setHindiNoticeOpen(true);
+      return;
+    }
+    void i18n.changeLanguage(languageCode);
+  };
 
   return (
     <footer className="relative z-10 border-t border-border bg-primary py-10">
@@ -32,7 +44,7 @@ export default function Footer() {
             {LANGUAGES.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => i18n.changeLanguage(lang.code)}
+                onClick={() => selectLanguage(lang.code)}
                 className={`font-body text-xs transition-colors duration-200 ${
                   currentLanguageCode === lang.code
                     ? 'text-accent font-semibold'
@@ -49,6 +61,11 @@ export default function Footer() {
           {t('footer.rights', { year })}
         </p>
       </div>
+      <HindiLanguageNotice
+        open={hindiNoticeOpen}
+        onOpenChange={setHindiNoticeOpen}
+        onSwitchToUrdu={() => { void i18n.changeLanguage('ur'); }}
+      />
     </footer>
   );
 }

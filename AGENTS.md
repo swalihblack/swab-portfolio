@@ -4,3 +4,4 @@
 - Use the shared ColourToolLinks component for cross-tool navigation, transferring selected hex colours via the existing colors query parameter.
 - Localize static brand copy and colour-tool controls in the existing locale JSON files so changing languages never changes functionality.
 - Initialize i18next from the saved language only, default new visitors to English, and normalize regional language codes so selectors stay in sync.
+- Keep language-choice gating and its shared notice in one reusable component so every selector behaves consistently.
