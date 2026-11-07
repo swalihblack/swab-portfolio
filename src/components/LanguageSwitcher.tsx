@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Globe, Check } from 'lucide-react';
 import { getLanguageCode, LANGUAGES } from '@/i18n';
 import { AnimatePresence, motion } from 'framer-motion';
+import HindiLanguageNotice from '@/components/HindiLanguageNotice';
+import { shouldShowHindiUnavailableNotice } from '@/lib/languageSelection';
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [hindiNoticeOpen, setHindiNoticeOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,6 +29,16 @@ export default function LanguageSwitcher() {
 
   const currentLanguageCode = getLanguageCode(i18n.language);
   const currentLang = LANGUAGES.find(l => l.code === currentLanguageCode) ?? LANGUAGES.find(l => l.code === 'en') ?? LANGUAGES[0];
+
+  const selectLanguage = (languageCode: string) => {
+    if (shouldShowHindiUnavailableNotice(languageCode)) {
+      setHindiNoticeOpen(true);
+      setOpen(false);
+      return;
+    }
+    void i18n.changeLanguage(languageCode);
+    setOpen(false);
+  };
 
   return (
     <div ref={ref} className="relative">
@@ -51,7 +64,7 @@ export default function LanguageSwitcher() {
             {LANGUAGES.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
+                onClick={() => selectLanguage(lang.code)}
                 className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-muted transition-colors text-left ${
                   currentLanguageCode === lang.code ? 'bg-muted' : ''
                 }`}
@@ -69,6 +82,11 @@ export default function LanguageSwitcher() {
           </motion.div>
         )}
       </AnimatePresence>
+      <HindiLanguageNotice
+        open={hindiNoticeOpen}
+        onOpenChange={setHindiNoticeOpen}
+        onSwitchToUrdu={() => { void i18n.changeLanguage('ur'); }}
+      />
     </div>
   );
 }

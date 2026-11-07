@@ -91,6 +91,12 @@
     "rights": "© {{year}} Swalih Abdullah. All rights reserved.",
     "languages": "Available Languages"
   },
+  "languageNotice": {
+    "title": "A little language surprise",
+    "message": "Hindi is currently unavailable. Please view the site in Urdu instead.",
+    "switchToUrdu": "Switch to Urdu",
+    "dismiss": "Maybe later"
+  },
   "notFound": {
     "title": "404",
     "message": "This page doesn't exist.",
